@@ -1,0 +1,755 @@
+{
+    "code": 2000,
+    "messages": [],
+    "payload": {
+        "results": [
+            {
+                "total_offer": 1,
+                "converted_unit_price": 27.53848,
+                "display_currency": "USD",
+                "display_price": "27.54",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 27.54,
+                "offer_group": "G1707826398474LN",
+                "offer_id": "G1707826398474LN",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniv.] # Blackguard # (Full Craft Kit) Nightslayer - Alliance - Real Stock - Safe and Instant Delivery",
+                "description": "Fastest delivery – 90% of orders arrive within an hour!\n\nWe can deliver almost any item to any server.\nDon’t see what you need? Message us!\n\nFor face-to-face trades, contact us in advance.\nMessage us before ordering for a smoother process.\nMost deliveries are instant, but some take 4–10 hours.\nOnline daily: 06:00–02:00 GMT (03:00–23:00 GMT+3)\nOvernight orders (EU time) are delivered in the morning when we're online.\n\nHave a great day!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail",
+                    "face_to_face_trade"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018",
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c"
+                ],
+                "available_qty": 9,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 27.53848,
+                "unit_price_in_usd": 27.53848,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 1,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 1,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5688923",
+                "username": "Allbestfory",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "seller_ranking": "6",
+                "user_level": 136,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1707826398474,
+                "updated_at": 1753129080075,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 1,
+                "avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "27.538480",
+                "online_datetime": 1753170511291,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 28.01262,
+                "display_currency": "USD",
+                "display_price": "28.01",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 28.01,
+                "offer_group": "G1707619535655JM",
+                "offer_id": "G1707619535655JM",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniv.] □ Blackguard □ Nightslayer - Alliance - Safe and Instant Delivery",
+                "description": "Fastest delivery – 90% of orders arrive within an hour!\n\nWe can deliver almost any item to any server.\nDon’t see what you need? Message us!\n\nFor face-to-face trades, contact us in advance.\nMessage us before ordering for a smoother process.\nMost deliveries are instant, but some take 4–10 hours.\nOnline daily: 06:00–02:00 GMT (03:00–23:00 GMT+3)\nOvernight orders (EU time) are delivered in the morning when we're online.\n\nHave a great day!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 7,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 28.01262,
+                "unit_price_in_usd": 28.01262,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 1,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 5,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5688923",
+                "username": "Allbestfory",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "seller_ranking": "6",
+                "user_level": 136,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1707619535655,
+                "updated_at": 1753129097605,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 9,
+                "avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "28.012620",
+                "online_datetime": 1753170511291,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 28.38,
+                "display_currency": "USD",
+                "display_price": "28.38",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 28.38,
+                "offer_group": "G1749125550785RM",
+                "offer_id": "G1749125550785RM",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Blackguard - Real Stock ★INSTANT DELIVERY★",
+                "description": "Delivery on average takes 5-240 minutes. We work around the clock! If you can start, contact me g2g chat!.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 10,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 28.38,
+                "unit_price_in_usd": 28.38,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "7708410",
+                "username": "BogOdin_EG",
+                "user_avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "seller_ranking": "3",
+                "user_level": 137,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1749125550795,
+                "updated_at": 1752423377768,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "28.380000",
+                "online_datetime": 1753170199534,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 38.99,
+                "display_currency": "USD",
+                "display_price": "38.99",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 38.99,
+                "offer_group": "G1749139651742TE",
+                "offer_id": "G1749139651742TE",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Blackguard - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 50,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 38.99,
+                "unit_price_in_usd": 38.99,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5663742",
+                "username": "RaNDoMNeSS",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "seller_ranking": "6",
+                "user_level": 134,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1749139651756,
+                "updated_at": 1752929504555,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "38.990000",
+                "online_datetime": 1753169224602,
+                "delivery_eta": 0,
+                "is_online": false
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 38.99,
+                "display_currency": "USD",
+                "display_price": "38.99",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 38.99,
+                "offer_group": "G1749144604910VR",
+                "offer_id": "G1749144604910VR",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Blackguard - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 50,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 38.99,
+                "unit_price_in_usd": 38.99,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "1000306478",
+                "username": "Skillets",
+                "user_avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "seller_ranking": "2",
+                "user_level": 106,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1749144604924,
+                "updated_at": 1752929497026,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "38.990000",
+                "online_datetime": 1753145332321,
+                "delivery_eta": 0,
+                "is_online": false
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 39.0,
+                "display_currency": "USD",
+                "display_price": "39.00",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 39.0,
+                "offer_group": "G1748377668925RT",
+                "offer_id": "G1748377668925RT",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "BLACKGUARD",
+                "description": "FAST AND BEST",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 93,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 39,
+                "unit_price_in_usd": 39.0,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5196786",
+                "username": "JungeBeats",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5196786_1679045228067.jpg?",
+                "seller_ranking": "2",
+                "user_level": 138,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1748377668943,
+                "updated_at": 1748377668943,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/5196786_1679045228067.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "39.000000",
+                "online_datetime": 1753170443960,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 42.155704,
+                "display_currency": "USD",
+                "display_price": "42.16",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 42.16,
+                "offer_group": "G1748436739907KK",
+                "offer_id": "G1748436739907KK",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Blackguard",
+                "description": "Details\nDelivery will be completed in the shortest possible time from the moment of placing the order if there are no issues with the server's stability in the game. We will do it fast as possible, the average delivery time is 24 Hours. It can take up to 48 Hours (depending on Demand) or 7 DAYS if expansion is New.\nWe have a special Team only for the WOW Classic 20th Anniversary Items Section, with 10+ years of experience in this game, you are in the ideal place.\nBoostroom customer support is available 24/7 during the entire year.\n\nSPECIAL NOTE FOR BUYERS\n\nAll Items are Handmade and Legit, we are looking to provide the most quality and most reliable services. Any kind of Third-party system in our company is Forbidden.\n\n\nREQUIREMENTS\n\nPlease be careful when you are procuring orders, make sure you are buying that on the correct realm, and please provide the correct character name.\n\n\nABOUT BOOSTROOM (OUR TEAM)\n\nWe are a well organized and highly professional boosting group of top skilled players.\nAlmost 10 years of experience in helping our buyers to achieve desired things in games.\nOur goal is to provide and maintain top quality service and fair prices on the market.\n\n\nDISCOUNTS\n\nWe value and respect every returning customer.\nTherefore we often make a great discount to our loyal buyers.\nBuild relations and trust with BoostRoom for awesome deals and even better prices.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9000000,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "EUR",
+                "unit_price": 35.17,
+                "unit_price_in_usd": 41.101814,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10000,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "831656",
+                "username": "BoostRoom",
+                "user_avatar": "https://assets.g2g.com/user/avatar/831656_1736691700599.png",
+                "seller_ranking": "6",
+                "user_level": 153,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1748436739914,
+                "updated_at": 1748436739914,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/831656_1736691700599.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "35.170000",
+                "online_datetime": 1753170584439,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 46.09,
+                "display_currency": "USD",
+                "display_price": "46.09",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 46.09,
+                "offer_group": "G1743313123478IM",
+                "offer_id": "G1743313123478IM",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Blackguard , 20th Anniversary US server Delivery!",
+                "description": "1.Will delivery you in game mail.\n2.2.Feel free to message me if you have any questions or requirements! 24/7 service!\n3.Some items are not listed due to list limit, message me if you don't find the item you need on my list.\n\n\nIf you don't find the item on the list, message me for price!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9999,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 46.09,
+                "unit_price_in_usd": 46.09,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "2634568",
+                "username": "rseoc",
+                "user_avatar": "https://assets.g2g.com/user/avatar/2634568_1679045231411.png?",
+                "seller_ranking": "2",
+                "user_level": 131,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1743313123484,
+                "updated_at": 1753111199039,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/2634568_1679045231411.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "46.090000",
+                "online_datetime": 1753170472046,
+                "delivery_eta": 0,
+                "is_online": true
+            }
+        ]
+    },
+    "request_id": "24ff9471-c77b-4bd4-9c69-cbb96dcf1b5d"
+}

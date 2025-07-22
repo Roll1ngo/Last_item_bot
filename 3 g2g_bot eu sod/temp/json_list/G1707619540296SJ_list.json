@@ -1,0 +1,651 @@
+{
+    "code": 2000,
+    "messages": [],
+    "payload": {
+        "results": [
+            {
+                "total_offer": 1,
+                "converted_unit_price": 39.0,
+                "display_currency": "USD",
+                "display_price": "39.00",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 39.0,
+                "offer_group": "G1734709887174VF",
+                "offer_id": "G1734709887174VF",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniversary] * Kang the Decapitator - INSTANT DELIVERY",
+                "description": "The fastest delivery service, - 90% of orders are delivered within 1 I am offline then delivery takes 4-10 hours\nFor some items and servers, the delivery speed may be higher 12-24 hours\nWe can deliver almost any item to any server in the game.\nAll items are handmade. Without bots and audacity.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54793"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 99999,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 39,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "3805367",
+                "username": "lvgame",
+                "user_avatar": "https://assets.g2g.com/user/avatar/3805367_1679045225999.jpg?",
+                "seller_ranking": "2",
+                "user_level": 92,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734709887174,
+                "updated_at": 1734834538196,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/3805367_1679045225999.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "39.00",
+                "online_datetime": 1735073443779,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 44.69544,
+                "display_currency": "USD",
+                "display_price": "44.70",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 44.7,
+                "offer_group": "G1733452596636DG",
+                "offer_id": "G1733452596636DG",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Kang the Decapitator, 20th Anniversary US server Delivery!",
+                "description": "This is custom link, message me for best price.\n1.Will delivery you in game mail.\n2.2.Feel free to message me if you have any questions or requirements! 24/7 service!\n3.Some items are not listed due to list limit, message me if you don't find the item you need on my list.\n\n\nIf you don't find the item on the list, message me for price!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54793"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 99999,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 44.69544,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "2634568",
+                "username": "rseoc",
+                "user_avatar": "https://assets.g2g.com/user/avatar/2634568_1679045231411.png?",
+                "seller_ranking": "2",
+                "user_level": 131,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1733452596636,
+                "updated_at": 1735061346681,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/2634568_1679045231411.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "44.70",
+                "online_datetime": 1735074101559,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 47.52,
+                "display_currency": "USD",
+                "display_price": "47.52",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 47.52,
+                "offer_group": "G1734057720452BI",
+                "offer_id": "G1734057720452BI",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Kang the Decapitator , 20th Anniversary US server Delivery!",
+                "description": "This is custom link, message me for best price.\n1.Will delivery you in game mail.\n2.2.Feel free to message me if you have any questions or requirements! 24/7 service!\n3.Some items are not listed due to list limit, message me if you don't find the item you need on my list.\n\n\nIf you don't find the item on the list, message me for price!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54793"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 99999,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 47.52,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "2634568",
+                "username": "rseoc",
+                "user_avatar": "https://assets.g2g.com/user/avatar/2634568_1679045231411.png?",
+                "seller_ranking": "2",
+                "user_level": 131,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734057720452,
+                "updated_at": 1735061370085,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/2634568_1679045231411.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "47.52",
+                "online_datetime": 1735074101559,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 50.267204,
+                "display_currency": "USD",
+                "display_price": "50.27",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 50.27,
+                "offer_group": "G1707619540296SJ",
+                "offer_id": "G1707619540296SJ",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniversary] ★ Kang the Decapitator ★ Doomhowl [US] - Horde - INSTANT DELIVERY",
+                "description": "The fastest delivery service, - 90% of orders are delivered within one hour\n\nSometimes delivery takes 4-10 hours if very busy or not online. Online from 07:00 to 22:00 GMT. \nFor some items and servers, the delivery speed may be higher 12-24 hours\nWe can deliver almost any item to any server ingame, just let us know what item you need!\nAll items are handmade. Without bots and audacity.\nFrom Ukraine with love\nHave a nice day:)",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54793"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 6,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 50.267203,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    },
+                    {
+                        "min": 2,
+                        "max": 1000,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5688923",
+                "username": "Allbestfory",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5688923_1727081158254.png",
+                "seller_ranking": "5",
+                "user_level": 131,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1707619540296,
+                "updated_at": 1735053228698,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/5688923_1727081158254.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "50.27",
+                "online_datetime": 1735074195828,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 70.0,
+                "display_currency": "USD",
+                "display_price": "70.00",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 70.0,
+                "offer_group": "G1734385563137WE",
+                "offer_id": "G1734385563137WE",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Kang the Decapitator - Real Stock ★INSTANT DELIVERY★",
+                "description": "Delivery on average takes 5-240 minutes. We work around the clock! If you can start, contact me g2g chat!.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54793"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 10,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 70,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "7708410",
+                "username": "BogOdin_EG",
+                "user_avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "seller_ranking": "4",
+                "user_level": 136,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734385563137,
+                "updated_at": 1734978973284,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "70.00",
+                "online_datetime": 1735074017212,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 70.0,
+                "display_currency": "USD",
+                "display_price": "70.00",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 70.0,
+                "offer_group": "G1734447455544CI",
+                "offer_id": "G1734447455544CI",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Kang the Decapitator - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54793"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 20,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 70,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5663742",
+                "username": "RaNDoMNeSS",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "seller_ranking": "5",
+                "user_level": 131,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734447455544,
+                "updated_at": 1734978746994,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "70.00",
+                "online_datetime": 1735074039663,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 70.0,
+                "display_currency": "USD",
+                "display_price": "70.00",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 70.0,
+                "offer_group": "G1734447779522TD",
+                "offer_id": "G1734447779522TD",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Kang the Decapitator - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54793"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 20,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 70,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "1000306478",
+                "username": "Skillets",
+                "user_avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "seller_ranking": "2",
+                "user_level": 105,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734447779523,
+                "updated_at": 1734979379308,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "70.00",
+                "online_datetime": 1735073335256,
+                "delivery_eta": 0,
+                "is_online": true
+            }
+        ]
+    },
+    "request_id": "ba040e2f-fdd2-4be5-a070-253c7fb7cfbe"
+}

@@ -1,0 +1,1139 @@
+{
+    "code": 2000,
+    "messages": [],
+    "payload": {
+        "results": [
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.63896,
+                "display_currency": "USD",
+                "display_price": "0.63896",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.64,
+                "offer_group": "G1703771895433PY",
+                "offer_id": "G1703771895433PY",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniv.] ` Essence of Water ` Nightslayer - Alliance - Real Stock - Safe and Instant Delivery",
+                "description": "Fastest delivery – 90% of orders arrive within an hour!\n\nWe can deliver almost any item to any server.\nDon’t see what you need? Message us!\n\nFor face-to-face trades, contact us in advance.\nMessage us before ordering for a smoother process.\nMost deliveries are instant, but some take 4–10 hours.\nOnline daily: 06:00–02:00 GMT (03:00–23:00 GMT+3)\nOvernight orders (EU time) are delivered in the morning when we're online.\n\nHave a great day!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail",
+                    "face_to_face_trade"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018",
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c"
+                ],
+                "available_qty": 2025,
+                "reserved_qty": 0,
+                "min_qty": 6,
+                "offer_currency": "USD",
+                "unit_price": 0.63896,
+                "unit_price_in_usd": 0.63896,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 1,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 3,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5688923",
+                "username": "Allbestfory",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "seller_ranking": "6",
+                "user_level": 136,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1703771895433,
+                "updated_at": 1753129082713,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 8,
+                "avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.63896",
+                "online_datetime": 1753170129053,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.648635,
+                "display_currency": "USD",
+                "display_price": "0.648635",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.65,
+                "offer_group": "G1748423830859NX",
+                "offer_id": "G1748423830859NX",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "✭20th Anniv✭Essence of Water✭Nightslayer - Alliance",
+                "description": "cheap and fast",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9876432,
+                "reserved_qty": 0,
+                "min_qty": 4,
+                "offer_currency": "USD",
+                "unit_price": 0.648635,
+                "unit_price_in_usd": 0.648635,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10000,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "839764",
+                "username": "SunRise",
+                "user_avatar": "https://assets.g2g.com/user/avatar/839764_1679045230101.png?",
+                "seller_ranking": "6",
+                "user_level": 157,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1748423830869,
+                "updated_at": 1752288154205,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/839764_1679045230101.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.648635",
+                "online_datetime": 1753170206490,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.711,
+                "display_currency": "USD",
+                "display_price": "0.711",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.71,
+                "offer_group": "G1739484918575SB",
+                "offer_id": "G1739484918575SB",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniversary] Nightslayer Essence of Water",
+                "description": "1. Delivery by in-game Mail. \n2. ETA: 1-12 hrs guarantee. \n3. Msg me if you have any demand, we can do custom orders.\n\nAny question pls ask live chat",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 2000,
+                "reserved_qty": 0,
+                "min_qty": 5,
+                "offer_currency": "USD",
+                "unit_price": 0.711,
+                "unit_price_in_usd": 0.711,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 5,
+                        "max": 10,
+                        "delivery_time": 10
+                    },
+                    {
+                        "min": 11,
+                        "max": 20,
+                        "delivery_time": 20
+                    },
+                    {
+                        "min": 21,
+                        "max": 30,
+                        "delivery_time": 30
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "3170131",
+                "username": "Thrall",
+                "user_avatar": "https://assets.g2g.com/user/avatar/3170131_1679052310003.jpg?",
+                "seller_ranking": "3",
+                "user_level": 111,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1739484918575,
+                "updated_at": 1752456274563,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/3170131_1679052310003.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.711",
+                "online_datetime": 1753169324154,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.746548,
+                "display_currency": "USD",
+                "display_price": "0.746548",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.75,
+                "offer_group": "G1732614882499ZL",
+                "offer_id": "G1732614882499ZL",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Essence of Water - BEST PRICE + FAST DELIVERY | 24/7 Fast & Safe",
+                "description": "Order is delivered to you by our pro gamers !\nStock is ready to be delivered within minutes !\n\nFor quick delivery, please PM us in advance.\nWe're providing the most quality and most reliable services. Any kind of Third-party system in our company is FORBIDDEN.\n\n# Common delivery method ? We will send you an instruction AFTER you purchase\n# Custom delivery method ? You need to inbox us BEFORE you purchase to arrange\n\n*IMPORTANT*\nDO NOT chat anything related to RMT in-game for safety\nUse this website chat system if you need to talk to us\n=============== FFShop ===============\n100% Services are fully VIDEO RECORD\n100% Services are done by Professionals\n100% Hand-farm Products Guaranteed\nSpeedy Instant Delivery Guaranteed\n24/7 Instant Live Chat Support\nContinuous Customer Support\n\nHave a question ? Just inbox us :)",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "face_to_face_trade",
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c",
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 1338,
+                "reserved_qty": 0,
+                "min_qty": 10,
+                "offer_currency": "USD",
+                "unit_price": 0.746548,
+                "unit_price_in_usd": 0.746548,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 10,
+                        "max": 1338,
+                        "delivery_time": 30
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5871957",
+                "username": "FFXIVGilShop",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5871957_1679045229984.png?",
+                "seller_ranking": "6",
+                "user_level": 139,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1732614882499,
+                "updated_at": 1753165194545,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/5871957_1679045229984.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.746548",
+                "online_datetime": 1753170045549,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.78,
+                "display_currency": "USD",
+                "display_price": "0.78",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.78,
+                "offer_group": "G1748453090369FG",
+                "offer_id": "G1748453090369FG",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "ESSENCE OF WATER",
+                "description": "FAST AND BEST",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9887,
+                "reserved_qty": 0,
+                "min_qty": 3,
+                "offer_currency": "USD",
+                "unit_price": 0.78,
+                "unit_price_in_usd": 0.78,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5196786",
+                "username": "JungeBeats",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5196786_1679045228067.jpg?",
+                "seller_ranking": "2",
+                "user_level": 138,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1748453090392,
+                "updated_at": 1748453090392,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/5196786_1679045228067.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.78",
+                "online_datetime": 1753169362909,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.8132,
+                "display_currency": "USD",
+                "display_price": "0.8132",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.81,
+                "offer_group": "G1734385347631JM",
+                "offer_id": "G1734385347631JM",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Essence of Water - Real Stock ★INSTANT DELIVERY★",
+                "description": "Delivery on average takes 5-240 minutes. We work around the clock! If you can start, contact me g2g chat!.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 3000,
+                "reserved_qty": 0,
+                "min_qty": 15,
+                "offer_currency": "USD",
+                "unit_price": 0.8132,
+                "unit_price_in_usd": 0.8132,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 1,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 1,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "7708410",
+                "username": "BogOdin_EG",
+                "user_avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "seller_ranking": "3",
+                "user_level": 137,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734385347631,
+                "updated_at": 1753042407741,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 1,
+                "avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.8132",
+                "online_datetime": 1753170199534,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.8132,
+                "display_currency": "USD",
+                "display_price": "0.8132",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.81,
+                "offer_group": "G1734447313955DR",
+                "offer_id": "G1734447313955DR",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Essence of Water - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 10000,
+                "reserved_qty": 0,
+                "min_qty": 15,
+                "offer_currency": "USD",
+                "unit_price": 0.8132,
+                "unit_price_in_usd": 0.8132,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5663742",
+                "username": "RaNDoMNeSS",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "seller_ranking": "6",
+                "user_level": 134,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734447313956,
+                "updated_at": 1752448356139,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.8132",
+                "online_datetime": 1753169224602,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.8132,
+                "display_currency": "USD",
+                "display_price": "0.8132",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.81,
+                "offer_group": "G1734447625067IJ",
+                "offer_id": "G1734447625067IJ",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Essence of Water - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 10000,
+                "reserved_qty": 0,
+                "min_qty": 15,
+                "offer_currency": "USD",
+                "unit_price": 0.8132,
+                "unit_price_in_usd": 0.8132,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "1000306478",
+                "username": "Skillets",
+                "user_avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "seller_ranking": "2",
+                "user_level": 106,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734447625067,
+                "updated_at": 1752446034372,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.8132",
+                "online_datetime": 1753145332321,
+                "delivery_eta": 0,
+                "is_online": false
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.821059,
+                "display_currency": "USD",
+                "display_price": "0.821059",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.82,
+                "offer_group": "G1748436733444HM",
+                "offer_id": "G1748436733444HM",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Essence of Water",
+                "description": "Details\nDelivery will be completed in the shortest possible time from the moment of placing the order if there are no issues with the server's stability in the game. We will do it fast as possible, the average delivery time is 24 Hours. It can take up to 48 Hours (depending on Demand) or 7 DAYS if expansion is New.\nWe have a special Team only for the WOW Classic 20th Anniversary Items Section, with 10+ years of experience in this game, you are in the ideal place.\nBoostroom customer support is available 24/7 during the entire year.\n\nSPECIAL NOTE FOR BUYERS\n\nAll Items are Handmade and Legit, we are looking to provide the most quality and most reliable services. Any kind of Third-party system in our company is Forbidden.\n\n\nREQUIREMENTS\n\nPlease be careful when you are procuring orders, make sure you are buying that on the correct realm, and please provide the correct character name.\n\n\nABOUT BOOSTROOM (OUR TEAM)\n\nWe are a well organized and highly professional boosting group of top skilled players.\nAlmost 10 years of experience in helping our buyers to achieve desired things in games.\nOur goal is to provide and maintain top quality service and fair prices on the market.\n\n\nDISCOUNTS\n\nWe value and respect every returning customer.\nTherefore we often make a great discount to our loyal buyers.\nBuild relations and trust with BoostRoom for awesome deals and even better prices.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9000000,
+                "reserved_qty": 0,
+                "min_qty": 15,
+                "offer_currency": "EUR",
+                "unit_price": 0.685,
+                "unit_price_in_usd": 0.800533,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10000,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "831656",
+                "username": "BoostRoom",
+                "user_avatar": "https://assets.g2g.com/user/avatar/831656_1736691700599.png",
+                "seller_ranking": "6",
+                "user_level": 153,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1748436733466,
+                "updated_at": 1748436733466,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/831656_1736691700599.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.685",
+                "online_datetime": 1753169993370,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.918964,
+                "display_currency": "USD",
+                "display_price": "0.918964",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.92,
+                "offer_group": "G1733078816738YN",
+                "offer_id": "G1733078816738YN",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Essence of Water, 20th Anniversary US server Delivery!",
+                "description": "1.Will delivery you in game mail.\n2.Feel free to message me if you have any questions or requirements! 24/7 service!\n3.Some items are not listed due to list limit, message me if you don't find the item you need on my list.\n\n\nIf you don't find the item on the list, message me for price!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9999,
+                "reserved_qty": 0,
+                "min_qty": 10,
+                "offer_currency": "USD",
+                "unit_price": 0.918964,
+                "unit_price_in_usd": 0.918964,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "2634568",
+                "username": "rseoc",
+                "user_avatar": "https://assets.g2g.com/user/avatar/2634568_1679045231411.png?",
+                "seller_ranking": "2",
+                "user_level": 131,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1733078816738,
+                "updated_at": 1753111138703,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/2634568_1679045231411.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.918964",
+                "online_datetime": 1753169390954,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 1.16,
+                "display_currency": "USD",
+                "display_price": "1.16",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 1.16,
+                "offer_group": "G1741524071674XM",
+                "offer_id": "G1741524071674XM",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Essence of Water | Nightslayer - Alliance",
+                "description": "Delivery via in game mail.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 999999,
+                "reserved_qty": 0,
+                "min_qty": 4,
+                "offer_currency": "USD",
+                "unit_price": 1.16,
+                "unit_price_in_usd": 1.16,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "3954762",
+                "username": "DionysusGod",
+                "user_avatar": "https://assets.g2g.com/user/avatar/3954762_1730409177877.png",
+                "seller_ranking": "6",
+                "user_level": 142,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1741524071674,
+                "updated_at": 1741524071674,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/3954762_1730409177877.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "1.160000",
+                "online_datetime": 1753170251152,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 1.98,
+                "display_currency": "USD",
+                "display_price": "1.98",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 1.98,
+                "offer_group": "G1735346912446YQ",
+                "offer_id": "G1735346912446YQ",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniversary] * Essence of Water - INSTANT DELIVERY",
+                "description": "The fastest delivery service, - 90% of orders are delivered within 1 I am offline then delivery takes 4-10 hours\nFor some items and servers, the delivery speed may be higher 12-24 hours\nWe can deliver almost any item to any server in the game.\nAll items are handmade. Without bots and audacity.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 99999,
+                "reserved_qty": 0,
+                "min_qty": 5,
+                "offer_currency": "USD",
+                "unit_price": 1.98,
+                "unit_price_in_usd": 1.98,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 1,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 1,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "3805367",
+                "username": "lvgame",
+                "user_avatar": "https://assets.g2g.com/user/avatar/3805367_1679045225999.jpg?",
+                "seller_ranking": "2",
+                "user_level": 97,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1735346912446,
+                "updated_at": 1752992604291,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 1,
+                "avatar": "https://assets.g2g.com/user/avatar/3805367_1679045225999.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "1.980000",
+                "online_datetime": 1753169260308,
+                "delivery_eta": 0,
+                "is_online": true
+            }
+        ]
+    },
+    "request_id": "8f48dd0a-aace-4693-944e-8420c7130851"
+}

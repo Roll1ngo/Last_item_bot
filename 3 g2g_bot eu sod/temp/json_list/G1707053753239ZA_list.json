@@ -1,0 +1,378 @@
+{
+    "code": 2000,
+    "messages": [],
+    "payload": {
+        "results": [
+            {
+                "total_offer": 1,
+                "converted_unit_price": 171.49213,
+                "display_currency": "USD",
+                "display_price": "171.49",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 171.49,
+                "offer_group": "G1707053753239ZA",
+                "offer_id": "G1707053753239ZA",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniversary] * Ebony Boneclub * Doomhowl [US] - Alliance - INSTANT DELIVERY",
+                "description": "The fastest delivery service, - 90% of orders are delivered within one hour\n\nSometimes delivery takes 4-10 hours if very busy or not online. Online from 07:00 to 22:00 GMT. \nFor some items and servers, the delivery speed may be higher 12-24 hours\nWe can deliver almost any item to any server ingame, just let us know what item you need!\nAll items are handmade. Without bots and audacity.\nFrom Ukraine with love\nHave a nice day:)",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 4,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 171.49213,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    },
+                    {
+                        "min": 2,
+                        "max": 1000,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 1,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 1,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5688923",
+                "username": "Allbestfory",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5688923_1727081158254.png",
+                "seller_ranking": "5",
+                "user_level": 131,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1707053753239,
+                "updated_at": 1735052655956,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/5688923_1727081158254.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "171.49",
+                "online_datetime": 1735079444217,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 173.22,
+                "display_currency": "USD",
+                "display_price": "173.22",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 173.22,
+                "offer_group": "G1734385514130ZK",
+                "offer_id": "G1734385514130ZK",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Ebony Boneclub - Real Stock ★INSTANT DELIVERY★",
+                "description": "Delivery on average takes 5-240 minutes. We work around the clock! If you can start, contact me g2g chat!.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 10,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 173.22,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "7708410",
+                "username": "BogOdin_EG",
+                "user_avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "seller_ranking": "4",
+                "user_level": 136,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734385514130,
+                "updated_at": 1734493549321,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "173.22",
+                "online_datetime": 1735079098133,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 173.22,
+                "display_currency": "USD",
+                "display_price": "173.22",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 173.22,
+                "offer_group": "G1734447406196FH",
+                "offer_id": "G1734447406196FH",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Ebony Boneclub - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 20,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 173.22,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5663742",
+                "username": "RaNDoMNeSS",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "seller_ranking": "5",
+                "user_level": 131,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734447406196,
+                "updated_at": 1734493516553,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "173.22",
+                "online_datetime": 1735079315163,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 173.22,
+                "display_currency": "USD",
+                "display_price": "173.22",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 173.22,
+                "offer_group": "G1734447737023QF",
+                "offer_id": "G1734447737023QF",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Ebony Boneclub - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 20,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 173.22,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "1000306478",
+                "username": "Skillets",
+                "user_avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "seller_ranking": "2",
+                "user_level": 105,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734447737023,
+                "updated_at": 1734493213833,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "173.22",
+                "online_datetime": 1735079453375,
+                "delivery_eta": 0,
+                "is_online": true
+            }
+        ]
+    },
+    "request_id": "d5e026eb-a1f7-448e-8a03-ee8529b39d5b"
+}

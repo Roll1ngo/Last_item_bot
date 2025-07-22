@@ -1,0 +1,205 @@
+{
+    "code": 2000,
+    "messages": [],
+    "payload": {
+        "results": [
+            {
+                "total_offer": 1,
+                "converted_unit_price": 246.45999,
+                "display_currency": "USD",
+                "display_price": "246.46",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 246.46,
+                "offer_group": "G1710804850324EY",
+                "offer_id": "G1710804850324EY",
+                "relation_id": "4d08792f-009e-4f81-a786-fca1802d2c1f",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "ac3f85c1-7562-437e-b125-e89576b9a38e",
+                "title": "[20th Anniversary] + Lionheart Helm + Spineshatter [EU] - Horde - INSTANT DELIVERY",
+                "description": "The fastest delivery service, - 90% of orders are delivered within one hour\n\nSometimes delivery takes 4-10 hours if very busy or not online. Online from 07:00 to 22:00 GMT. \nFor some items and servers, the delivery speed may be higher 12-24 hours\nWe can deliver almost any item to any server ingame, just let us know what item you need!\nAll items are handmade. Without bots and audacity.\nFrom Ukraine with love\nHave a nice day:)",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_dropdown_18"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_dropdown_18",
+                        "dataset_id": "lgc_27816_dropdown_18_54765"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 4,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 246.459999,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5688923",
+                "username": "Allbestfory",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5688923_1727081158254.png",
+                "seller_ranking": "5",
+                "user_level": 131,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1710804850324,
+                "updated_at": 1735048157407,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/5688923_1727081158254.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "246.46",
+                "online_datetime": 1735053804212,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 246.46042,
+                "display_currency": "USD",
+                "display_price": "246.46",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 246.46,
+                "offer_group": "G1734844223818GB",
+                "offer_id": "G1734844223818GB",
+                "relation_id": "4d08792f-009e-4f81-a786-fca1802d2c1f",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "ac3f85c1-7562-437e-b125-e89576b9a38e",
+                "title": "| Lionheart Helm | 20th Anniversary WoW Any Server&Faction",
+                "description": "Delivery of your order as soon as possible",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_dropdown_18"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_dropdown_18",
+                        "dataset_id": "lgc_27816_dropdown_18_54765"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "face_to_face_trade",
+                    "mail",
+                    "auction_house"
+                ],
+                "delivery_method_ids": [
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c",
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018",
+                    "02fb7e66-0102-4994-89ed-08979cfb1e07"
+                ],
+                "available_qty": 8,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "EUR",
+                "unit_price": 230,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10,
+                        "delivery_time": 10
+                    },
+                    {
+                        "min": 11,
+                        "max": 20,
+                        "delivery_time": 20
+                    },
+                    {
+                        "min": 21,
+                        "max": 30,
+                        "delivery_time": 30
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "1002029010",
+                "username": "Exloot",
+                "user_avatar": "https://assets.g2g.com/user/avatar/1002029010_1733196008173.png",
+                "seller_ranking": "3",
+                "user_level": 65,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734844223818,
+                "updated_at": 1734844223818,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/1002029010_1733196008173.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "230.00",
+                "online_datetime": 1735046304722,
+                "delivery_eta": 0,
+                "is_online": false
+            }
+        ]
+    },
+    "request_id": "88badc86-187e-471e-b45c-104bea531bd3"
+}

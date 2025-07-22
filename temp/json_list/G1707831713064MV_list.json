@@ -1,0 +1,961 @@
+{
+    "code": 2000,
+    "messages": [],
+    "payload": {
+        "results": [
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.091425,
+                "display_currency": "USD",
+                "display_price": "0.091425",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.09,
+                "offer_group": "G1707831713064MV",
+                "offer_id": "G1707831713064MV",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniv.] ♚ Silithid Carapace Fragment ♚ Nightslayer - Alliance - Real Stock - Safe and Instant Delivery",
+                "description": "Fastest delivery – 90% of orders arrive within an hour!\n\nWe can deliver almost any item to any server.\nDon’t see what you need? Message us!\n\nFor face-to-face trades, contact us in advance.\nMessage us before ordering for a smoother process.\nMost deliveries are instant, but some take 4–10 hours.\nOnline daily: 06:00–24:00 GMT 03:00–21:00 GMT+3\nOvernight orders EU time are delivered in the morning when we're online.\n\nHave a great day!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 454545,
+                "reserved_qty": 0,
+                "min_qty": 40,
+                "offer_currency": "USD",
+                "unit_price": 0.091425,
+                "unit_price_in_usd": 0.091425,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 1,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 14,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5688923",
+                "username": "Allbestfory",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "seller_ranking": "6",
+                "user_level": 136,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1707831713064,
+                "updated_at": 1753153465069,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 15,
+                "avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.091425",
+                "online_datetime": 1753170785591,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.0917,
+                "display_currency": "USD",
+                "display_price": "0.0917",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.09,
+                "offer_group": "G1735108196742SE",
+                "offer_id": "G1735108196742SE",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniversary] Silithid Carapace Fragment  [ Safe delivery ] Become the 1st one!",
+                "description": "Looking to buy any boost for World of Warcraft Cataclysm? You have come to the right place.\nWe are a team of professional players with more than 11 years of experience in classic WoW.\n\n SERVICE INCLUDES: \n* 1   Silithid Carapace Fragment  [ quick delivery by mail ]\n\n OUR SERVICE IS THE BEST ONE \n* Trusted and experienced seller with flawless reputation here and on other markets\n* all items are obtained in the gameplay of our team of gamers\n* 24/7 support, many languages\n\n CUSTOM ORDERS \nWe work with any level ranges, so if you are stuck in the middle of leveling – don’t hesitate.\nMissing professions or attunements? We are ready to help.\nHonor farm, gear boost – just ask.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "face_to_face_trade",
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c",
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 84234,
+                "reserved_qty": 0,
+                "min_qty": 100,
+                "offer_currency": "USD",
+                "unit_price": 0.0917,
+                "unit_price_in_usd": 0.0917,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 22,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "4160907",
+                "username": "play1ife",
+                "user_avatar": "https://assets.g2g.com/user/avatar/4160907_1679065817341.jpg?",
+                "seller_ranking": "3",
+                "user_level": 130,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1735108196742,
+                "updated_at": 1753153363984,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/4160907_1679065817341.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.0917",
+                "online_datetime": 1753160137538,
+                "delivery_eta": 0,
+                "is_online": false
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.0931,
+                "display_currency": "USD",
+                "display_price": "0.0931",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.09,
+                "offer_group": "G1752187253571TT",
+                "offer_id": "G1752187253571TT",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Silithid Carapace Fragment- Real Stock ★INSTANT DELIVERY★",
+                "description": "Delivery on average takes 5-240 minutes. We work around the clock! If you can start, contact me g2g chat!.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 200000,
+                "reserved_qty": 0,
+                "min_qty": 100,
+                "offer_currency": "USD",
+                "unit_price": 0.0931,
+                "unit_price_in_usd": 0.0931,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 1,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 1,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "7708410",
+                "username": "BogOdin_EG",
+                "user_avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "seller_ranking": "3",
+                "user_level": 137,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1752187253589,
+                "updated_at": 1753042406798,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 1,
+                "avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.0931",
+                "online_datetime": 1753170199534,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.09386,
+                "display_currency": "USD",
+                "display_price": "0.09386",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.09,
+                "offer_group": "G1752187087732CI",
+                "offer_id": "G1752187087732CI",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Silithid Carapace Fragment  - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 100000,
+                "reserved_qty": 0,
+                "min_qty": 150,
+                "offer_currency": "USD",
+                "unit_price": 0.09386,
+                "unit_price_in_usd": 0.09386,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5663742",
+                "username": "RaNDoMNeSS",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "seller_ranking": "6",
+                "user_level": 134,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1752187087738,
+                "updated_at": 1752927882457,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.09386",
+                "online_datetime": 1753169224602,
+                "delivery_eta": 0,
+                "is_online": false
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.09386,
+                "display_currency": "USD",
+                "display_price": "0.09386",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.09,
+                "offer_group": "G1752187164296WS",
+                "offer_id": "G1752187164296WS",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Silithid Carapace Fragment  - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 100000,
+                "reserved_qty": 0,
+                "min_qty": 150,
+                "offer_currency": "USD",
+                "unit_price": 0.09386,
+                "unit_price_in_usd": 0.09386,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "1000306478",
+                "username": "Skillets",
+                "user_avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "seller_ranking": "2",
+                "user_level": 106,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1752187164310,
+                "updated_at": 1752927882277,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.09386",
+                "online_datetime": 1753145332321,
+                "delivery_eta": 0,
+                "is_online": false
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.094518,
+                "display_currency": "USD",
+                "display_price": "0.094518",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.09,
+                "offer_group": "G1752227567819NM",
+                "offer_id": "G1752227567819NM",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniv.]【 Silithid Carapace Fragment 】Nightslayer - Alliance - Real Stock - Safe and Instant Delivery",
+                "description": "Welcome to our Shop!\n\nAll Handmade (Not Bot)\nFast Delivery within 5 minutes - few hours\n\nThanks for choosing us\nHave a good one :)",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 500000,
+                "reserved_qty": 0,
+                "min_qty": 50,
+                "offer_currency": "MYR",
+                "unit_price": 0.39,
+                "unit_price_in_usd": 0.092155,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "8407004",
+                "username": "callforgold",
+                "user_avatar": "https://assets.g2g.com/user/avatar/8407004_1688828900915.png",
+                "seller_ranking": "3",
+                "user_level": 107,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1752227567852,
+                "updated_at": 1753127861788,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/8407004_1688828900915.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.39",
+                "online_datetime": 1753170339765,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.097564,
+                "display_currency": "USD",
+                "display_price": "0.097564",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.1,
+                "offer_group": "G1752425534670DO",
+                "offer_id": "G1752425534670DO",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "20th Anniversary - Silithid Carapace Fragment - Nightslayer - Alliance - Delivery : Mail or F2F",
+                "description": "SOLIDTREASURE\nServices You Deserved.\n\n24/7 Ready to Serve\nFast Delivery Service\nFriendly & Responsive Admins\nCommitted to achieve customer satisfaction\n\nAll of the transactions must be made upon \n\nContact us for further information\n\nSolidTreasure\nest. 2024",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "face_to_face_trade",
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c",
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 10101,
+                "reserved_qty": 0,
+                "min_qty": 20,
+                "offer_currency": "IDR",
+                "unit_price": 1551,
+                "unit_price_in_usd": 0.095125,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10,
+                        "delivery_time": 30
+                    },
+                    {
+                        "min": 11,
+                        "max": 30,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "1001594461",
+                "username": "solidtg",
+                "user_avatar": "https://assets.g2g.com/user/avatar/1001594461_1717421634424.png",
+                "seller_ranking": "6",
+                "user_level": 132,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1752425534692,
+                "updated_at": 1752830432657,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/1001594461_1717421634424.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "1551.000000",
+                "online_datetime": 1753170157459,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.09911,
+                "display_currency": "USD",
+                "display_price": "0.09911",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.1,
+                "offer_group": "G1752343909063VS",
+                "offer_id": "G1752343909063VS",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "WoW20th Ann-Silithid Carapace Fragment-Real Stock - Safe and Instant Delivery",
+                "description": "Handmade, safe and fast delivery",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "face_to_face_trade",
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c",
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 265000,
+                "reserved_qty": 0,
+                "min_qty": 15,
+                "offer_currency": "USD",
+                "unit_price": 0.09911,
+                "unit_price_in_usd": 0.09911,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "1000252237",
+                "username": "PVPGOLD",
+                "user_avatar": "https://assets.g2g.com/user/avatar/1000252237_1679103467609.png?",
+                "seller_ranking": "2",
+                "user_level": 110,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1752343909085,
+                "updated_at": 1752780104808,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/1000252237_1679103467609.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.09911",
+                "online_datetime": 1753169938872,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.125934,
+                "display_currency": "USD",
+                "display_price": "0.125934",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.13,
+                "offer_group": "G1752325400412HS",
+                "offer_id": "G1752325400412HS",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "20th Anniversary - Silithid Carapace Fragment - Nightslayer - Alliance - Delivery : Mail or F2F",
+                "description": "SOVEREIGN RENDEZVOUS GAME HOUSE\n\nDelivery via F2F or ingame mail\n\nImportant:\nMake sure you fill the form correctly. We send item to the character name listed on the web form.\n\nAlways recheck that you choose the game you desired and the ID of the toon. Please always be thorough. Any losses caused by buyer negligence is not our responsibility.\n\nSRgamehouse\nest. 2020",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "face_to_face_trade",
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c",
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 50505,
+                "reserved_qty": 0,
+                "min_qty": 100,
+                "offer_currency": "IDR",
+                "unit_price": 2002,
+                "unit_price_in_usd": 0.122786,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 5,
+                        "delivery_time": 30
+                    },
+                    {
+                        "min": 6,
+                        "max": 10,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5486209",
+                "username": "SRgamehouse",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5486209_1735112819291.png",
+                "seller_ranking": "6",
+                "user_level": 156,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1752325400422,
+                "updated_at": 1752742722833,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/5486209_1735112819291.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "2002.000000",
+                "online_datetime": 1753170415000,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 1.0,
+                "display_currency": "USD",
+                "display_price": "1.00",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 1.0,
+                "offer_group": "G1749054917984PA",
+                "offer_id": "G1749054917984PA",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Anniversary - Silithid Carapace Fragment",
+                "description": "Why us?\n- We are the boosting team meaning we are NOT a reseller\n- We give LIFETIME guarantee of no recalls! (original owner)\n- We always strive for reasonable pricing and We are able to provide 24 /7 customer service if any issue comes up.\nMessage us and we’ll start working on your order today!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54788"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "face_to_face_trade",
+                    "mail",
+                    "auction_house"
+                ],
+                "delivery_method_ids": [
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c",
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018",
+                    "02fb7e66-0102-4994-89ed-08979cfb1e07"
+                ],
+                "available_qty": 100000,
+                "reserved_qty": 0,
+                "min_qty": 10,
+                "offer_currency": "USD",
+                "unit_price": 1,
+                "unit_price_in_usd": 1.0,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5122365",
+                "username": "supermassive",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5122365_1679103467518.jpeg?",
+                "seller_ranking": "4",
+                "user_level": 124,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1749054918003,
+                "updated_at": 1749054918003,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/5122365_1679103467518.jpeg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "1.000000",
+                "online_datetime": 1753170398122,
+                "delivery_eta": 0,
+                "is_online": true
+            }
+        ]
+    },
+    "request_id": "e57226a5-ddaa-499e-8906-56205b9538c8"
+}

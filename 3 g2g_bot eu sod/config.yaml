@@ -1,0 +1,49 @@
+
+top_minimal:
+  plus: 236       # (+)
+  hash: 70        #  (#)
+  star: 42        # (★)
+  double_parentheses: 30  # ( (()) )
+  tilde: 20       # (~)
+  backtick: 10    # (`)
+  vertical_bar: 5 # (|)
+  double_square_brackets: 1   # ([[ ]])
+  double_angle_brackets: 0.5   # (<< >>)
+  caret: 0.1      # (^)
+  dollar: 0.05    # ($)
+  ampersand: 0    # (&)
+  double_percent: 0 # (%%)
+
+price_range:
+  price_range_from: 0.000001 # USD
+  price_range_to: 0.00001 # USD
+
+log_colors:
+  info: 'white'  # блакитний для звичайного тексту
+  warning: 'green'  # жовтий для виділених рядків
+  time: 'white'  #  для часу
+  level: 'cyan'  # для рівня
+  module: 'magenta'  #  для модуля
+  funcName: 'green'  # для функції
+  linenumber: 'magenta'  # для номера рядка
+
+
+pause_between_runs: 30 # seconds
+
+difference_percent_to_reduce_the_price_between_first_and_second: 50 # percents %
+min_max_change_first_position : 1  #  %
+reduce_price_non_popular_item : 1  #  %
+
+error_top_limit: 799
+
+delete_temp_folders: False # 'False' or 'True' for change option
+
+
+owner : "Allbestfory"
+
+ignore_competitors_for_asterisk: [] #  ,
+
+ignore_words: ["Recipe:", "Plans:", "Schematic:", "Formula:"]
+
+user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+

@@ -1,0 +1,759 @@
+{
+    "code": 2000,
+    "messages": [],
+    "payload": {
+        "results": [
+            {
+                "total_offer": 1,
+                "converted_unit_price": 46.3347,
+                "display_currency": "USD",
+                "display_price": "46.33",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 46.33,
+                "offer_group": "G1706636607585MH",
+                "offer_id": "G1706636607585MH",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniv.] ① Giantstalker's Bracers ① Doomhowl - Alliance - Real Stock - Safe and Instant Delivery",
+                "description": "Fastest delivery – 90% of orders arrive within an hour!\n\nWe can deliver almost any item to any server.\nDon’t see what you need? Message us!\n\nFor face-to-face trades, contact us in advance.\nMessage us before ordering for a smoother process.\nMost deliveries are instant, but some take 4–10 hours.\nOnline daily: 06:00–02:00 GMT (03:00–23:00 GMT+3)\nOvernight orders (EU time) are delivered in the morning when we're online.\n\nHave a great day!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail",
+                    "face_to_face_trade"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018",
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c"
+                ],
+                "available_qty": 9,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 46.3347,
+                "unit_price_in_usd": 46.3347,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5688923",
+                "username": "Allbestfory",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "seller_ranking": "6",
+                "user_level": 136,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1706636607585,
+                "updated_at": 1753129358698,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "46.334700",
+                "online_datetime": 1753170466026,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 47.131,
+                "display_currency": "USD",
+                "display_price": "47.13",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 47.13,
+                "offer_group": "G1722235082420AM",
+                "offer_id": "G1722235082420AM",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[Safe delivery] Giantstalker's Bracers [ETA: 10min] INSTANT / we won't waste your time!",
+                "description": "Looking to buy any boost for World of Warcraft Cataclysm? You have come to the right place.\nWe are a team of professional players with more than 11 years of experience in classic WoW.\n\n SERVICE INCLUDES: \n* 1   blue sapphire  [ quick delivery by mail ]\n\n OUR SERVICE IS THE BEST ONE \n* Trusted and experienced seller with flawless reputation here and on other markets\n* all items are obtained in the gameplay of our team of gamers\n* 24/7 support, many languages\n\n CUSTOM ORDERS \nWe work with any level ranges, so if you are stuck in the middle of leveling – don’t hesitate.\nMissing professions or attunements? We are ready to help.\nHonor farm, gear boost – just ask.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "face_to_face_trade",
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c",
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 7,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 47.131,
+                "unit_price_in_usd": 47.131,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 22,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "4160907",
+                "username": "play1ife",
+                "user_avatar": "https://assets.g2g.com/user/avatar/4160907_1679065817341.jpg?",
+                "seller_ranking": "3",
+                "user_level": 130,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1722235082420,
+                "updated_at": 1753153345066,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/4160907_1679065817341.jpg?",
+                "description_images": [
+                    "https://cdn-ext.g2g.com/img/tYNye5K.jpeg"
+                ],
+                "decimal_places": 2,
+                "formatted_unit_price": "47.131000",
+                "online_datetime": 1753160137538,
+                "delivery_eta": 0,
+                "is_online": false
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 52.75,
+                "display_currency": "USD",
+                "display_price": "52.75",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 52.75,
+                "offer_group": "G1748423830239PX",
+                "offer_id": "G1748423830239PX",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "✭20th Anniv✭Giantstalker's Bracers✭Doomhowl - Alliance",
+                "description": "cheap and fast",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34167"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9876432,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 52.75,
+                "unit_price_in_usd": 52.75,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10000,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "839764",
+                "username": "SunRise",
+                "user_avatar": "https://assets.g2g.com/user/avatar/839764_1679045230101.png?",
+                "seller_ranking": "6",
+                "user_level": 157,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1748423830244,
+                "updated_at": 1752214153406,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/839764_1679045230101.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "52.750000",
+                "online_datetime": 1753170444174,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 59.931343,
+                "display_currency": "USD",
+                "display_price": "59.93",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 59.93,
+                "offer_group": "G1748436498185NP",
+                "offer_id": "G1748436498185NP",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Giantstalker's Bracers",
+                "description": "Details\nDelivery will be completed in the shortest possible time from the moment of placing the order if there are no issues with the server's stability in the game. We will do it fast as possible, the average delivery time is 24 Hours. It can take up to 48 Hours (depending on Demand) or 7 DAYS if expansion is New.\nWe have a special Team only for the WOW Classic 20th Anniversary Items Section, with 10+ years of experience in this game, you are in the ideal place.\nBoostroom customer support is available 24/7 during the entire year.\n\nSPECIAL NOTE FOR BUYERS\n\nAll Items are Handmade and Legit, we are looking to provide the most quality and most reliable services. Any kind of Third-party system in our company is Forbidden.\n\n\nREQUIREMENTS\n\nPlease be careful when you are procuring orders, make sure you are buying that on the correct realm, and please provide the correct character name.\n\n\nABOUT BOOSTROOM (OUR TEAM)\n\nWe are a well organized and highly professional boosting group of top skilled players.\nAlmost 10 years of experience in helping our buyers to achieve desired things in games.\nOur goal is to provide and maintain top quality service and fair prices on the market.\n\n\nDISCOUNTS\n\nWe value and respect every returning customer.\nTherefore we often make a great discount to our loyal buyers.\nBuild relations and trust with BoostRoom for awesome deals and even better prices.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9000000,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "EUR",
+                "unit_price": 50,
+                "unit_price_in_usd": 58.433059,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10000,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "831656",
+                "username": "BoostRoom",
+                "user_avatar": "https://assets.g2g.com/user/avatar/831656_1736691700599.png",
+                "seller_ranking": "6",
+                "user_level": 153,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1748436498191,
+                "updated_at": 1752769578086,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/831656_1736691700599.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "50.000000",
+                "online_datetime": 1753170448612,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 233.73224,
+                "display_currency": "USD",
+                "display_price": "233.73",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 233.73,
+                "offer_group": "G1748436475320GX",
+                "offer_id": "G1748436475320GX",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Hunter Kit (6in1: Giantstalker's Bracers, Giantstalker's Belt, Devilsaur Set, Dark Phantom Cape, Heartseeking Crossbow)",
+                "description": "Details\nDelivery will be completed in the shortest possible time from the moment of placing the order if there are no issues with the server's stability in the game. We will do it fast as possible, the average delivery time is 24 Hours. It can take up to 48 Hours (depending on Demand) or 7 DAYS if expansion is New.\nWe have a special Team only for the WOW Classic 20th Anniversary Items Section, with 10+ years of experience in this game, you are in the ideal place.\nBoostroom customer support is available 24/7 during the entire year.\n\nSPECIAL NOTE FOR BUYERS\n\nAll Items are Handmade and Legit, we are looking to provide the most quality and most reliable services. Any kind of Third-party system in our company is Forbidden.\n\n\nREQUIREMENTS\n\nPlease be careful when you are procuring orders, make sure you are buying that on the correct realm, and please provide the correct character name.\n\n\nABOUT BOOSTROOM (OUR TEAM)\n\nWe are a well organized and highly professional boosting group of top skilled players.\nAlmost 10 years of experience in helping our buyers to achieve desired things in games.\nOur goal is to provide and maintain top quality service and fair prices on the market.\n\n\nDISCOUNTS\n\nWe value and respect every returning customer.\nTherefore we often make a great discount to our loyal buyers.\nBuild relations and trust with BoostRoom for awesome deals and even better prices.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9000000,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "EUR",
+                "unit_price": 195,
+                "unit_price_in_usd": 227.88893,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10000,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "831656",
+                "username": "BoostRoom",
+                "user_avatar": "https://assets.g2g.com/user/avatar/831656_1736691700599.png",
+                "seller_ranking": "6",
+                "user_level": 153,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1748436475327,
+                "updated_at": 1752769543355,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/831656_1736691700599.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "195.000000",
+                "online_datetime": 1753170448612,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 400.0,
+                "display_currency": "USD",
+                "display_price": "400.00",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 400.0,
+                "offer_group": "G1734385461384RZ",
+                "offer_id": "G1734385461384RZ",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Giantstalker's Bracers - Real Stock ★INSTANT DELIVERY★",
+                "description": "Delivery on average takes 5-240 minutes. We work around the clock! If you can start, contact me g2g chat!.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 10,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 400,
+                "unit_price_in_usd": 400.0,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "7708410",
+                "username": "BogOdin_EG",
+                "user_avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "seller_ranking": "3",
+                "user_level": 137,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734385461384,
+                "updated_at": 1752443912141,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/7708410_1679103467757.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "400.000000",
+                "online_datetime": 1753170199534,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 500.0,
+                "display_currency": "USD",
+                "display_price": "500.00",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 500.0,
+                "offer_group": "G1734447415841QL",
+                "offer_id": "G1734447415841QL",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Giantstalker's Bracers - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 20,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 500,
+                "unit_price_in_usd": 500.0,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5663742",
+                "username": "RaNDoMNeSS",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "seller_ranking": "6",
+                "user_level": 134,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734447415841,
+                "updated_at": 1744492435656,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/5663742_1719699865950.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "500.000000",
+                "online_datetime": 1753169224602,
+                "delivery_eta": 0,
+                "is_online": false
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 500.0,
+                "display_currency": "USD",
+                "display_price": "500.00",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 500.0,
+                "offer_group": "G1734447749388ZG",
+                "offer_id": "G1734447749388ZG",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Giantstalker's Bracers - Fast delivery",
+                "description": "Delivery on average takes 10-180 minutes. If I am offline then delivery takes 4-10 hours. We can deliver almost any item to any server in the game. Please write to me if you have any question.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54792"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 20,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 500,
+                "unit_price_in_usd": 500.0,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "1000306478",
+                "username": "Skillets",
+                "user_avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "seller_ranking": "2",
+                "user_level": 106,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1734447749388,
+                "updated_at": 1744492736368,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/1000306478_1679103467569.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "500.000000",
+                "online_datetime": 1753145332321,
+                "delivery_eta": 0,
+                "is_online": false
+            }
+        ]
+    },
+    "request_id": "e30389fb-b92c-4e60-837d-647e9a0a1e1f"
+}

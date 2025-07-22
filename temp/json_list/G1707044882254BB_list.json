@@ -1,0 +1,672 @@
+{
+    "code": 2000,
+    "messages": [],
+    "payload": {
+        "results": [
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.71457,
+                "display_currency": "USD",
+                "display_price": "0.71457",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.71,
+                "offer_group": "G1707044882254BB",
+                "offer_id": "G1707044882254BB",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniv.] ` Cured Rugged Hide ` Nightslayer - Horde - Real Stock - Safe and Instant Delivery",
+                "description": "Fastest delivery – 90% of orders arrive within an hour!\n\nWe can deliver almost any item to any server.\nDon’t see what you need? Message us!\n\nFor face-to-face trades, contact us in advance.\nMessage us before ordering for a smoother process.\nMost deliveries are instant, but some take 4–10 hours.\nOnline daily: 06:00–02:00 GMT (03:00–23:00 GMT+3)\nOvernight orders (EU time) are delivered in the morning when we're online.\n\nHave a great day!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54789"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail",
+                    "face_to_face_trade"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018",
+                    "cdab4aca-94da-4850-9666-96d48f23ae5c"
+                ],
+                "available_qty": 2025,
+                "reserved_qty": 0,
+                "min_qty": 4,
+                "offer_currency": "USD",
+                "unit_price": 0.71457,
+                "unit_price_in_usd": 0.71457,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 1,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 1,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5688923",
+                "username": "Allbestfory",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "seller_ranking": "6",
+                "user_level": 136,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1707044882254,
+                "updated_at": 1753129070365,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 1,
+                "avatar": "https://assets.g2g.com/user/avatar/5688923_1748113365361.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.71457",
+                "online_datetime": 1753170511291,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.7254,
+                "display_currency": "USD",
+                "display_price": "0.7254",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.73,
+                "offer_group": "G1748423815957SO",
+                "offer_id": "G1748423815957SO",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "✭20th Anniv✭Cured Rugged Hide✭Nightslayer - Horde",
+                "description": "cheap and fast",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54789"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9876432,
+                "reserved_qty": 0,
+                "min_qty": 4,
+                "offer_currency": "USD",
+                "unit_price": 0.7254,
+                "unit_price_in_usd": 0.7254,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10000,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "839764",
+                "username": "SunRise",
+                "user_avatar": "https://assets.g2g.com/user/avatar/839764_1679045230101.png?",
+                "seller_ranking": "6",
+                "user_level": 157,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1748423815975,
+                "updated_at": 1752287751629,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/839764_1679045230101.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.7254",
+                "online_datetime": 1753170484645,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.7955,
+                "display_currency": "USD",
+                "display_price": "0.7955",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.8,
+                "offer_group": "G1739484460425QE",
+                "offer_id": "G1739484460425QE",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniversary] Nightslayer Cured Rugged Hide",
+                "description": "1. Delivery by in-game Mail. \n2. ETA: 1-12 hrs guarantee. \n3. Msg me if you have any demand, we can do custom orders.\n\nAny question pls ask live chat",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54789"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 1000,
+                "reserved_qty": 0,
+                "min_qty": 2,
+                "offer_currency": "USD",
+                "unit_price": 0.7955,
+                "unit_price_in_usd": 0.7955,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10,
+                        "delivery_time": 10
+                    },
+                    {
+                        "min": 11,
+                        "max": 20,
+                        "delivery_time": 20
+                    },
+                    {
+                        "min": 21,
+                        "max": 30,
+                        "delivery_time": 30
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "3170131",
+                "username": "Thrall",
+                "user_avatar": "https://assets.g2g.com/user/avatar/3170131_1679052310003.jpg?",
+                "seller_ranking": "3",
+                "user_level": 111,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1739484460425,
+                "updated_at": 1752456187451,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/3170131_1679052310003.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.7955",
+                "online_datetime": 1753170404219,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 0.871402,
+                "display_currency": "USD",
+                "display_price": "0.871402",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 0.87,
+                "offer_group": "G1748436750217XO",
+                "offer_id": "G1748436750217XO",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Cured Rugged Hide",
+                "description": "Details\nDelivery will be completed in the shortest possible time from the moment of placing the order if there are no issues with the server's stability in the game. We will do it fast as possible, the average delivery time is 24 Hours. It can take up to 48 Hours (depending on Demand) or 7 DAYS if expansion is New.\nWe have a special Team only for the WOW Classic 20th Anniversary Items Section, with 10+ years of experience in this game, you are in the ideal place.\nBoostroom customer support is available 24/7 during the entire year.\n\nSPECIAL NOTE FOR BUYERS\n\nAll Items are Handmade and Legit, we are looking to provide the most quality and most reliable services. Any kind of Third-party system in our company is Forbidden.\n\n\nREQUIREMENTS\n\nPlease be careful when you are procuring orders, make sure you are buying that on the correct realm, and please provide the correct character name.\n\n\nABOUT BOOSTROOM (OUR TEAM)\n\nWe are a well organized and highly professional boosting group of top skilled players.\nAlmost 10 years of experience in helping our buyers to achieve desired things in games.\nOur goal is to provide and maintain top quality service and fair prices on the market.\n\n\nDISCOUNTS\n\nWe value and respect every returning customer.\nTherefore we often make a great discount to our loyal buyers.\nBuild relations and trust with BoostRoom for awesome deals and even better prices.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54789"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9000000,
+                "reserved_qty": 0,
+                "min_qty": 15,
+                "offer_currency": "EUR",
+                "unit_price": 0.727,
+                "unit_price_in_usd": 0.849617,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 10000,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "831656",
+                "username": "BoostRoom",
+                "user_avatar": "https://assets.g2g.com/user/avatar/831656_1736691700599.png",
+                "seller_ranking": "6",
+                "user_level": 153,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1748436750234,
+                "updated_at": 1748436750234,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/831656_1736691700599.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "0.727",
+                "online_datetime": 1753170448612,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 1.046299,
+                "display_currency": "USD",
+                "display_price": "1.05",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 1.05,
+                "offer_group": "G1733111160523FV",
+                "offer_id": "G1733111160523FV",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Cured Rugged Hide, 20th Anniversary US server Delivery!",
+                "description": "1.Will delivery you in game mail.\n2.Feel free to message me if you have any questions or requirements! 24/7 service!\n3.Some items are not listed due to list limit, message me if you don't find the item you need on my list.\n\n\nIf you don't find the item on the list, message me for price!",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54789"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 9999,
+                "reserved_qty": 0,
+                "min_qty": 10,
+                "offer_currency": "USD",
+                "unit_price": 1.046299,
+                "unit_price_in_usd": 1.046299,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "2634568",
+                "username": "rseoc",
+                "user_avatar": "https://assets.g2g.com/user/avatar/2634568_1679045231411.png?",
+                "seller_ranking": "2",
+                "user_level": 131,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1733111160523,
+                "updated_at": 1753111170504,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/2634568_1679045231411.png?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "1.046299",
+                "online_datetime": 1753170472046,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 1.24,
+                "display_currency": "USD",
+                "display_price": "1.24",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 1.24,
+                "offer_group": "G1741524306904ST",
+                "offer_id": "G1741524306904ST",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "Cured Rugged Hide | Nightslayer - Horde",
+                "description": "Delivery via in game mail.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54789"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 999999,
+                "reserved_qty": 0,
+                "min_qty": 4,
+                "offer_currency": "USD",
+                "unit_price": 1.24,
+                "unit_price_in_usd": 1.24,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "3954762",
+                "username": "DionysusGod",
+                "user_avatar": "https://assets.g2g.com/user/avatar/3954762_1730409177877.png",
+                "seller_ranking": "6",
+                "user_level": 142,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1741524306904,
+                "updated_at": 1741524306904,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/3954762_1730409177877.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "1.240000",
+                "online_datetime": 1753170456712,
+                "delivery_eta": 0,
+                "is_online": true
+            },
+            {
+                "total_offer": 1,
+                "converted_unit_price": 2.178,
+                "display_currency": "USD",
+                "display_price": "2.18",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 2.18,
+                "offer_group": "G1736324400960NO",
+                "offer_id": "G1736324400960NO",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[20th Anniversary] * Cured Rugged Hide - INSTANT DELIVERY",
+                "description": "The fastest delivery service, - 90% of orders are delivered within 1 I am offline then delivery takes 4-10 hours\nFor some items and servers, the delivery speed may be higher 12-24 hours\nWe can deliver almost any item to any server in the game.\nAll items are handmade. Without bots and audacity.",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34127"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_54789"
+                    }
+                ],
+                "filter_attributes": {},
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 99999,
+                "reserved_qty": 0,
+                "min_qty": 10,
+                "offer_currency": "USD",
+                "unit_price": 2.178,
+                "unit_price_in_usd": 2.178,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 0,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 0,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "3805367",
+                "username": "lvgame",
+                "user_avatar": "https://assets.g2g.com/user/avatar/3805367_1679045225999.jpg?",
+                "seller_ranking": "2",
+                "user_level": 97,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1736324400960,
+                "updated_at": 1752992608280,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "total_success_order": 0,
+                "avatar": "https://assets.g2g.com/user/avatar/3805367_1679045225999.jpg?",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "2.178000",
+                "online_datetime": 1753170342310,
+                "delivery_eta": 0,
+                "is_online": true
+            }
+        ]
+    },
+    "request_id": "638b3910-96c2-4fa2-821f-6bf3ae627b43"
+}

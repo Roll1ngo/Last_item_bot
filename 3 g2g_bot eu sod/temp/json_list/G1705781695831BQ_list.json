@@ -1,0 +1,105 @@
+{
+    "code": 2000,
+    "messages": [],
+    "payload": {
+        "results": [
+            {
+                "total_offer": 1,
+                "converted_unit_price": 45.41225,
+                "display_currency": "USD",
+                "display_price": "45.41",
+                "is_unique": true,
+                "is_group_display": false,
+                "score": 45.41,
+                "offer_group": "G1705781695831BQ",
+                "offer_id": "G1705781695831BQ",
+                "relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa",
+                "title": "[SOD] * Speedstone * Crusader Strike [US] - Alliance - INSTANT DELIVERY",
+                "description": "The fastest delivery service, - 90% of orders are delivered within one hour\n\nSometimes delivery takes 4-10 hours if very busy or not online. Online from 07:00 to 22:00 GMT. \nFor some items and servers, the delivery speed may be higher 12-24 hours\nWe can deliver almost any item to any server ingame, just let us know what item you need!\nAll items are handmade. Without bots and audacity.\nFrom Ukraine with love\nHave a nice day:)",
+                "offer_title_collection_tree": [
+                    "lgc_27816_item_type",
+                    "lgc_27816_platform"
+                ],
+                "primary_img_attributes": [],
+                "offer_attributes": [
+                    {
+                        "collection_id": "lgc_27816_item_type",
+                        "dataset_id": "lgc_27816_item_type_34126"
+                    },
+                    {
+                        "collection_id": "lgc_27816_platform",
+                        "dataset_id": "lgc_27816_platform_49642"
+                    }
+                ],
+                "filter_attributes": [],
+                "offer_group_attributes": {},
+                "delivery_mode": [
+                    "mail"
+                ],
+                "delivery_method_ids": [
+                    "270158ae-fc13-415c-a2ba-3c3f715c3018"
+                ],
+                "available_qty": 6,
+                "reserved_qty": 0,
+                "min_qty": 1,
+                "offer_currency": "USD",
+                "unit_price": 45.412249,
+                "unit_name": "",
+                "other_pricing": [],
+                "qty_metric": "1",
+                "wholesale_details": [],
+                "other_wholesale_details": [],
+                "delivery_speed": "manual",
+                "delivery_speed_details": [
+                    {
+                        "min": 1,
+                        "max": 1,
+                        "delivery_time": 10
+                    },
+                    {
+                        "min": 2,
+                        "max": 1000,
+                        "delivery_time": 60
+                    }
+                ],
+                "supported_countries": [],
+                "satisfaction_rate": 1,
+                "sales_territory_settings": {
+                    "settings_type": "global",
+                    "countries": []
+                },
+                "total_rating": 2,
+                "display_to": {},
+                "status": "live",
+                "seller_id": "5688923",
+                "username": "Allbestfory",
+                "user_avatar": "https://assets.g2g.com/user/avatar/5688923_1727081158254.png",
+                "seller_ranking": "5",
+                "user_level": 131,
+                "online_hr": 0,
+                "offline_hr": 0,
+                "created_at": 1705781695831,
+                "updated_at": 1735053497227,
+                "expired_at": 0,
+                "seller_updated_at": 0,
+                "is_official": false,
+                "cat_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "ancestor_id": "c508fb9f-a58e-4819-b815-c4684d8a2e70",
+                "lgc_products_id": "",
+                "is_bundle": false,
+                "lgc_category_id": "",
+                "avatar": "https://assets.g2g.com/user/avatar/5688923_1727081158254.png",
+                "description_images": [],
+                "decimal_places": 2,
+                "formatted_unit_price": "45.41",
+                "online_datetime": 1735070138764,
+                "delivery_eta": 0,
+                "is_online": true
+            }
+        ]
+    },
+    "request_id": "80a901ba-00a2-4981-b2cb-333637be1988"
+}

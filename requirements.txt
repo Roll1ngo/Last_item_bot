@@ -1,0 +1,14 @@
+certifi==2024.7.4
+charset-normalizer==3.3.2
+colorama==0.4.6
+coloredlogs==15.0.1
+greenlet==3.0.3
+humanfriendly==10.0
+idna==3.7
+loguru==0.7.2
+pyee==11.1.0
+PyYAML==6.0.2
+requests==2.32.3
+typing_extensions==4.12.2
+urllib3==2.2.2
+win32-setctime==1.1.0
