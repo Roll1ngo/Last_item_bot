@@ -7,16 +7,19 @@ from datetime import datetime
 import csv
 import time
 
-from functions.delete_temp_folders import delete_temp_folders_content
 from functions.load_config import get_config
 from functions.logger_config import logger
-from functions.authorization import start_file_check
 from price_calculate import general_patterns
+from dotenv import load_dotenv
 
+load_dotenv()
 config = get_config()
+
+
 if config:
     owner = config.get('owner')
     user_agent = config.get('user_agent')
+    platform = config.get('platform')
     pause_between_runs = config.get('pause_between_runs')
     delete_temp_folders = config.get('delete_temp_folders')
     test_mode_logs = config.get('test_mode_logs')
@@ -88,11 +91,6 @@ if config:
         logger.critical("Помилка завантаження конфігурації лімітів. Перевірте файл конфігурації.")
 else:
     logger.critical("Помилка завантаження конфігурації.")
-
-# Отримання мажорної версії браузера для заголовка
-search_match = re.search(r"Chrome/(\d+)", user_agent)
-major_version_chrome = search_match.group(1)
-logger.critical(F"major_version_chrome: {major_version_chrome}") if test_mode_logs else None
 
 # Визначення кольору для значення "unit_price" у логах
 RED = "\033[31m"
@@ -178,86 +176,65 @@ os.makedirs(json_list, exist_ok=True)
 
 
 def get_authorization():
-    start_file_check()
-
-    destination_file_path = os.path.join(os.getcwd(), "authorization.json")
-    with open(destination_file_path, "r") as file:
-        config_data = json.load(file)
-
-    authorization = config_data["Authorization"]
-    return authorization
-
-
-def get_offer_id():
-    # Читаємо файл з IDs товарів
-    all_data = []
-    with open("offer_id.csv", newline="") as csvfile:
-        csvreader = csv.reader(csvfile)
-        for row in csvreader:
-            all_data.append(row[0])
-    return all_data
+   return os.getenv('AUTH_TOKEN')
 
 
 # Отримуємо інформацію про товар
-def get_product(offers_id):
-    for offer_id in offers_id:
-        authorization = get_authorization()
-        logger.info(
-            f'_________________________________________________________________________________________________'
-            f'____')
+def get_product(owner_offer_info):
+    authorization = get_authorization()
+    offer_id = owner_offer_info.get('offer_id')
+    logger.info(
+        f'_________________________________________________________________________________________________'
+        f'____')
 
-        headers = {
-            "accept": "application/json, text/plain, */*",
-            "accept-language": "uk-UA,uk;q=0.9,en-US;q=0.8,en;q=0.7",
-            "origin": "https://www.g2g.com",
-            "priority": "u=1, i",
-            "referer": "https://www.g2g.com/",
-            "sec-ch-ua": f'"Not/A)Brand";v="8",'
-                         f' "Chromium";v={major_version_chrome}, "Google Chrome";v={major_version_chrome}',
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": '"Windows"',
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-site",
-            "user-agent": user_agent,
-        }
+    headers = {
+        "accept": "application/json, text/plain, */*",
+        "accept-language": "uk-UA,uk;q=0.9,en-US;q=0.8,en;q=0.7",
+        "origin": "https://www.g2g.com",
+        "priority": "u=1, i",
+        "referer": "https://www.g2g.com/",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": platform,
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-site",
+        "user-agent": user_agent,
+    }
 
-        params = {
-            "currency": "USD",
-            "country": "UA",
-            "include_out_of_stock": "1",
-            "include_inactive": "1",
-        }
-        url = "https://sls.g2g.com/offer/"
+    params = {
+        "currency": "USD",
+        "country": "UA",
+        "include_out_of_stock": "1",
+        "include_inactive": "1",
+    }
+    url = "https://sls.g2g.com/offer/"
 
-        response = get_response(url=url, offer_id=offer_id, headers=headers, params=params)
-        if response is None:
-            logger.error("Не вдалося підключитись до сервера. Спробуємо пізніше")
-            continue
+    response = get_response(url=url, offer_id=offer_id, headers=headers, params=params)
+    if response is None:
+        logger.error("Не вдалося підключитись до сервера. Спробуємо пізніше")
+        return None, None
+    data_json = response.json()
+    params = receiving_data(owner_offer_info, data_json)
 
-        data_json = response.json()
-        filename_all_data, filename_params, owner_offer_info = receiving_data(data_json)
+    if params is None or owner_offer_info is None:
+        return None, None
 
-        if filename_params is None or owner_offer_info is None:
-            continue
-
-        owner_offer_info['offer_id'] = offer_id
-        filename_list = get_list_product(filename_params)
-        if filename_list is None:
-            logger.critical(f"Не можемо отримати список продавців для товару {owner_offer_info['short_title']}")
-            continue
-        price_study(authorization, filename_list, owner_offer_info)
+    owner_offer_info['offer_id'] = offer_id
+    competitors_list = get_list_product(params, offer_id)
+    if competitors_list is None:
+        logger.critical(f"Не можемо отримати список продавців для товару {owner_offer_info['short_title']}")
+        return None, None
+    new_price, new_title = price_study(authorization, competitors_list, owner_offer_info)
+    return new_price, new_title
 
 
 # Парсимо інформацію про конкурентів з API
-def receiving_data(data):
+def receiving_data(owner_offer_info, data):
     try:
         json_data = data["payload"]
         offer_id = json_data["offer_id"]
-        unit_price = json_data["unit_price"]
         title = json_data["title"]
 
-        owner_offer_info = find_pattern(title)
         if owner_offer_info is None:
             return None, None, None
         q = owner_offer_info['short_title']
@@ -275,30 +252,18 @@ def receiving_data(data):
         collection_id = filter_attr_row["collection_id"]
         dataset_id = filter_attr_row["dataset_id"]
         filter_attr = f"{collection_id}:{dataset_id}"
-        all_data = {
-            "offer_id": offer_id,
-            "unit_price": unit_price,
-        }
         params = {
             "seo_term": seo_term,
             "region_id": region_id,
             "q": q,
             "filter_attr": filter_attr,
         }
-        filename_all_data = os.path.join(json_product, f"{offer_id}_all_data.json")
 
-        with open(filename_all_data, "w", encoding="utf-8") as f:
-            json.dump(all_data, f, ensure_ascii=False, indent=4)
-
-        filename_params = os.path.join(json_product, f"{offer_id}_params.json")
-
-        if filename_params is None:
+        if params is None:
             logger.critical(f"Перевірити {offer_id}!!!")
 
-        with open(filename_params, "w", encoding="utf-8") as f:
-            json.dump(params, f, ensure_ascii=False, indent=4)
 
-        return filename_all_data, filename_params, owner_offer_info
+        return params
 
     except KeyError as e:
         logger.critical(f"Перевір товар: відсутній ключ {e}")
@@ -343,7 +308,7 @@ def define_offer_type(title):
 
 
 # Отримуємо список конкурентів
-def get_list_product(filename_params):
+def get_list_product(params, identifier):
     # authorization = get_authorization()
     headers = {
         "accept": "application/json, text/plain, */*",
@@ -352,8 +317,6 @@ def get_list_product(filename_params):
         "origin": "https://www.g2g.com",
         "priority": "u=1, i",
         "referer": "https://www.g2g.com/",
-        "sec-ch-ua": f'"Not/A)Brand";v="8",'
-                     f' "Chromium";v={major_version_chrome}, "Google Chrome";v={major_version_chrome}',
         "sec-ch-ua-mobile": "?0",
         "sec-ch-ua-platform": '"Windows"',
         "sec-fetch-dest": "empty",
@@ -361,10 +324,6 @@ def get_list_product(filename_params):
         "sec-fetch-site": "same-site",
         "user-agent": user_agent,
     }
-    filename = filename_params.split("\\")[-1]  # Отримуємо останню частину шляху
-    identifier = filename.split("_")[0]  # Розділяємо по '_' та беремо першу частину
-    with open(filename_params, encoding="utf-8") as f:
-        params = json.load(f)
 
     # Додаємо параметри для формування url
     params["page_size"] = 48
@@ -381,22 +340,14 @@ def get_list_product(filename_params):
         logger.critical("Немає відповіді сервера. Ідемо далі")
         return None
     if response.status_code == 200:
-        json_data = response.json()
-        filename_list = os.path.join(json_list, f"{identifier}_list.json")
-
-        with open(filename_list, "w", encoding="utf-8") as f:
-            json.dump(json_data, f, ensure_ascii=False, indent=4)
-
-        return filename_list
+        return response.json()
     else:
         logger.error(f"Помилка при отриманні списку конкурентів: {response.status_code}")
         return None
 
 
 # Завантажуємо інформацію про конкурентів
-def price_study(authorization, filename_list, owner_offer_info):
-    filename = filename_list.split("\\")[-1]  # Отримуємо останню частину шляху
-    identifier = filename.split("_")[0]  # Розділяємо по '_' та беремо першу частину
+def price_study(data, owner_offer_info):
 
     owner_offer_id = owner_offer_info['offer_id']
     owner_short_title = owner_offer_info['short_title']
@@ -408,9 +359,6 @@ def price_study(authorization, filename_list, owner_offer_info):
         else ignore_competitors_for_other_patterns
 
     try:
-        with open(filename_list, encoding="utf-8") as f:
-            data = json.load(f)
-
         payload = data.get("payload", {})
         results = payload.get("results", [])
 
@@ -474,11 +422,11 @@ def price_study(authorization, filename_list, owner_offer_info):
 
         if len(competitors) < 2:
             logger.warning(f"Список продавців порожній на товар {owner_short_title}")
-            return
+            return None, None
 
         if owner_exist_flag is False:
             logger.warning(f" Онови сток на товар {competitor_title}")
-            return
+            return None, None
 
         owner_info = competitors['owner_offer_info']
         owner_position = owner_info['position']
@@ -520,32 +468,28 @@ def price_study(authorization, filename_list, owner_offer_info):
 
         except Exception as e:
             logger.critical(f"Помилка при зміні патерну {e}")
-            return
+            return None, None
         new_price = general_patterns(competitors)  # Визначаємо поведінку ціни
 
         if isinstance(new_price, str):
             logger.info(new_price)
             if new_title:
-                price_change_request(authorization, identifier,
-                                     owner_price, owner_short_title, price_before_update, new_title)
-            return
+                return None, 'new_title'
+            return None, None
 
         elif isinstance(new_price, (int, float)):
-            price_change_request(authorization, identifier, new_price,
-                                 owner_short_title, price_before_update, new_title)
+            return  new_price, 'new_title'
 
         elif isinstance(new_price, dict):
             if "warning" in new_price:
                 warning_message = new_price["warning"]
                 logger.critical(f"{warning_message}")
-                return
+                return None, None
 
             elif "critical" in new_price:
                 critical_message = new_price["critical"]
                 logger.critical(f"{critical_message}")
-                return
-    except FileNotFoundError:
-        logger.critical(f"Файл {filename_list} не знайдено.")
+                return None, None
     except json.JSONDecodeError:
         logger.critical("Помилка декодування JSON.")
     except Exception as e:
@@ -557,46 +501,48 @@ def price_study(authorization, filename_list, owner_offer_info):
 def price_change_request(authorization, identifier, new_price, owner_short_title, price_before_update, new_title=None):
 
     new_price = round(new_price, 6)
-    headers = {
-        "accept": "application/json, text/plain, */*",
-        "accept-language": "uk-UA,uk;q=0.9,en-US;q=0.8,en;q=0.7",
-        "authorization": authorization,
-        "content-type": "application/json",
-        "priority": "u=1, i",
-        "user-agent": user_agent,
-    }
-    if new_title:
-        json_data = {
-            "unit_price": new_price,
-            "seller_id": "5688923",
-            "title": new_title
-        }
-    else:
-        json_data = {
-            "unit_price": new_price,
-            "seller_id": "5688923"
-        }
-
-    logger.info(f"json_data: {json_data}") if test_mode_logs else None
-
-    response = requests.put(
-        f"https://sls.g2g.com/offer/{identifier}", headers=headers, json=json_data
-    )
-
-    if response.status_code != 200:
-        now = datetime.now()
-        formatted_datetime = now.strftime("%H:%M:%S %d.%m.%Y")
-        logger.critical(f"Перевір товар {owner_short_title} за {identifier}")
-        logger.critical(f"{response.status_code} не вдалось відправити оновлені ціни"
-                        f" на {owner_short_title} в {formatted_datetime}")
-        logger.critical("ОНОВИ authorization !!!!!")
-
-    else:
-        logger.CHANGE_PRICE(f"Ціна змінена для {owner_short_title} з"
-                            f" {RED}{price_before_update}{RESET}"
-                            f" на {RED}{new_price}{RESET}") if test_mode_logs else None
-
-
+    logger.info(f"new_price: {new_price}, new_title: {new_title}")
+    input("Для продовження натисніть Enter")
+#     headers = {
+#         "accept": "application/json, text/plain, */*",
+#         "accept-language": "uk-UA,uk;q=0.9,en-US;q=0.8,en;q=0.7",
+#         "authorization": authorization,
+#         "content-type": "application/json",
+#         "priority": "u=1, i",
+#         "user-agent": user_agent,
+#     }
+#     if new_title:
+#         json_data = {
+#             "unit_price": new_price,
+#             "seller_id": "5688923",
+#             "title": new_title
+#         }
+#     else:
+#         json_data = {
+#             "unit_price": new_price,
+#             "seller_id": "5688923"
+#         }
+#
+#     logger.info(f"json_data: {json_data}") if test_mode_logs else None
+#
+#     response = requests.put(
+#         f"https://sls.g2g.com/offer/{identifier}", headers=headers, json=json_data
+#     )
+#
+#     if response.status_code != 200:
+#         now = datetime.now()
+#         formatted_datetime = now.strftime("%H:%M:%S %d.%m.%Y")
+#         logger.critical(f"Перевір товар {owner_short_title} за {identifier}")
+#         logger.critical(f"{response.status_code} не вдалось відправити оновлені ціни"
+#                         f" на {owner_short_title} в {formatted_datetime}")
+#         logger.critical("ОНОВИ authorization !!!!!")
+#
+#     else:
+#         logger.CHANGE_PRICE(f"Ціна змінена для {owner_short_title} з"
+#                             f" {RED}{price_before_update}{RESET}"
+#                             f" на {RED}{new_price}{RESET}") if test_mode_logs else None
+#
+#
 def get_response(url=None, offer_id=None, full_url=None, headers=None, params=None):
     if full_url:
         target_url = full_url
@@ -706,17 +652,4 @@ def define_new_title_and_owner_info(owner_offer_info):
 #     return float(coefficient)
 
 
-if __name__ == "__main__":
 
-    while True:
-        logger.info(f"Починаємо роботу, кількість товарів для обробки: {len(get_offer_id())}")
-        # list_offer_id = ['G1707831706525MW']
-        list_offer_id = get_offer_id()
-
-        get_product(list_offer_id)
-
-        delete_temp_folders_content() if delete_temp_folders else False
-
-        logger.info(f"Закінчили, продовжимо через {pause_between_runs} секунд")
-
-        time.sleep(pause_between_runs)

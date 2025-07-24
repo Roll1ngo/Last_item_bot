@@ -92,8 +92,6 @@ ignore_competitors_for_other_patterns: ["ProPerfect", "DungeonBud"] #
 
 ignore_words: ["Recipe:", "Plans:", "Schematic:", "Formula:", "Pattern:"]
 
-user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-
 log_colors:
   info: 'cyan'  # блакитний для звичайного тексту
   change_price: 'yellow'  # користувацький рівень для рядків зі зміненою ціною
@@ -105,4 +103,11 @@ log_colors:
   module: 'magenta'  #  для модуля
   funcName: 'green'  # для функції
   linenumber: 'magenta'  # для номера рядка
+
+user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+platform: "Linux x86_64"
+
+api_retries: 5
+api_retry_delay: 1
+config_minimal_purchase_qty: 2
 

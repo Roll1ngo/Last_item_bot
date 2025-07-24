@@ -1,10 +1,14 @@
+from pathlib import Path
+
 import yaml
 
+
+CONFIG_PATH = Path(__file__).parent.parent / "config.yaml"
 
 def get_config():
     """Завантажує конфігурацію з YAML файлу."""
     try:
-        with open('config.yaml', 'r', encoding='utf-8') as f:
+        with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
             config = yaml.safe_load(f)
         return config
     except FileNotFoundError:
