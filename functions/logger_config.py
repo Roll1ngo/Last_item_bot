@@ -66,6 +66,7 @@ file_handler = logging.handlers.RotatingFileHandler(
 file_formatter = logging.Formatter(
     '\033[38;5;214m%(asctime)s - \033[38;5;226m%(levelname)s -'  # Yellow-orange for time and level
         ' %(module)s.\033[32m%(funcName)s\033[38;5;214m:%(lineno)d -'  # Green for functions
+        ' \033[38;5;45m[Thread:%(thread)d]\033[0m -'  # Додано номер потоку (блакитний)
         ' \033[38;5;75m%(message)s\033[0m',)
 file_handler.setFormatter(file_formatter)
 
@@ -79,7 +80,7 @@ sys.stderr = open(sys.stderr.fileno(), mode='w', encoding='utf-8', buffering=1)
 # Налаштування логування
 coloredlogs.install(
     level='INFO',
-    fmt='%(asctime)s - %(levelname)s - %(module)s.%(funcName)s:%(lineno)d - %(message)s',
+    fmt='%(asctime)s - %(levelname)s - %(module)s.%(funcName)s:%(lineno)d - [Thread:%(thread)d] - %(message)s',
     datefmt='%H:%M:%S',
     level_styles={
         'info': {'color': info},  # Use 'cyan' for INFO
@@ -94,6 +95,8 @@ coloredlogs.install(
         'module': {'color': module},  # для модуля
         'funcName': {'color': funcName},  # для функції
         'lineno': {'color': linenumber},  # для номера рядка
+        'thread': {'color': 'cyan'},  # Додано стиль для номера потоку
+
     }
 )
 

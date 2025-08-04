@@ -15,7 +15,6 @@ from functions.load_config import get_config
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 env_path = Path(__file__).resolve().parent / '.env'
-logger.info(f"env_path: {env_path}")
 
 config = get_config()
 USER_AGENT = config.get('user_agent')

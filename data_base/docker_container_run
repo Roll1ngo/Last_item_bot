@@ -1,0 +1,1 @@
+docker run --name item_bot -e POSTGRES_USER=Roll1ng -e POSTGRES_PASSWORD=some_pass -e POSTGRES_DB=parameters -p 5432:5432 -d postgres:15-alpine

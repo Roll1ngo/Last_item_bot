@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    container_name: item_bot_app
+    env_file:
+      - authorization/.env
+    depends_on:
+      - db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # ось ця строка
+    command: python main.py  # заміни на свій стартовий файл
+    restart: unless-stopped
+
+  db:
+    image: postgres:15
+    container_name: item_bot_db
+    env_file:
+      - authorization/.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    restart: unless-stopped
+
+volumes:
+  pgdata:

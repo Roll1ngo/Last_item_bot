@@ -1,96 +1,92 @@
-top_minimal:   
+top_minimal:
   asterisk: 1000                   # (*)   (все вище без знаку - ✓/↟)
-  star: 588.34769                  # (★)
-  double_percent: 441.67642        # (%%)  
-  white_diamond: 328.52389         # (◇)   
-  chess_pawn: 238.09599            # (♙)    
-  dollar: 180.00708                # ($)   
-  vertical_bar: 136.47385          # (|)  
-  chess_bishop_black: 96.90712     # (♝)   
-  caret: 73.98952                  # (^)    
-  degree: 58.16463                 # (°)  
-  dotted_circle: 44.80215          # (◌)  
-  ball_number_one: 34.93667        # (❶)   
-  square: 26.68295                 # (□)    
-  equality: 20.59000               # (=)   
-  down_arrow: 18.28               # (▼)   
-  double_cross: 16.03500           # (╬)   
-  chess_rook_black: 14.7        # (♜)  
-  double_arrow: 13.45           # (⇔)   
-  circled_one: 11.75            # (①)  
-  triangle: 10.45               # (∆)  
-  square_with_round_corners: 9.3 # (▣)  
-  up_arrow: 8.1                # (↑)   
-  square_with_triangle: 7.42921    # (◩)  
-  diamond: 6.6                 # (◊)
-  half_circle_right: 5.7       # (◐)    
-  chess_bishop: 4.78107            # (♗)   
-  hash: 4.08438                    # (#)   
-  chess_rook: 3.35              # (♖)    
-  chess_queen: 2.75             # (♕)   
-  chess_knight_black: 2.33      # (♞)   
-  chess_king: 1.85              # (♔)   
-  black_circle: 1.47911            # (●)   
-  chess_queen_black: 1.15230       # (♛)   
-  bullseye: 0.95807                # (◉)    
-  chess_knight: 0.75810            # (♘)    
-  diamond_with_plus: 0.55       # (◈)    
-  heart: 0.44                  # (♡)    
-  backtick: 0.28                # (`)    
-  black_diamond: 0.22           # (◆)   
-  double_underscore: 0.125       # (__)   
-  white_star: 0.081              # (☆)    
-  four_pointed_star: 0.055       # (✦)   
-  tilde: 0.044                   # (~)    
-  ampersand: 0.028               # (&)    
-  sun: 0.022                     # (☼)    
-  flower: 0.0125                  # (❊)    
-  double_exclamation: 0.00855      # (!!)   
-  chess_king_black: 0.0055        # (♚)    
-  diamond_with_dot: 0.003        # (❖)   
-  plus: 0.0008                    # (+)
-
-# Free patterns
-
-
-
-
+  star: 553.57676                  # (★)
+  double_percent: 414.60363       # (%%)
+  white_diamond: 306.02717        # (◇)
+  chess_pawn: 224.16311           # (♙)
+  dollar: 167.81687               # ($)
+  vertical_bar: 127.52963         # (|)
+  chess_bishop_black: 91.471      # (♝)
+  caret: 69.549                   # (^)
+  degree: 54.126                  # (°)
+  dotted_circle: 42.195           # (◌)
+  ball_number_one: 32.786         # (❶)
+  square: 25.5304                 # (□)
+  diamond_with_dot: 20.855        # (❖)
+  equality: 18.8665               # (=)
+  down_arrow: 16.6355             # (▼)
+  double_cross: 15.132            # (╬)
+  chess_rook_black: 13.7255       # (♜)
+  double_arrow: 12.222            # (⇔)
+  circled_one: 10.864             # (①)
+  triangle: 9.603                 # (∆)
+  square_with_round_corners: 8.5845  # (▣)
+  up_arrow: 7.5175                # (↑)
+  square_with_triangle: 6.79      # (◩)
+  diamond: 6.111                  # (◊)
+  half_circle_right: 5.2865       # (◐)
+  chess_bishop: 4.5105            # (♗)
+  hash: 3.7345                    # (#)
+  chess_rook: 3.0555              # (♖)
+  chess_queen: 2.4929             # (♕)
+  chess_knight_black: 2.0855      # (♞)
+  chess_king: 1.6684              # (♔)
+  black_circle: 1.3289            # (●)
+  chess_queen_black: 1.067       # (♛)
+  bullseye: 0.75                 # (◉)
+  chess_knight: 0.61            # (♘)
+  diamond_with_plus: 0.5        # (◈)
+  heart: 0.35                   # (♡)
+  backtick: 0.25                # (`)
+  black_diamond: 0.16           # (◆)
+  double_underscore: 0.1       # (__)
+  white_star: 0.061             # (☆)
+  four_pointed_star: 0.05       # (✦)
+  tilde: 0.035                  # (~)
+  ampersand: 0.025              # (&)
+  sun: 0.016                    # (☼)
+  flower: 0.01                 # (❊)
+  double_exclamation: 0.007     # (!!)
+  chess_king_black: 0.004       # (♚)
+  plus: 0.0008                  # (+)
 
 
 default_limit: 0
 
 threshold_price_for_percentage_change: 30  # $  
-change_percents_before_threshold: 0.3  # %
-change_percents_after_threshold: 0.2  # %
+change_percents_before_threshold: 0.4  # %
+change_percents_after_threshold: 0.3  # %
 
 
 pause_between_runs: 0 # seconds
 
 
-min_difference_percent_to_reduce_the_price_between_first_and_second: 15 # percents % Мінімальна відсоткова різниця для підтягування 
-max_difference_percent_to_reduce_the_price_between_first_and_second: 100 # percents % Максимальна відсоткова різниця для підтягування 
-min_max_change_first_position : 1.0  #  % на скільки відсотків ціна першого місця буде менша за друге після підтягування 
+min_difference_percent_to_reduce_the_price_between_first_and_second: 5 # percents % Мінімальна відсоткова різниця для підтягування 
+max_difference_percent_to_reduce_the_price_between_first_and_second: 70 # percents % Максимальна відсоткова різниця для підтягування 
+min_max_change_first_position : 0.5  #  % на скільки відсотків ціна першого місця буде менша за друге після підтягування 
 
-one_percent_reduce_percent_difference: 301 # percents % Різниця у відсотках з другим місцем на непопулярний товар
+one_percent_reduce_percent_difference: 201 # percents % Різниця у відсотках з другим місцем на непопулярний товар
 reduce_price_non_popular_item : 0.01  #  % На скільки відсотків зменшится ціна на непопулярний товар
 
-position_for_change_pattern_if_owner_price_over_limit: 12
-position_for_change_pattern_if_owner_price_under_limit: 11
+position_for_change_pattern_if_owner_price_over_limit: 20
+position_for_change_pattern_if_owner_price_under_limit: 19
 
-max_limit_price_for_pull: 399  # $
+max_limit_price_for_pull: 499  # $
 
 
-delete_temp_folders: True #  Delete temp folders after each full run to offer_id.'False' or 'True' for change option
+delete_temp_folders: False #  Delete temp folders after each full run to offer_id.'False' or 'True' for change option
 
-test_mode_logs: False  # Extend logs mode. True or False for change mode
+test_mode_logs: False # Extend logs mode. True or False for change mode
 
 owner : "Allbestfory"
 
-ignore_competitors_for_asterisk: ["BogOdin_EG", "play1ife", "Mipa", "haihei", "lvgame", "ProPerfect", "DungeonBud", "Thrall", "FFXIVGilShop", "CNLTeam", "Haliber", "SunRise", "DionysusGod", "BoostRoom", "Exloot", "elmagnifico"] #
-ignore_competitors_for_other_patterns: ["ProPerfect", "DungeonBud"] #
-
+ignore_competitors_for_asterisk: ["BogOdin_EG", "play1ife", "Mipa", "DealHub", "PVPGOLD", "GGsSellers", "haihei", "lvgame", "Antic23", "ProPerfect", "DungeonBud", "Thrall", "FFXIVGilShop", "CNLTeam", "Haliber", "SunRise", "DionysusGod", "BoostRoom", "Exloot", "elmagnifico"] #
+ignore_competitors_for_other_patterns: ["ProPerfect", "HandFarm"] #
+ 
 
 ignore_words: ["Recipe:", "Plans:", "Schematic:", "Formula:", "Pattern:"]
+
+user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
 log_colors:
   info: 'cyan'  # блакитний для звичайного тексту
@@ -104,10 +100,10 @@ log_colors:
   funcName: 'green'  # для функції
   linenumber: 'magenta'  # для номера рядка
 
-user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
-platform: "Linux x86_64"
-
-api_retries: 5
-api_retry_delay: 1
+delay_minutes_between_cycles: 5
+platform: "Linux"
+seller_id: "5688923"
+threads_quantity: 20
 config_minimal_purchase_qty: 2
+
 
