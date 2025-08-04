@@ -27,6 +27,11 @@ from functions.logger_config import logger
 from functions.util_functions import calculate_percent_difference, \
     get_pull_indicator  # Переконайтеся, що ця функція існує і працює
 
+try:
+    db.create_all_tables()
+    logger.info("Таблиці бази даних перевірено/створено.")
+except Exception as e:
+    logger.error(f"Не вдалося створити таблиці: {e}")
 
 class OfferProcessor:
     def __init__(self, offers_folder_path: str = 'source_offers_xlsx', output_folder_name: str = 'updated_offers_xlsx'):
@@ -680,7 +685,7 @@ class OfferProcessor:
                                             f" з {self.red}{unit_price}{self.reset} до {self.red}{new_price}{self.reset}."
                                             f" Різниця з позицією {position_competitor_for_pull}"
                                             f" продавця {pull_competitor_username} становила {price_difference_percent} %"
-                                            f" для ціни {self.red}{pull_competitor_price}{self.reset}")
+                                            f" для ціни {self.red}{pull_competitor_price}{self.reset}") if self.test_mode_logs else None
                         return new_price
 
                     else:
@@ -1074,8 +1079,8 @@ class OfferProcessor:
                         full_df.to_excel(writer, sheet_name='Offers', index=False, header=False)
 
                     #Завантажуємо оновлений Excel файл на g2g
-                    self.upload_exel_file(output_file_path)
-                    self.logger.info(f"  Файл '{output_file_path.name}' завантажено на G2G.")
+                  #  self.upload_exel_file(output_file_path)
+                   # self.logger.info(f"  Файл '{output_file_path.name}' завантажено на G2G.")
 
                     time.sleep(2)
 
