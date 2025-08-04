@@ -1,6 +1,7 @@
 import asyncio
 import concurrent.futures
 import json
+import math
 import sys
 import time
 import os
@@ -1059,7 +1060,7 @@ class OfferProcessor:
 
                                 if new_price > 0 and (
                                         new_price * table_min_purchase_qty) < self.config_minimal_purchase_qty:
-                                    new_min_purchase_qty = self.config_minimal_purchase_qty / new_price
+                                    new_min_purchase_qty = math.ceil(self.config_minimal_purchase_qty / new_price)
                                     full_df.iloc[original_index, min_purchase_qty_idx] = float(new_min_purchase_qty)
                                     self.logger.info(
                                         f"Змінена мінімальна кількість покупки до {new_min_purchase_qty:.0f} для Offer ID {offer_id}")
@@ -1079,8 +1080,8 @@ class OfferProcessor:
                         full_df.to_excel(writer, sheet_name='Offers', index=False, header=False)
 
                     #Завантажуємо оновлений Excel файл на g2g
-                  #  self.upload_exel_file(output_file_path)
-                   # self.logger.info(f"  Файл '{output_file_path.name}' завантажено на G2G.")
+                    self.upload_exel_file(output_file_path)
+                    self.logger.info(f"  Файл '{output_file_path.name}' завантажено на G2G.")
 
                     time.sleep(2)
 
