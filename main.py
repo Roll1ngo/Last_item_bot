@@ -514,7 +514,7 @@ class OfferProcessor:
             new_price_result = self.general_patterns(competitors)
 
             if isinstance(new_price_result, str):
-                self.logger.info(f"[{owner_offer_id}] {new_price_result}")
+                self.logger.info(f"[{owner_offer_id}] {new_price_result}") if self.test_mode_logs else None
                 return None, new_title
             elif isinstance(new_price_result, (int, float)):
                 new_price = new_price_result
@@ -703,7 +703,8 @@ class OfferProcessor:
                 new_price = unit_price * (1 - (change_price_coefficient / 100))
                 new_price = round(new_price, 6)
                 logger.CHANGE_PRICE(f"Перебиваємо {user_name} позиції {position},  на товар {short_title}"
-                                    f" з {self.red}{previous_price}{self.reset} на {self.red}{new_price}{self.reset}")
+                                    f" з {self.red}{previous_price}{self.reset}"
+                                    f" на {self.red}{new_price}{self.reset}") if self.test_mode_logs else None
 
                 logger.info(
                     f"Ціна конкурента__{self.red}{unit_price}{self.reset}, відсоток перебиття__{change_price_coefficient} %"
