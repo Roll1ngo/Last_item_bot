@@ -283,9 +283,6 @@ class OfferProcessor:
         """Отримує інформацію про товар, включаючи нову ціну та назву."""
         offer_id = owner_offer_info.get('offer_id')
 
-        self.logger.info(
-            f'[{offer_id}] _____________________________________________________________________________________________________')
-
         params = {
             "currency": "USD",
             "country": "UA",
@@ -357,7 +354,8 @@ class OfferProcessor:
                                      f" Параметри отримано з бази даних.") if self.test_mode_logs else None
                     return parameter_dict
                 else:
-                    self.logger.info(f"[{offer_id}] Параметри не знайдено в базі даних.")
+                    self.logger.info(f"[{offer_id}]"
+                                     f" Параметри не знайдено в базі даних.") if self.test_mode_logs else None
                     return None
         except Exception as e:
             self.logger.error(f"[{offer_id}] Помилка при отриманні параметрів з БД: {e}", exc_info=True)
@@ -380,7 +378,8 @@ class OfferProcessor:
                         filter_attribute=params.get('filter_attr'),
                     )
                     session.add(new_parameter)
-                    self.logger.info(f"[{offer_id}] Параметри успішно записано до БД.")
+                    self.logger.info(f"[{offer_id}]"
+                                     f" Параметри успішно записано до БД.") if self.test_mode_logs else None
                 session.commit()
         except IntegrityError as e:
             self.logger.warning(f"[{offer_id}] Запис вже існує або порушено унікальний ключ: {e}")
@@ -768,7 +767,7 @@ class OfferProcessor:
             if not params:
                 self.logger.critical(f"[{offer_id}] Не вдалося отримати параметри з API.")
                 return None
-            self.logger.info(f"[{offer_id}] Параметри успішно отримано з API.")
+            self.logger.info(f"[{offer_id}] Параметри успішно отримано з API.") if self.test_mode_logs else None
             # --- Запис у БД відбувається ОДРАЗУ тут ---
             self.record_params_to_db(offer_id, params)
 
