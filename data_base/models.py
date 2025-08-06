@@ -3,8 +3,6 @@ from sqlalchemy import Column, Integer, String, DateTime, Index
 
 from data_base.base import Base
 
-
-
 class OffersParameters(Base):
     __tablename__ = 'offers_parameters'
 
