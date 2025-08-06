@@ -6,6 +6,7 @@ import sys
 import time
 import os
 import re
+import zipfile
 
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -18,7 +19,7 @@ from dotenv import load_dotenv
 from requests.exceptions import RequestException
 from sqlalchemy.exc import IntegrityError
 
-from authorization.auth_token_from_sls import token_refresh_scheduler_direct
+from authorization.auth_token_from_sls import token_refresh_scheduler_direct, TokenManager
 
 from data_base.models import OffersParameters
 from data_base.connection import db  # Імпортуємо db екземпляр
@@ -35,10 +36,12 @@ except Exception as e:
     logger.error(f"Не вдалося створити таблиці: {e}")
 
 class OfferProcessor:
-    def __init__(self, offers_folder_path: str = 'source_offers_xlsx', output_folder_name: str = 'updated_offers_xlsx'):
+    def __init__(self, offers_folder_path: str = 'source_offers', output_folder_name: str = 'updated_offers_xlsx'):
         self._env_path = Path(__file__).parent / "authorization" / ".env"
         load_dotenv(dotenv_path=self._env_path)
         self.config = get_config()
+        self.token_manager = TokenManager()
+
 
         self.logger = logger
         if not self.config:
@@ -49,7 +52,6 @@ class OfferProcessor:
         self.output_folder = Path(__file__).resolve().parent.joinpath(output_folder_name)
         self.red = "\033[31m"
         self.reset = "\033[0m"
-        self.authorization_token = os.getenv("AUTH_TOKEN")
         self.db = db
         self._session = None
 
@@ -58,6 +60,13 @@ class OfferProcessor:
         self._initialize_patterns()
         self._initialize_headers()
         self._initialize_requests_session()
+        self._initialize_relations_ids()
+
+    def _initialize_relations_ids(self):
+        relations_ids_path = Path(__file__).resolve().parent.joinpath("utils/relations_ids.json")
+        with open(relations_ids_path, "r", encoding="utf-8") as file:
+            self.relations_ids = json.load(file)
+        logger.info(f"Relations IDs loaded from {self.relations_ids}")
 
     def _load_config_parameters(self):
         """Завантажує всі параметри конфігурації в атрибути класу."""
@@ -111,11 +120,14 @@ class OfferProcessor:
             "sec-fetch-site": "same-site",
             "user-agent": self.user_agent
         }
-        self.contain_auth_headers = self.base_headers.copy()
-        self.contain_auth_headers["authorization"] = self.authorization_token
+
         self.s3_headers = self.base_headers.copy()
         self.s3_headers["Accept-Encoding"] = "gzip, deflate, br, zstd"
 
+    def auth_headers(self):
+        headers_with_auth = self.base_headers.copy()
+        headers_with_auth["authorization"] = self.token_manager.get_token()
+        return headers_with_auth
 
 
     def _initialize_requests_session(self):
@@ -386,7 +398,7 @@ class OfferProcessor:
 
 
         response = self.fetch_from_api_with_retry(url=base_url,
-                                                  headers=self.contain_auth_headers,
+                                                  headers=self.auth_headers(),
                                                   payload=params)
         if response is None:
             self.logger.critical(f"[{offer_id}] Немає відповіді сервера при отриманні списку конкурентів.")
@@ -790,7 +802,9 @@ class OfferProcessor:
                                   files=None,
                                   data=None,
                                   http_method="GET",
-                                  request_name=None):
+                                  request_name=None,
+                                  api_retries=None,
+                                  api_retry_delay=None):
         logger.info(f"headers: {headers}") if self.test_mode_logs else None
         """
         Синхронна функція для виконання HTTP-запитів з повторними спробами
@@ -804,7 +818,9 @@ class OfferProcessor:
         :param delay: Затримка між спробами (секунди)
         :return: Кортеж (результат, статус код) або (None, None) при помилці
         """
-        for attempt in range(self.api_retries):
+        api_retries = self.api_retries if api_retries is None else api_retries
+        api_retry_delay = self.api_retry_delay if api_retry_delay is None else api_retry_delay
+        for attempt in range(api_retries):
             try:
                 response = self._session.request(
                     method=http_method,
@@ -826,12 +842,23 @@ class OfferProcessor:
                     self.logger.info(f"Успішна відповідь (204 No Content) від {url}")
                     return response  # Негайно повертаємо відповідь, оскільки немає тіла для декодування
 
-                print(f"Спроба {attempt + 1}/{self.api_retries}: HTTP {response.status_code} - {response.text}")
+                elif request_name == 'bulk_export_init' and response.status_code == 400:
+                    response_json = response.json()
+                    for message in response_json.get('messages', []):
+                        if message.get('code') == 11027:
+                            self.logger.warning("Процес експорту вже ініційовано. Повертаємо відповідь.")
+                            return response
+
+                elif response.status_code == 400 and request_name == 'download_exel_files':
+                    # Це очікувана поведінка, якщо файл ще не готовий. Просто чекаємо.
+                    self.logger.warning(f"Файл ще не готовий. Відповідь 404. Чекаємо {api_retry_delay} секунд.")
+                    time.sleep(api_retry_delay)
+                print(f"Спроба {attempt + 1}/{api_retries}: HTTP {response.status_code} - {response.text}")
 
             except RequestException as e:
-                print(f"Спроба {attempt + 1}/{self.api_retries}: Помилка з'єднання - {str(e)}")
+                print(f"Спроба {attempt + 1}/{api_retries}: Помилка з'єднання - {str(e)}")
 
-            time.sleep(self.api_retry_delay * (attempt + 1))  # Прогресівна затримка
+            time.sleep(api_retry_delay * (attempt + 1))  # Прогресівна затримка
 
 
     def upload_exel_file(self,file_path:Path):
@@ -858,7 +885,7 @@ class OfferProcessor:
 
             self.logger.info(f"Крок 1/4: Запит на URL завантаження: {get_upload_url}")
             response_get_url = self.fetch_from_api_with_retry(url=get_upload_url,
-                                                              headers=self.contain_auth_headers,
+                                                              headers=self.auth_headers(),
                                                               payload=get_upload_url_params)
             response_get_url.raise_for_status()  # Викличе виняток для статусів 4xx/5xx
             response_get_url_json = response_get_url.json()  # Парсимо JSON відповідь
@@ -899,7 +926,6 @@ class OfferProcessor:
             self.logger.error(f"Помилка читання файлу '{file_path}': {e}")
             return False
 
-        # Підготовка даних для multipart/form-data
         # Об'єднуємо всі поля з s3_fields та сам файл в один словник для параметра 'files'
         s3_post_data = {}
         for field_name, field_value in upload_fields.items():
@@ -936,12 +962,11 @@ class OfferProcessor:
             "action": "update_offer",
             "display_file_name": file_path.name,
             "uploaded_file_name": uploaded_file_name,
-            # relation_id не передається тут, оскільки він не був у прикладі payload для цього запиту
         }
 
         response_bulk_import = self.fetch_from_api_with_retry(
             url=bulk_import_endpoint,
-            headers=self.contain_auth_headers,
+            headers=self.auth_headers(),
             payload=payload_bulk_import,
             http_method="POST"
         )
@@ -959,141 +984,217 @@ class OfferProcessor:
                              f"Response:{response_bulk_import.json()}"
                              f" Статус_код: {response_bulk_import.status_code}")
 
+    def download_exel_files(self, game_alias, parameters):
+        #Надсилаємо запит на отримання експорту
+        logger.warning(f"Починаємо завантаження {game_alias}")
+        relation_id = parameters.get('relation_id')
+        url_bulk_export = "https://sls.g2g.com/offer/seller/5688923/bulk_export"
+        payload_bulk_export = {
+            "offer_status": "live",
+            "out_of_stock": False,
+            "relation_id": relation_id
+        }
+
+        response_bulk_export = self.fetch_from_api_with_retry(url=url_bulk_export,
+                                                  headers=self.auth_headers(),
+                                                  payload=payload_bulk_export,
+                                                  request_name='bulk_export_init',
+                                                  http_method="POST",
+                                                 )
+        # Перевіряємо успішний статус 200
+        if response_bulk_export.status_code == 200:
+            self.logger.info("Масовий експорт успішно ініційовано.")
+
+        time.sleep(20) if response_bulk_export.status_code != 400 else time.sleep(1)
+
+        # Формуємо правильний URL
+        download_url = (f"https://sls.g2g.com/offer/seller/{self.seller_id}/"
+                        f"exported_offers/{relation_id}")
+
+        # Надсилаємо запит
+        download_url_response = self.fetch_from_api_with_retry(url=download_url,
+                                                  headers=self.auth_headers(),
+                                                  request_name='download_exel_files')
+
+        if download_url_response.status_code == 200:
+            self.logger.info("Файл експорту успішно згенеровано! Завантажуємо...")
+
+            try:
+                download_data = download_url_response.json()
+                s3_download_url = download_data['payload']['result']
+
+                # Завантажуємо файл безпосередньо з S3 за отриманим посиланням
+                final_file_response = requests.get(s3_download_url)
+
+                if final_file_response.status_code == 200:
+                    os.makedirs(self.offers_folder, exist_ok=True)
+                    os.makedirs(self.offers_folder.joinpath("archives"), exist_ok=True)
+                    os.makedirs(self.offers_folder.joinpath("unpacked exels"), exist_ok=True)
+                    archive_path = self.offers_folder.joinpath("archives") / f"{game_alias}.zip"
+                    # Зберігаємо файл
+                    with open(archive_path, 'wb') as f:
+                        f.write(final_file_response.content)
+                    self.logger.info(f"Файл {archive_path} успішно завантажено.")
+                    # --- Розпакування архіву ---
+                    unpacked_dir = self.offers_folder.joinpath("unpacked exels", game_alias)
+                    os.makedirs(unpacked_dir, exist_ok=True)
+
+                    try:
+                        with zipfile.ZipFile(archive_path, 'r') as zip_ref:
+                            zip_ref.extractall(unpacked_dir)
+                        self.logger.info(f"Архів {archive_path} успішно розпаковано до {unpacked_dir}.")
+                    except zipfile.BadZipFile:
+                        self.logger.error(f"Помилка: Файл {archive_path} не є дійсним ZIP-архівом.")
+                    except Exception as e:
+                        self.logger.error(f"Помилка при розпакуванні архіву {archive_path}: {e}")
+                    # --- Кінець розпакування ---
+
+                else:
+                    self.logger.error(
+                        f"Не вдалося завантажити файл з S3. Статус: {final_file_response.status_code}")
+                    raise ConnectionError
+
+
+            except (KeyError, json.JSONDecodeError) as e:
+                self.logger.error(f"Помилка при обробці відповіді API: {e}")
+                return False
+
+        return unpacked_dir
 
 
     def process_offers(self):
-        self.logger.info(f"Offers folder: {self.offers_folder}")
-
-        if not self.offers_folder.is_dir():
-            self.logger.error(f"Помилка: Папка '{self.offers_folder}' не знайдена.")
-            return
-
-        if self.output_folder.exists() and any(self.output_folder.iterdir()):
-            target_folder = self.output_folder
-        else:
-            target_folder = self.offers_folder
-
-        self.logger.info(f"Target folder: {target_folder}")
-
+        self.token_manager.token_ready_event.wait()
+        files_paths = {"panda_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_us",
+         "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
+         "era_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us",
+         "era_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_eu"
+         }
         while True:
-            self.logger.info(f"Початок нового циклу обробки файлів у '{target_folder}'.")
-            # Збираємо список файлів для обробки, щоб уникнути проблем з ітератором
-            # та мати можливість обробляти їх в порядку або повторно
-            excel_files = sorted([f for f in target_folder.iterdir() if f.suffix == '.xlsx'])
+            for game_alias, parameters in self.relations_ids.items():
+                # exels_file_path = self.download_exel_files(game_alias, parameters)
+                exels_file_path = Path(files_paths.get(game_alias, None))
+                if exels_file_path is None:
+                    self.logger.error(f"Помилка: Папка для обробки '{game_alias}' не знайдена.")
 
-            if not excel_files:
-                self.logger.warning(f"У папці '{target_folder}' не знайдено файлів Excel для обробки. Очікування...")
-                continue  # Починаємо наступну ітерацію зовнішнього циклу
 
-            for file_path in excel_files:
-                self.logger.info(f"\nОбробка файлу: {file_path.name}")
-                try:
-                    full_df = pd.read_excel(file_path, sheet_name='Offers', engine='openpyxl', header=None)
-                    header_row_index = 4
+                self.logger.info(f"Початок нового циклу обробки файлів у '{exels_file_path}'.")
+                # Збираємо список файлів для обробки, щоб уникнути проблем з ітератором та мати можливість обробляти їх в порядку або повторно
 
-                    if header_row_index >= len(full_df):
-                        self.logger.error(f"Файл '{file_path.name}' має замало рядків. Пропускаємо.")
-                        continue
 
-                    columns = full_df.iloc[header_row_index].tolist()
-                    data_df = full_df[header_row_index + 1:].copy()
-                    data_df.columns = columns
-                    data_df.columns = data_df.columns.str.strip()
+                excel_files = sorted([f for f in exels_file_path.iterdir() if f.suffix == '.xlsx'])
 
-                    required_columns = ['Offer ID', 'Unit Price', 'Title', 'Min. Purchase Qty']
-                    if not all(col in data_df.columns for col in required_columns):
-                        missing_cols = [col for col in required_columns if col not in data_df.columns]
-                        self.logger.warning(
-                            f"  Помилка: Не знайдено необхідні колонки {missing_cols} у файлі '{file_path.name}'. Пропускаємо.")
-                        self.logger.info(f"  Доступні колонки у даних: {data_df.columns.tolist()}")
-                        continue
+                if not excel_files:
+                    self.logger.warning(f"У папці '{excel_files}' не знайдено файлів Excel для обробки. Очікування...")
+                    continue  # Починаємо наступну ітерацію зовнішнього циклу
 
+                for file_path in excel_files:
+                    self.logger.info(f"\nОбробка файлу: {file_path.name}")
                     try:
-                        price_col_idx = data_df.columns.get_loc('Unit Price')
-                        min_purchase_qty_idx = data_df.columns.get_loc('Min. Purchase Qty')
-                        title_col_idx = data_df.columns.get_loc('Title')
-                    except KeyError as e:
-                        self.logger.error(f"  Не вдалося знайти колонку у файлі '{file_path.name}': {e}. Пропускаємо.")
-                        continue
+                        full_df = pd.read_excel(file_path, sheet_name='Offers', engine='openpyxl', header=None)
+                        header_row_index = 4
 
-                    tasks = []
-                    for original_index, row_data in data_df.iterrows():
-                        tasks.append((original_index, row_data.to_dict()))
+                        if header_row_index >= len(full_df):
+                            self.logger.error(f"Файл '{file_path.name}' має замало рядків. Пропускаємо.")
+                            continue
 
-                    processed_results = []
+                        columns = full_df.iloc[header_row_index].tolist()
+                        data_df = full_df[header_row_index + 1:].copy()
+                        data_df.columns = columns
+                        data_df.columns = data_df.columns.str.strip()
 
-                    if not tasks:
-                        self.logger.info(f"  У файлі '{file_path.name}' немає рядків даних для обробки. Пропускаємо.")
-                        continue
+                        required_columns = ['Offer ID', 'Unit Price', 'Title', 'Min. Purchase Qty']
+                        if not all(col in data_df.columns for col in required_columns):
+                            missing_cols = [col for col in required_columns if col not in data_df.columns]
+                            self.logger.warning(
+                                f"  Помилка: Не знайдено необхідні колонки {missing_cols} у файлі '{file_path.name}'. Пропускаємо.")
+                            self.logger.info(f"  Доступні колонки у даних: {data_df.columns.tolist()}")
+                            continue
 
-                    with concurrent.futures.ThreadPoolExecutor(max_workers=self.threads_quantity) as executor:
-                        future_to_index = {
-                            executor.submit(self._process_single_offer, index, data): index
-                            for index, data in tasks
-                        }
+                        try:
+                            price_col_idx = data_df.columns.get_loc('Unit Price')
+                            min_purchase_qty_idx = data_df.columns.get_loc('Min. Purchase Qty')
+                            title_col_idx = data_df.columns.get_loc('Title')
+                        except KeyError as e:
+                            self.logger.error(f"  Не вдалося знайти колонку у файлі '{file_path.name}': {e}. Пропускаємо.")
+                            continue
 
-                        for future in concurrent.futures.as_completed(future_to_index):
-                            try:
-                                result = future.result()
-                                if result:
-                                    processed_results.append(result)
-                            except Exception as inner_e:
-                                self.logger.error(
-                                    f"  Помилка при обробці окремої пропозиції у файлі '{file_path.name}': {inner_e}",
-                                    exc_info=True)
+                        tasks = []
+                        for original_index, row_data in data_df.iterrows():
+                            tasks.append((original_index, row_data.to_dict()))
 
-                    # --- Послідовне оновлення DataFrame ---
-                    if processed_results:  # Перевіряємо, чи є результати для обробки
-                        processed_results.sort(key=lambda x: x['original_index'])
+                        processed_results = []
 
-                        for result_data in processed_results:
-                            original_index = result_data['original_index']
-                            offer_id = result_data['offer_id']
-                            original_unit_price = result_data['original_unit_price']
-                            original_title = result_data['original_title']
-                            table_min_purchase_qty = result_data['table_min_purchase_qty']
-                            new_price = result_data['new_price']
-                            new_title = result_data['new_title']
+                        if not tasks:
+                            self.logger.info(f"  У файлі '{file_path.name}' немає рядків даних для обробки. Пропускаємо.")
+                            continue
 
-                            if new_price is not None:
-                                full_df.iloc[original_index, price_col_idx] = float(new_price)
+                        with concurrent.futures.ThreadPoolExecutor(max_workers=self.threads_quantity) as executor:
+                            future_to_index = {
+                                executor.submit(self._process_single_offer, index, data): index
+                                for index, data in tasks
+                            }
 
-                                if new_price > 0 and (
-                                        new_price * table_min_purchase_qty) < self.config_minimal_purchase_qty:
-                                    new_min_purchase_qty = math.ceil(self.config_minimal_purchase_qty / new_price)
-                                    full_df.iloc[original_index, min_purchase_qty_idx] = float(new_min_purchase_qty)
+                            for future in concurrent.futures.as_completed(future_to_index):
+                                try:
+                                    result = future.result()
+                                    if result:
+                                        processed_results.append(result)
+                                except Exception as inner_e:
+                                    self.logger.error(
+                                        f"  Помилка при обробці окремої пропозиції у файлі '{file_path.name}': {inner_e}",
+                                        exc_info=True)
+
+                        # --- Послідовне оновлення DataFrame ---
+                        if processed_results:  # Перевіряємо, чи є результати для обробки
+                            processed_results.sort(key=lambda x: x['original_index'])
+
+                            for result_data in processed_results:
+                                original_index = result_data['original_index']
+                                offer_id = result_data['offer_id']
+                                original_title = result_data['original_title']
+                                table_min_purchase_qty = result_data['table_min_purchase_qty']
+                                new_price = result_data['new_price']
+                                new_title = result_data['new_title']
+
+                                if new_price is not None:
+                                    full_df.iloc[original_index, price_col_idx] = float(new_price)
+
+                                    if new_price > 0 and (
+                                            new_price * table_min_purchase_qty) < self.config_minimal_purchase_qty:
+                                        new_min_purchase_qty = math.ceil(self.config_minimal_purchase_qty / new_price)
+                                        full_df.iloc[original_index, min_purchase_qty_idx] = float(new_min_purchase_qty)
+                                        self.logger.info(
+                                            f"Змінена мінімальна кількість покупки до {new_min_purchase_qty:.0f} для Offer ID {offer_id}")
+
+                                if new_title is not None:
+                                    full_df.iloc[original_index, title_col_idx] = str(new_title)
                                     self.logger.info(
-                                        f"Змінена мінімальна кількість покупки до {new_min_purchase_qty:.0f} для Offer ID {offer_id}")
+                                        f"{self.red}Оновлено Offer ID {offer_id}: Назва з '{original_title}' на '{new_title}'{self.reset}")
+                        else:
+                            self.logger.info(f"  Немає оновлених пропозицій для файлу '{file_path.name}'.")
 
-                            if new_title is not None:
-                                full_df.iloc[original_index, title_col_idx] = str(new_title)
-                                self.logger.info(
-                                    f"{self.red}Оновлено Offer ID {offer_id}: Назва з '{original_title}' на '{new_title}'{self.reset}")
-                    else:
-                        self.logger.info(f"  Немає оновлених пропозицій для файлу '{file_path.name}'.")
+                        self.output_folder.mkdir(parents=True, exist_ok=True)
+                        output_file_path = self.output_folder / file_path.name  # Це перезапише файл
+                        self.logger.info(f"Збереження оновленого файлу як: {output_file_path.name}")
 
-                    self.output_folder.mkdir(parents=True, exist_ok=True)
-                    output_file_path = self.output_folder / file_path.name  # Це перезапише файл
-                    self.logger.info(f"Збереження оновленого файлу як: {output_file_path.name}")
+                        with pd.ExcelWriter(output_file_path, engine='openpyxl') as writer:
+                            full_df.to_excel(writer, sheet_name='Offers', index=False, header=False)
 
-                    with pd.ExcelWriter(output_file_path, engine='openpyxl') as writer:
-                        full_df.to_excel(writer, sheet_name='Offers', index=False, header=False)
+                        #Завантажуємо оновлений Excel файл на g2g
+                        self.upload_exel_file(output_file_path)
+                        self.logger.info(f"  Файл '{output_file_path.name}' завантажено на G2G.")
 
-                    #Завантажуємо оновлений Excel файл на g2g
-                    self.upload_exel_file(output_file_path)
-                    self.logger.info(f"  Файл '{output_file_path.name}' завантажено на G2G.")
+                        time.sleep(2)
 
-                    time.sleep(2)
-
-                except Exception as e:
-                    self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
-                                      exc_info=True)
-                finally:
-                    pass
+                    except Exception as e:
+                        self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
+                                          exc_info=True)
+                    finally:
+                        pass
 
             # --- Пауза між повними проходами по всіх файлах ---
             self.logger.info(
-                f"Завершено обробку всіх файлів у '{target_folder}'. Очікування {self.delay_seconds_between_cycles} секунд перед новим циклом.")
+                f"Завершено обробку всіх файлів. Очікування {self.delay_seconds_between_cycles} секунд перед новим циклом.")
             time.sleep(self.delay_seconds_between_cycles)
 
 
@@ -1107,7 +1208,8 @@ async def main():
     # Це дозволяє їй працювати у фоновому потоці, не блокуючи asyncio event loop.
     with ThreadPoolExecutor(max_workers=1) as executor:
         # Запускаємо token_refresh_scheduler_direct як асинхронне завдання
-        token_task = loop.create_task(token_refresh_scheduler_direct())
+        token_task = loop.create_task(token_refresh_scheduler_direct(TokenManager()))
+
 
         # Запускаємо offer_processor.process_offers() в окремому потоці через executor
         # Ми можемо передавати параметри в конструктор OfferProcessor, якщо потрібно
@@ -1122,8 +1224,6 @@ async def main():
         except asyncio.CancelledError:
             # Обробляємо скасування завдань, якщо основний цикл завершується
             pass
-
-
 
 
 def run_offer_processor():
@@ -1144,12 +1244,12 @@ def run_offer_processor():
         else:
             print("OfferProcessor: Отримано сигнал завершення. Вихід.")
         raise  # Перевикидаємо, щоб основний цикл міг це обробити
-    # except Exception as e:
-    #     if offer_processor_instance is not None:
-    #         offer_processor_instance.logger.error(f"Помилка при обробці OfferProcessor: {e}", exc_info=True)
-    #     else:
-    #        print(f"Неочікувана помилка в run_offer_processor до ініціалізації: {e}", file=sys.stderr)
-    #     raise  # Перевикидаємо, щоб основний цикл міг це обробити
+    except Exception as e:
+        if offer_processor_instance is not None:
+            offer_processor_instance.logger.error(f"Помилка при обробці OfferProcessor: {e}", exc_info=True)
+        else:
+           print(f"Неочікувана помилка в run_offer_processor до ініціалізації: {e}", file=sys.stderr)
+        raise  # Перевикидаємо, щоб основний цикл міг це обробити
 
 
 if __name__ == '__main__':
@@ -1160,6 +1260,6 @@ if __name__ == '__main__':
         # або під час ініціалізації asyncio.run.
         print("\nПрограму перервано користувачем (Ctrl+C). Завершення.", file=sys.stderr)
         sys.exit(0)
-    # except Exception as e:
-    #     print(f"\nКритична помилка програми: {e}", file=sys.stderr)
-    #     sys.exit(1)
+    except Exception as e:
+        print(f"\nКритична помилка програми: {e}", file=sys.stderr)
+        sys.exit(1)

@@ -1,6 +1,4 @@
-# data_base/connection.py
 import os
-import sys
 from pathlib import Path
 
 from sqlalchemy import create_engine
@@ -9,7 +7,6 @@ from sqlalchemy.orm import sessionmaker, Session
 from functions.load_config import get_config
 from functions.logger_config import logger
 from dotenv import load_dotenv
-from data_base.models import OffersParameters
 from data_base.base import Base
 
 env_path = Path(__file__).parent.parent / "authorization" / ".env"

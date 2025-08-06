@@ -3,13 +3,11 @@ import os
 import json
 from urllib.parse import urlencode
 import re
-from datetime import datetime
-import csv
 import time
 
 from functions.load_config import get_config
 from functions.logger_config import logger
-from price_calculate import general_patterns
+from utils.price_calculate import general_patterns
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -502,7 +500,6 @@ def price_change_request(authorization, identifier, new_price, owner_short_title
 
     new_price = round(new_price, 6)
     logger.info(f"new_price: {new_price}, new_title: {new_title}")
-    input("Для продовження натисніть Enter")
 #     headers = {
 #         "accept": "application/json, text/plain, */*",
 #         "accept-language": "uk-UA,uk;q=0.9,en-US;q=0.8,en;q=0.7",

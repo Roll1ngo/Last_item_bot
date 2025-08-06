@@ -5,11 +5,9 @@ services:
     env_file:
       - authorization/.env
     depends_on:
-      - db
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # ось ця строка
-    command: python main.py  # заміни на свій стартовий файл
+      db:
+        condition: service_healthy
+    command: python main.py
     restart: unless-stopped
 
   db:
@@ -17,11 +15,22 @@ services:
     container_name: item_bot_db
     env_file:
       - authorization/.env
+    environment:
+      POSTGRES_DB: parameters
+      POSTGRES_USER: Roll1ng  # Add this line
+      POSTGRES_PASSWORD: some_pass  # Add this line
     volumes:
+      - ./init_data.sql:/docker-entrypoint-initdb.d/init_data.sql
+      - ./offers_parameters.csv:/docker-entrypoint-initdb.d/offers_parameters.csv  # Додано
       - pgdata:/var/lib/postgresql/data
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   pgdata:

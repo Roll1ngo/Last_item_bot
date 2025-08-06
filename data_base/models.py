@@ -23,3 +23,15 @@ class OffersParameters(Base):
         return (f"<Parameter(id={self.id}, offer_id='{self.offer_id}', "
                 f"seo_term='{self.seo_term}', region_id='{self.region_id}')>")
 
+
+class AuthParameters(Base):
+    __tablename__ = 'auth_parameters'
+    id = Column(String, primary_key=True, default="main_auth_record") # Використовуємо фіксований ID для єдиного запису
+    access_token = Column(String, nullable=True)
+    refresh_token = Column(String, nullable=True)
+    active_device_token = Column(String, nullable=True)
+    long_lived_token = Column(String, nullable=True)
+    last_updated = Column(DateTime, default=datetime.now, onupdate=datetime.now)
+
+    def __repr__(self):
+        return f"<AuthParameters(id='{self.id}', access_token='{self.access_token[:10]}...')>"
