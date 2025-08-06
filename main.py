@@ -1049,12 +1049,12 @@ class OfferProcessor:
                     except Exception as e:
                         self.logger.error(f"Помилка при розпакуванні архіву {archive_path}: {e}")
                     # --- Кінець розпакування ---
-
                 else:
                     self.logger.error(
                         f"Не вдалося завантажити файл з S3. Статус: {final_file_response.status_code}")
                     raise ConnectionError
-
+                # Видалення експорту з G2G
+                self.delete_export(relation_id)
 
             except (KeyError, json.JSONDecodeError) as e:
                 self.logger.error(f"Помилка при обробці відповіді API: {e}")
@@ -1062,6 +1062,23 @@ class OfferProcessor:
 
         return unpacked_dir
 
+    def delete_export(self, relation_id):
+        delete_export_url = "https://sls.g2g.com/offer/task_status?"
+        params = {
+            "relation_id": relation_id,
+            "seller_id": self.seller_id,
+            "task_name": "bulk_export_offer"
+        }
+        delete_export_response = self.fetch_from_api_with_retry(url=delete_export_url,
+                                                  headers=self.auth_headers(),
+                                                  payload=params,
+                                                  request_name='delete_export',
+                                                  http_method="DELETE")
+        if delete_export_response.status_code == 200:
+            logger.info(f"delete_export_response: {delete_export_response.json()}")
+            self.logger.info("Експорт успішно видалено.")
+        else:
+            self.logger.error(f"Помилка при видаленні експорту. Статус: {delete_export_response.status_code}")
 
     def process_offers(self):
         self.token_manager.token_ready_event.wait()
