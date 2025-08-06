@@ -348,7 +348,7 @@ class OfferProcessor:
                         "seo_term": parameter.seo_term,
                         "region_id": parameter.region_id,
                         "q": owner_offer_info.get('short_title'),
-                        "filter_attribute": parameter.filter_attribute,
+                        "filter_attr": parameter.filter_attribute,
                     }
                     self.logger.info(f"[{offer_id}]"
                                      f" Параметри отримано з бази даних.") if self.test_mode_logs else None
@@ -737,11 +737,6 @@ class OfferProcessor:
             pass
 
     def _process_single_offer(self, original_index: int, row_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
-        """
-        Допоміжний метод для обробки одного товару в окремому потоці.
-        Виконує API-запити, запис у БД та розрахунок ціни/назви.
-        Повертає словник з даними для оновлення Excel.
-        """
         offer_id = row_data['Offer ID']
         unit_price = row_data['Unit Price']
         title = row_data['Title']
@@ -761,14 +756,13 @@ class OfferProcessor:
         params = self.get_params_from_db(owner_offer_info)
 
         if params:
-            self.logger.info(f"[{offer_id}] Параметри отримано з БД.") if self.test_mode_logs else None
+            self.logger.info(f"[{offer_id}] Параметри отримано з БД. Params: {params}") if self.test_mode_logs else None
         else:
             params = self.get_params_from_api(owner_offer_info)
             if not params:
                 self.logger.critical(f"[{offer_id}] Не вдалося отримати параметри з API.")
                 return None
             self.logger.info(f"[{offer_id}] Параметри успішно отримано з API.") if self.test_mode_logs else None
-            # --- Запис у БД відбувається ОДРАЗУ тут ---
             self.record_params_to_db(offer_id, params)
 
         competitors_list = self.get_list_competitors(params, offer_id)
@@ -777,6 +771,21 @@ class OfferProcessor:
                 f"[{offer_id}] Не можемо отримати список продавців для товару {owner_offer_info['short_title']}.")
             return None
 
+        # 🔁 Перевірка: чи є поточний offer_id в списку results
+        offer_ids = [item.get("offer_id") for item in competitors_list.get("payload", {}).get("results", [])]
+        if offer_id not in offer_ids:
+            self.logger.warning(
+                f"[{offer_id}] Поточний offer_id відсутній у списку конкурентів. Отримуємо нові параметри.")
+            params = self.get_params_from_api(owner_offer_info)
+            logger.info(f"Api params: {params}")
+            if not params:
+                self.logger.critical(f"[{offer_id}] Повторно не вдалося отримати параметри з API.")
+                return None
+            self.record_params_to_db(offer_id, params)
+            competitors_list = self.get_list_competitors(params, offer_id)
+            if competitors_list is None:
+                self.logger.critical(f"[{offer_id}] Повторно не вдалося отримати список конкурентів.")
+                return None
 
         new_price, new_title = self.price_study(competitors_list, owner_offer_info)
 
@@ -853,6 +862,10 @@ class OfferProcessor:
                     self.logger.warning(f"Файл ще не готовий. Відповідь {response.status_code}."
                                         f" Чекаємо {api_retry_delay} секунд.")
                     time.sleep(api_retry_delay)
+                elif response.status_code == 404 and request_name == 'delete_export':
+                    self.logger.warning(f"Нема замовленого експорту для цього регіону")
+                    return
+
                 print(f"Спроба {attempt + 1}/{api_retries}: HTTP {response.status_code} - {response.text}")
 
             except RequestException as e:
@@ -988,6 +1001,10 @@ class OfferProcessor:
         #Надсилаємо запит на отримання експорту
         logger.warning(f"Починаємо завантаження {game_alias}")
         relation_id = parameters.get('relation_id')
+
+        #Видаляємо попередньо замовлені експорти
+        self.delete_export(relation_id)
+
         url_bulk_export = "https://sls.g2g.com/offer/seller/5688923/bulk_export"
         payload_bulk_export = {
             "offer_status": "live",
@@ -1073,6 +1090,9 @@ class OfferProcessor:
                                                   payload=params,
                                                   request_name='delete_export',
                                                   http_method="DELETE")
+        if delete_export_response is None:
+            return
+
         if delete_export_response.status_code == 200:
             logger.info(f"delete_export_response: {delete_export_response.json()}")
             self.logger.info("Експорт успішно видалено.")
@@ -1089,125 +1109,126 @@ class OfferProcessor:
         while True:
             for game_alias, parameters in self.relations_ids.items():
                 exels_file_path = self.download_exel_files(game_alias, parameters)
+                # exels_file_path = Path("/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_us")
                 logger.warning(f"exels_file_path  {exels_file_path}")
-                # if exels_file_path is None:
-                #     self.logger.error(f"Помилка: Папка для обробки '{game_alias}' не знайдена.")
-                #
-                #
-                # self.logger.info(f"Початок нового циклу обробки файлів у '{exels_file_path}'.")
-                # # Збираємо список файлів для обробки, щоб уникнути проблем з ітератором та мати можливість обробляти їх в порядку або повторно
-                #
-                #
-                # excel_files = sorted([f for f in exels_file_path.iterdir() if f.suffix == '.xlsx'])
-                #
-                # if not excel_files:
-                #     self.logger.warning(f"У папці '{excel_files}' не знайдено файлів Excel для обробки. Очікування...")
-                #     continue  # Починаємо наступну ітерацію зовнішнього циклу
-                #
-                # for file_path in excel_files:
-                #     self.logger.info(f"\nОбробка файлу: {file_path.name}")
-                #     try:
-                #         full_df = pd.read_excel(file_path, sheet_name='Offers', engine='openpyxl', header=None)
-                #         header_row_index = 4
-                #
-                #         if header_row_index >= len(full_df):
-                #             self.logger.error(f"Файл '{file_path.name}' має замало рядків. Пропускаємо.")
-                #             continue
-                #
-                #         columns = full_df.iloc[header_row_index].tolist()
-                #         data_df = full_df[header_row_index + 1:].copy()
-                #         data_df.columns = columns
-                #         data_df.columns = data_df.columns.str.strip()
-                #
-                #         required_columns = ['Offer ID', 'Unit Price', 'Title', 'Min. Purchase Qty']
-                #         if not all(col in data_df.columns for col in required_columns):
-                #             missing_cols = [col for col in required_columns if col not in data_df.columns]
-                #             self.logger.warning(
-                #                 f"  Помилка: Не знайдено необхідні колонки {missing_cols} у файлі '{file_path.name}'. Пропускаємо.")
-                #             self.logger.info(f"  Доступні колонки у даних: {data_df.columns.tolist()}")
-                #             continue
-                #
-                #         try:
-                #             price_col_idx = data_df.columns.get_loc('Unit Price')
-                #             min_purchase_qty_idx = data_df.columns.get_loc('Min. Purchase Qty')
-                #             title_col_idx = data_df.columns.get_loc('Title')
-                #         except KeyError as e:
-                #             self.logger.error(f"  Не вдалося знайти колонку у файлі '{file_path.name}': {e}. Пропускаємо.")
-                #             continue
-                #
-                #         tasks = []
-                #         for original_index, row_data in data_df.iterrows():
-                #             tasks.append((original_index, row_data.to_dict()))
-                #
-                #         processed_results = []
-                #
-                #         if not tasks:
-                #             self.logger.info(f"  У файлі '{file_path.name}' немає рядків даних для обробки. Пропускаємо.")
-                #             continue
-                #
-                #         with concurrent.futures.ThreadPoolExecutor(max_workers=self.threads_quantity) as executor:
-                #             future_to_index = {
-                #                 executor.submit(self._process_single_offer, index, data): index
-                #                 for index, data in tasks
-                #             }
-                #
-                #             for future in concurrent.futures.as_completed(future_to_index):
-                #                 try:
-                #                     result = future.result()
-                #                     if result:
-                #                         processed_results.append(result)
-                #                 except Exception as inner_e:
-                #                     self.logger.error(
-                #                         f"  Помилка при обробці окремої пропозиції у файлі '{file_path.name}': {inner_e}",
-                #                         exc_info=True)
-                #
-                #         # --- Послідовне оновлення DataFrame ---
-                #         if processed_results:  # Перевіряємо, чи є результати для обробки
-                #             processed_results.sort(key=lambda x: x['original_index'])
-                #
-                #             for result_data in processed_results:
-                #                 original_index = result_data['original_index']
-                #                 offer_id = result_data['offer_id']
-                #                 original_title = result_data['original_title']
-                #                 table_min_purchase_qty = result_data['table_min_purchase_qty']
-                #                 new_price = result_data['new_price']
-                #                 new_title = result_data['new_title']
-                #
-                #                 if new_price is not None:
-                #                     full_df.iloc[original_index, price_col_idx] = float(new_price)
-                #
-                #                     if new_price > 0 and (
-                #                             new_price * table_min_purchase_qty) < self.config_minimal_purchase_qty:
-                #                         new_min_purchase_qty = math.ceil(self.config_minimal_purchase_qty / new_price)
-                #                         full_df.iloc[original_index, min_purchase_qty_idx] = float(new_min_purchase_qty)
-                #                         self.logger.info(
-                #                             f"Змінена мінімальна кількість покупки до {new_min_purchase_qty:.0f} для Offer ID {offer_id}")
-                #
-                #                 if new_title is not None:
-                #                     full_df.iloc[original_index, title_col_idx] = str(new_title)
-                #                     self.logger.info(
-                #                         f"{self.red}Оновлено Offer ID {offer_id}: Назва з '{original_title}' на '{new_title}'{self.reset}")
-                #         else:
-                #             self.logger.info(f"  Немає оновлених пропозицій для файлу '{file_path.name}'.")
-                #
-                #         self.output_folder.mkdir(parents=True, exist_ok=True)
-                #         output_file_path = self.output_folder / file_path.name  # Це перезапише файл
-                #         self.logger.info(f"Збереження оновленого файлу як: {output_file_path.name}")
-                #
-                #         with pd.ExcelWriter(output_file_path, engine='openpyxl') as writer:
-                #             full_df.to_excel(writer, sheet_name='Offers', index=False, header=False)
-                #
-                #         #Завантажуємо оновлений Excel файл на g2g
-                #         self.upload_exel_file(output_file_path)
-                #         self.logger.info(f"  Файл '{output_file_path.name}' завантажено на G2G.")
-                #
-                #         time.sleep(2)
-                #
-                #     except Exception as e:
-                #         self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
-                #                           exc_info=True)
-                #     finally:
-                #         pass
+                if exels_file_path is None:
+                    self.logger.error(f"Помилка: Папка для обробки '{game_alias}' не знайдена.")
+
+
+                self.logger.info(f"Початок нового циклу обробки файлів у '{exels_file_path}'.")
+                # Збираємо список файлів для обробки, щоб уникнути проблем з ітератором та мати можливість обробляти їх в порядку або повторно
+
+
+                excel_files = sorted([f for f in exels_file_path.iterdir() if f.suffix == '.xlsx'])
+
+                if not excel_files:
+                    self.logger.warning(f"У папці '{excel_files}' не знайдено файлів Excel для обробки. Очікування...")
+                    continue  # Починаємо наступну ітерацію зовнішнього циклу
+
+                for file_path in excel_files:
+                    self.logger.info(f"\nОбробка файлу: {file_path.name}")
+                    try:
+                        full_df = pd.read_excel(file_path, sheet_name='Offers', engine='openpyxl', header=None)
+                        header_row_index = 4
+
+                        if header_row_index >= len(full_df):
+                            self.logger.error(f"Файл '{file_path.name}' має замало рядків. Пропускаємо.")
+                            continue
+
+                        columns = full_df.iloc[header_row_index].tolist()
+                        data_df = full_df[header_row_index + 1:].copy()
+                        data_df.columns = columns
+                        data_df.columns = data_df.columns.str.strip()
+
+                        required_columns = ['Offer ID', 'Unit Price', 'Title', 'Min. Purchase Qty']
+                        if not all(col in data_df.columns for col in required_columns):
+                            missing_cols = [col for col in required_columns if col not in data_df.columns]
+                            self.logger.warning(
+                                f"  Помилка: Не знайдено необхідні колонки {missing_cols} у файлі '{file_path.name}'. Пропускаємо.")
+                            self.logger.info(f"  Доступні колонки у даних: {data_df.columns.tolist()}")
+                            continue
+
+                        try:
+                            price_col_idx = data_df.columns.get_loc('Unit Price')
+                            min_purchase_qty_idx = data_df.columns.get_loc('Min. Purchase Qty')
+                            title_col_idx = data_df.columns.get_loc('Title')
+                        except KeyError as e:
+                            self.logger.error(f"  Не вдалося знайти колонку у файлі '{file_path.name}': {e}. Пропускаємо.")
+                            continue
+
+                        tasks = []
+                        for original_index, row_data in data_df.iterrows():
+                            tasks.append((original_index, row_data.to_dict()))
+
+                        processed_results = []
+
+                        if not tasks:
+                            self.logger.info(f"  У файлі '{file_path.name}' немає рядків даних для обробки. Пропускаємо.")
+                            continue
+
+                        with concurrent.futures.ThreadPoolExecutor(max_workers=self.threads_quantity) as executor:
+                            future_to_index = {
+                                executor.submit(self._process_single_offer, index, data): index
+                                for index, data in tasks
+                            }
+
+                            for future in concurrent.futures.as_completed(future_to_index):
+                                try:
+                                    result = future.result()
+                                    if result:
+                                        processed_results.append(result)
+                                except Exception as inner_e:
+                                    self.logger.error(
+                                        f"  Помилка при обробці окремої пропозиції у файлі '{file_path.name}': {inner_e}",
+                                        exc_info=True)
+
+                        # --- Послідовне оновлення DataFrame ---
+                        if processed_results:  # Перевіряємо, чи є результати для обробки
+                            processed_results.sort(key=lambda x: x['original_index'])
+
+                            for result_data in processed_results:
+                                original_index = result_data['original_index']
+                                offer_id = result_data['offer_id']
+                                original_title = result_data['original_title']
+                                table_min_purchase_qty = result_data['table_min_purchase_qty']
+                                new_price = result_data['new_price']
+                                new_title = result_data['new_title']
+
+                                if new_price is not None:
+                                    full_df.iloc[original_index, price_col_idx] = float(new_price)
+
+                                    if new_price > 0 and (
+                                            new_price * table_min_purchase_qty) < self.config_minimal_purchase_qty:
+                                        new_min_purchase_qty = math.ceil(self.config_minimal_purchase_qty / new_price)
+                                        full_df.iloc[original_index, min_purchase_qty_idx] = float(new_min_purchase_qty)
+                                        self.logger.info(
+                                            f"Змінена мінімальна кількість покупки до {new_min_purchase_qty:.0f} для Offer ID {offer_id}")
+
+                                if new_title is not None:
+                                    full_df.iloc[original_index, title_col_idx] = str(new_title)
+                                    self.logger.info(
+                                        f"{self.red}Оновлено Offer ID {offer_id}: Назва з '{original_title}' на '{new_title}'{self.reset}")
+                        else:
+                            self.logger.info(f"  Немає оновлених пропозицій для файлу '{file_path.name}'.")
+
+                        self.output_folder.mkdir(parents=True, exist_ok=True)
+                        output_file_path = self.output_folder / file_path.name  # Це перезапише файл
+                        self.logger.info(f"Збереження оновленого файлу як: {output_file_path.name}")
+
+                        with pd.ExcelWriter(output_file_path, engine='openpyxl') as writer:
+                            full_df.to_excel(writer, sheet_name='Offers', index=False, header=False)
+
+                        #Завантажуємо оновлений Excel файл на g2g
+                        self.upload_exel_file(output_file_path)
+                        self.logger.info(f"  Файл '{output_file_path.name}' завантажено на G2G.")
+
+                        time.sleep(2)
+
+                    except Exception as e:
+                        self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
+                                          exc_info=True)
+                    finally:
+                        pass
 
             # --- Пауза між повними проходами по всіх файлах ---
             self.logger.info(
