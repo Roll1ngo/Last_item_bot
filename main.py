@@ -1122,10 +1122,10 @@ class OfferProcessor:
         if delete_import_response is None:
             return
         if delete_import_response.status_code == 200:
-            logger.info(f"delete_export_response: {delete_import_response.json()}")
-            self.logger.info("Експорт успішно видалено.")
+            logger.info(f"delete_import_response: {delete_import_response.json()}")
+            self.logger.info("Імпорт успішно видалено.")
         else:
-            self.logger.error(f"Помилка при видаленні експорту. Статус: {delete_import_response.status_code}")
+            self.logger.error(f"Помилка при видаленні імпорту. Статус: {delete_import_response.status_code}")
 
     def process_offers(self):
         self.token_manager.token_ready_event.wait()
