@@ -1,14 +1,12 @@
 import asyncio
 import os
-import re
 import sys
 import threading
 from pathlib import Path
-from typing import Union, Dict, Any, Optional
+from typing import Optional
 
 from dotenv import load_dotenv
 import requests
-import json
 
 from data_base.models import AuthParameters
 from functions.logger_config import logger, get_config

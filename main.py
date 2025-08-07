@@ -66,7 +66,7 @@ class OfferProcessor:
         relations_ids_path = Path(__file__).resolve().parent.joinpath("utils/relations_ids.json")
         with open(relations_ids_path, "r", encoding="utf-8") as file:
             self.relations_ids = json.load(file)
-        logger.info(f"Relations IDs loaded from {self.relations_ids}")
+        logger.info(f"Relations IDs loaded from {self.relations_ids}") if self.test_mode_logs else None
 
     def _load_config_parameters(self):
         """Завантажує всі параметри конфігурації в атрибути класу."""
@@ -872,19 +872,22 @@ class OfferProcessor:
                 elif response.status_code == 404 and request_name == 'delete_export':
                     self.logger.warning(f"Нема замовленого експорту для цього регіону")
                     return
-                print(f"Спроба {attempt + 1}/{api_retries}: HTTP {response.status_code} - {response.text}")
-
+                elif response.status_code == 404 and request_name == 'delete_import':
+                    self.logger.warning(f"Нема активного імпорту для цього регіону")
+                    return
             except RequestException as e:
                 print(f"Спроба {attempt + 1}/{api_retries}: Помилка з'єднання - {str(e)}")
 
             time.sleep(api_retry_delay * (attempt + 1))  # Прогресівна затримка
 
 
-    def upload_exel_file(self,file_path:Path):
+    def upload_exel_file(self,file_path:Path, relation_id):
         """
                 Завантажує оновлений Excel-файл на G2G.
                 Виконує послідовність з 4 HTTP-запитів.
                 """
+        # Закриваємо активний імпорт, якщо він існує
+        self.delete_import(relation_id)
 
         if not file_path.exists():
             self.logger.error(f"Помилка: Файл '{file_path}' не знайдено для завантаження.")
@@ -918,10 +921,10 @@ class OfferProcessor:
             upload_fields = payload.get('fields')
             uploaded_file_name = payload.get('uploaded_file_name')
 
-            logger.info(f"upload_url: {upload_url}")
-            logger.info(f"upload_fields: {upload_fields}")
-            logger.info(f"uploaded_file_name: {uploaded_file_name}")
-            logger.info(f"response_get_url_json: {response_get_url_json}")
+            logger.info(f"upload_url: {upload_url}") if self.test_mode_logs else None
+            logger.info(f"upload_fields: {upload_fields}") if self.test_mode_logs else None
+            logger.info(f"uploaded_file_name: {uploaded_file_name}") if self.test_mode_logs else None
+            logger.info(f"response_get_url_json: {response_get_url_json}") if self.test_mode_logs else None
 
             if not all([upload_url, upload_fields, uploaded_file_name]):
                 self.logger.error(f"Помилка Крок 1: Відсутні необхідні дані в payload: {payload}")
@@ -955,7 +958,7 @@ class OfferProcessor:
         file_path.name, file_content, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
         self.logger.info(f"Крок 2/4: Завантаження файлу '{file_path.name}' на S3 за URL: {upload_url}")
-        self.logger.info(f"Поля для S3 завантаження: {upload_fields}")
+        self.logger.info(f"Поля для S3 завантаження: {upload_fields}") if self.test_mode_logs else None
         self.logger.info(f"Заголовки для S3 завантаження: {self.s3_headers}")
 
         response_s3_upload = self.fetch_from_api_with_retry(upload_url,
@@ -1003,10 +1006,9 @@ class OfferProcessor:
                              f"Response:{response_bulk_import.json()}"
                              f" Статус_код: {response_bulk_import.status_code}")
 
-    def download_exel_files(self, game_alias, parameters):
+    def download_exel_files(self, game_alias, relation_id):
         #Надсилаємо запит на отримання експорту
         logger.warning(f"Починаємо завантаження {game_alias}")
-        relation_id = parameters.get('relation_id')
 
         # Видаляємо попередньо замовлені експорти
         self.delete_export(relation_id)
@@ -1104,6 +1106,27 @@ class OfferProcessor:
         else:
             self.logger.error(f"Помилка при видаленні експорту. Статус: {delete_export_response.status_code}")
 
+    def delete_import(self, relation_id):
+        delete_export_url = "https://sls.g2g.com/offer/task_status?"
+        params = {
+            "relation_id": relation_id,
+            "seller_id": self.seller_id,
+            "task_name": "bulk_import_offer",
+            "import_action": "update_offer"
+        }
+        delete_export_response = self.fetch_from_api_with_retry(url=delete_export_url,
+                                                  headers=self.auth_headers(),
+                                                  payload=params,
+                                                  request_name='delete_import',
+                                                  http_method="DELETE")
+        if delete_export_response is None:
+            return
+        if delete_export_response.status_code == 200:
+            logger.info(f"delete_export_response: {delete_export_response.json()}")
+            self.logger.info("Експорт успішно видалено.")
+        else:
+            self.logger.error(f"Помилка при видаленні експорту. Статус: {delete_export_response.status_code}")
+
     def process_offers(self):
         self.token_manager.token_ready_event.wait()
         # files_paths = {"panda_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_us",
@@ -1113,7 +1136,8 @@ class OfferProcessor:
         #  }
         while True:
             for game_alias, parameters in self.relations_ids.items():
-                exels_file_path = self.download_exel_files(game_alias, parameters)
+                relation_id = parameters["relation_id"]
+                exels_file_path = self.download_exel_files(game_alias, relation_id)
                 logger.warning(f"exels_file_path  {exels_file_path}")
                 if exels_file_path is None:
                     self.logger.error(f"Помилка: Папка для обробки '{game_alias}' не знайдена.")
@@ -1223,8 +1247,8 @@ class OfferProcessor:
                             full_df.to_excel(writer, sheet_name='Offers', index=False, header=False)
 
                         #Завантажуємо оновлений Excel файл на g2g
-                        self.upload_exel_file(output_file_path)
-                        self.logger.info(f"  Файл '{output_file_path.name}' завантажено на G2G.")
+                        self.upload_exel_file(output_file_path, relation_id)
+                        self.logger.warning(f"  Файл '{output_file_path.name}' завантажено на G2G.")
 
                         time.sleep(2)
 
