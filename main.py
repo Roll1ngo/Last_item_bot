@@ -1107,25 +1107,25 @@ class OfferProcessor:
             self.logger.error(f"Помилка при видаленні експорту. Статус: {delete_export_response.status_code}")
 
     def delete_import(self, relation_id):
-        delete_export_url = "https://sls.g2g.com/offer/task_status?"
+        delete_import_url = "https://sls.g2g.com/offer/task_status?"
         params = {
             "relation_id": relation_id,
             "seller_id": self.seller_id,
             "task_name": "bulk_import_offer",
             "import_action": "update_offer"
         }
-        delete_export_response = self.fetch_from_api_with_retry(url=delete_export_url,
+        delete_import_response = self.fetch_from_api_with_retry(url=delete_import_url,
                                                   headers=self.auth_headers(),
                                                   payload=params,
                                                   request_name='delete_import',
                                                   http_method="DELETE")
-        if delete_export_response is None:
+        if delete_import_response is None:
             return
-        if delete_export_response.status_code == 200:
-            logger.info(f"delete_export_response: {delete_export_response.json()}")
+        if delete_import_response.status_code == 200:
+            logger.info(f"delete_export_response: {delete_import_response.json()}")
             self.logger.info("Експорт успішно видалено.")
         else:
-            self.logger.error(f"Помилка при видаленні експорту. Статус: {delete_export_response.status_code}")
+            self.logger.error(f"Помилка при видаленні експорту. Статус: {delete_import_response.status_code}")
 
     def process_offers(self):
         self.token_manager.token_ready_event.wait()
