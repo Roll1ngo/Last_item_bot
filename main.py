@@ -869,6 +869,13 @@ class OfferProcessor:
                                         f" Чекаємо {api_retry_delay} секунд.")
                     time.sleep(api_retry_delay)
                     continue
+                elif response.status_code == 400 and request_name == 'delete_import':
+                    # Це очікувана поведінка, якщо файл ще не готовий. Просто чекаємо.
+                    self.logger.warning(f"Невдалося видалити імпорт. Файл ще завантажується."
+                                        f" Відповідь {response.status_code}."
+                                        f" Чекаємо {api_retry_delay} секунд.")
+                    time.sleep(api_retry_delay)
+                    continue
                 elif response.status_code == 404 and request_name == 'delete_export':
                     self.logger.warning(f"Нема замовленого експорту для цього регіону")
                     return
@@ -1005,6 +1012,9 @@ class OfferProcessor:
             self.logger.info(f"Повідомлення G2G про масовий імпорт успішно надіслано."
                              f"Response:{response_bulk_import.json()}"
                              f" Статус_код: {response_bulk_import.status_code}")
+            time.sleep(15)
+            # Закриваємо імпорт
+            self.delete_import(relation_id)
 
     def download_exel_files(self, game_alias, relation_id):
         #Надсилаємо запит на отримання експорту
@@ -1129,15 +1139,16 @@ class OfferProcessor:
 
     def process_offers(self):
         self.token_manager.token_ready_event.wait()
-        # files_paths = {"panda_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_us",
-        #  "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
-        #  "era_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us",
-        #  "era_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_eu"
-        #  }
+        files_paths = {"panda_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_us",
+         "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
+         "era_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us",
+         "era_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_eu"
+         }
         while True:
             for game_alias, parameters in self.relations_ids.items():
                 relation_id = parameters["relation_id"]
-                exels_file_path = self.download_exel_files(game_alias, relation_id)
+                # exels_file_path = self.download_exel_files(game_alias, relation_id)
+                exels_file_path = Path(files_paths[game_alias])
                 logger.warning(f"exels_file_path  {exels_file_path}")
                 if exels_file_path is None:
                     self.logger.error(f"Помилка: Папка для обробки '{game_alias}' не знайдена.")
