@@ -6,6 +6,7 @@ import sys
 import time
 import os
 import re
+import uuid
 import zipfile
 
 from concurrent.futures import ThreadPoolExecutor
@@ -16,8 +17,10 @@ from urllib.parse import quote_plus
 import pandas as pd
 import requests
 from dotenv import load_dotenv
+from requests.adapters import HTTPAdapter
 from requests.exceptions import RequestException
 from sqlalchemy.exc import IntegrityError
+from urllib3 import Retry
 
 from authorization.auth_token_from_sls import token_refresh_scheduler_direct, TokenManager
 
@@ -131,8 +134,18 @@ class OfferProcessor:
 
 
     def _initialize_requests_session(self):
-        """Контекстний менеджер для керування сесією"""
+
         self._session = requests.Session()
+
+        # Створення об'єкта Retry
+        retries = Retry(total=5, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
+
+        # Створення об'єкта HTTPAdapter з налаштованим пулом і повторними спробами
+        adapter = HTTPAdapter(max_retries=retries, pool_connections=20, pool_maxsize=20)
+
+        # Монтування одного адаптера для обох протоколів
+        self._session.mount('http://', adapter)
+        self._session.mount('https://', adapter)
 
 
     def _initialize_patterns(self):
@@ -484,7 +497,7 @@ class OfferProcessor:
                 return None, None
 
             if owner_exist_flag is False:
-                self.logger.warning(f"[{self.owner} знаходиться на позиції вище 100 на товар {owner_short_title}  id={owner_offer_id}")
+                self.logger.warning(f"{self.owner} знаходиться на позиції вище 100 на товар {owner_short_title}  id={owner_offer_id}")
                 return None, None
 
             owner_info = competitors['owner_offer_info']
@@ -633,7 +646,7 @@ class OfferProcessor:
                 # Перевіряємо конкурента на присутність в списку ігнорування
                 if user_name in ignore_competitors:
                     logger.CHANGE_PRICE(f" Ігноруємо {user_name} на позиції {position} по предмету {short_title}"
-                                        f" з ціною {self.red}{unit_price}{self.reset}")
+                                        f" з ціною {self.red}{unit_price}{self.reset}") if self.test_mode_logs else None
                     continue
 
                 # Перевіряємо умови для зниження ціни на непопулярний товар
@@ -783,7 +796,7 @@ class OfferProcessor:
             self.logger.warning(
                 f"[{offer_id}] Параметри у базі неактуальні. Отримуємо нові параметри з API.")
             params = self.get_params_from_api(owner_offer_info)
-            logger.info(f"Api params: {params}")
+            logger.info(f"Api params: {params}") if self.test_mode_logs else None
             if not params:
                 self.logger.critical(f"[{offer_id}] Повторно не вдалося отримати параметри з API.")
                 return None
@@ -834,6 +847,7 @@ class OfferProcessor:
         """
         api_retries = self.api_retries if api_retries is None else api_retries
         api_retry_delay = self.api_retry_delay if api_retry_delay is None else api_retry_delay
+        request_headers = headers.copy()
         for attempt in range(api_retries):
             try:
                 response = self._session.request(
@@ -842,7 +856,7 @@ class OfferProcessor:
                     params=payload if http_method in ["GET", "DELETE"] else None,
                     files=files,
                     data=data,
-                    headers=headers,
+                    headers=request_headers,
                     json=payload if http_method in ["POST", "PUT", "PATCH"] else None,
                     timeout=30
                 )
@@ -862,6 +876,9 @@ class OfferProcessor:
                         if message.get('code') == 11027:
                             self.logger.warning("Процес експорту вже ініційовано. Повертаємо відповідь.")
                             return response
+                        if message.get('code') == 11029:
+                            self.logger.warning("Неможливо замовити експорт, іде завантаження файлу на g2g")
+                            return response
 
                 elif response.status_code == 400 and request_name == 'download_exel_files':
                     # Це очікувана поведінка, якщо файл ще не готовий. Просто чекаємо.
@@ -873,8 +890,8 @@ class OfferProcessor:
                     # Це очікувана поведінка, якщо файл ще не готовий. Просто чекаємо.
                     self.logger.warning(f"Невдалося видалити імпорт. Файл ще завантажується."
                                         f" Відповідь {response.status_code}."
-                                        f" Чекаємо {api_retry_delay} секунд.")
-                    time.sleep(api_retry_delay)
+                                        f" Чекаємо {self.api_retry_delay} секунд.")
+                    time.sleep(self.api_retry_delay)
                     continue
                 elif response.status_code == 404 and request_name == 'delete_export':
                     self.logger.warning(f"Нема замовленого експорту для цього регіону")
@@ -882,6 +899,19 @@ class OfferProcessor:
                 elif response.status_code == 404 and request_name == 'delete_import':
                     self.logger.warning(f"Нема активного імпорту для цього регіону")
                     return
+
+                elif response.status_code == 401:
+
+                        self.logger.warning("Отримано 401 Unauthorized. Робимо примусове оновлення токену...")
+
+                        asyncio.run(self.token_manager.refresh_access_token())
+
+                        request_headers = self.auth_headers()
+
+                        continue
+
+                print(f"Спроба {attempt + 1}/{api_retries}: HTTP {response.status_code} - {response.text}")
+
             except RequestException as e:
                 print(f"Спроба {attempt + 1}/{api_retries}: Помилка з'єднання - {str(e)}")
 
@@ -893,6 +923,7 @@ class OfferProcessor:
                 Завантажує оновлений Excel-файл на G2G.
                 Виконує послідовність з 4 HTTP-запитів.
                 """
+
         # Закриваємо активний імпорт, якщо він існує
         self.delete_import(relation_id)
 
@@ -916,7 +947,7 @@ class OfferProcessor:
             response_get_url = self.fetch_from_api_with_retry(url=get_upload_url,
                                                               headers=self.auth_headers(),
                                                               payload=get_upload_url_params)
-            response_get_url.raise_for_status()  # Викличе виняток для статусів 4xx/5xx
+            self.logger.info(response_get_url.json()) if self.test_mode_logs else None
             response_get_url_json = response_get_url.json()  # Парсимо JSON відповідь
             payload = response_get_url_json.get('payload')
 
@@ -966,7 +997,7 @@ class OfferProcessor:
 
         self.logger.info(f"Крок 2/4: Завантаження файлу '{file_path.name}' на S3 за URL: {upload_url}")
         self.logger.info(f"Поля для S3 завантаження: {upload_fields}") if self.test_mode_logs else None
-        self.logger.info(f"Заголовки для S3 завантаження: {self.s3_headers}")
+        self.logger.info(f"Заголовки для S3 завантаження: {self.s3_headers}") if self.test_mode_logs else None
 
         response_s3_upload = self.fetch_from_api_with_retry(upload_url,
                                                    files=s3_post_data,
@@ -1012,11 +1043,11 @@ class OfferProcessor:
             self.logger.info(f"Повідомлення G2G про масовий імпорт успішно надіслано."
                              f"Response:{response_bulk_import.json()}"
                              f" Статус_код: {response_bulk_import.status_code}")
-            time.sleep(15)
-            # Закриваємо імпорт
-            self.delete_import(relation_id)
+            # time.sleep(30)
+            # # Закриваємо імпорт
+            # self.delete_import(relation_id)
 
-    def download_exel_files(self, game_alias, relation_id):
+    def download_exel_files(self, game_alias,  relation_id):
         #Надсилаємо запит на отримання експорту
         logger.warning(f"Починаємо завантаження {game_alias}")
 
@@ -1040,7 +1071,7 @@ class OfferProcessor:
         if response_bulk_export.status_code == 200:
             self.logger.info("Масовий експорт успішно ініційовано.")
 
-        time.sleep(20) if response_bulk_export.status_code != 400 else time.sleep(1)
+        time.sleep(self.api_retry_delay) if response_bulk_export.status_code != 400 else time.sleep(1)
 
         # Формуємо правильний URL
         download_url = (f"https://sls.g2g.com/offer/seller/{self.seller_id}/"
@@ -1112,7 +1143,7 @@ class OfferProcessor:
             return
         if delete_export_response.status_code == 200:
             logger.info(f"delete_export_response: {delete_export_response.json()}")
-            self.logger.info("Експорт успішно видалено.")
+            self.logger.warning("Експорт успішно видалено.")
         else:
             self.logger.error(f"Помилка при видаленні експорту. Статус: {delete_export_response.status_code}")
 
@@ -1139,17 +1170,20 @@ class OfferProcessor:
 
     def process_offers(self):
         self.token_manager.token_ready_event.wait()
-        files_paths = {"panda_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_us",
-         "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
-         "era_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us",
-         "era_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_eu"
-         }
+        # files_paths = {"panda_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_us",
+        #  "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
+        #  "era_us_test": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us_test",
+        #  "era_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_eu"
+        #  }
         while True:
             for game_alias, parameters in self.relations_ids.items():
                 relation_id = parameters["relation_id"]
-                # exels_file_path = self.download_exel_files(game_alias, relation_id)
-                exels_file_path = Path(files_paths[game_alias])
-                logger.warning(f"exels_file_path  {exels_file_path}")
+                self.logger.warning(f"\n_________________________________________________________________________"
+                                    f" Починаємо роботу з {game_alias}"
+                                    f"_________________________________________________________________________")
+                exels_file_path = self.download_exel_files(game_alias, relation_id)
+                # exels_file_path = Path(files_paths[game_alias])
+                self.logger.warning(f"exels_file_path  {exels_file_path}")
                 if exels_file_path is None:
                     self.logger.error(f"Помилка: Папка для обробки '{game_alias}' не знайдена.")
 
@@ -1241,7 +1275,8 @@ class OfferProcessor:
                                         new_min_purchase_qty = math.ceil(self.config_minimal_purchase_qty / new_price)
                                         full_df.iloc[original_index, min_purchase_qty_idx] = float(new_min_purchase_qty)
                                         self.logger.info(
-                                            f"Змінена мінімальна кількість покупки до {new_min_purchase_qty:.0f} для Offer ID {offer_id}")
+                                            f"Змінена мінімальна кількість покупки до"
+                                            f" {new_min_purchase_qty:.0f} для Offer ID {offer_id}") if self.test_mode_logs else None
 
                                 if new_title is not None:
                                     full_df.iloc[original_index, title_col_idx] = str(new_title)
@@ -1251,21 +1286,25 @@ class OfferProcessor:
                             self.logger.info(f"  Немає оновлених пропозицій для файлу '{file_path.name}'.")
 
                         self.output_folder.mkdir(parents=True, exist_ok=True)
+                        # unique_id = uuid.uuid4()
                         output_file_path = self.output_folder / file_path.name  # Це перезапише файл
                         self.logger.info(f"Збереження оновленого файлу як: {output_file_path.name}")
 
                         with pd.ExcelWriter(output_file_path, engine='openpyxl') as writer:
                             full_df.to_excel(writer, sheet_name='Offers', index=False, header=False)
 
-                        #Завантажуємо оновлений Excel файл на g2g
+                         #Завантажуємо оновлений Excel файл на g2g
+                         # file_1 = Path(r"C:\Users\admin\Desktop\Last_item_bot\updated_offers_xlsx\era_eu__2d7ba06c-4730-419e-b5ea-5928bfdbc080.xlsx")
+                         # file_2 = Path(r"C:\Users\admin\Desktop\Last_item_bot\updated_offers_xlsx\era_eu__e72689e6-53b3-4bd1-978e-8422082e2868.xlsx")
+
+
+
                         self.upload_exel_file(output_file_path, relation_id)
-                        self.logger.warning(f"  Файл '{output_file_path.name}' завантажено на G2G.")
+                        self.logger.warning(f"  Файл '{output_file_path.name}' завантажується на G2G.")
 
-                        time.sleep(2)
-
-                    except Exception as e:
-                        self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
-                                          exc_info=True)
+                    # except Exception as e:
+            #     self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
+            #                       exc_info=True)
                     finally:
                         pass
 
