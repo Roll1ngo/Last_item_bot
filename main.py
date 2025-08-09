@@ -876,12 +876,13 @@ class OfferProcessor:
                         if message.get('code') == 11027:
                             self.logger.warning("Процес експорту вже ініційовано. Повертаємо відповідь.")
                             return response
+
                         elif message.get('code') == 11029:
                             self.logger.warning(f"Спроба {attempt + 1}/{api_retries}"
                                                             f" Неможливо замовити експорт, іде завантаження файлу на g2g."
                                                             f" Наступне опитування через  {api_retry_delay} секунд.")
                             time.sleep(api_retry_delay)
-                            continue
+                    continue
 
                 elif response.status_code == 400 and request_name == 'download_exel_files':
                     # Це очікувана поведінка, якщо файл ще не готовий. Просто чекаємо.
@@ -890,35 +891,34 @@ class OfferProcessor:
                                                     f" Наступне опитування через  {api_retry_delay} секунд.")
                     time.sleep(api_retry_delay)
                     continue
+
                 elif response.status_code == 400 and request_name == 'delete_import':
                     # Це очікувана поведінка, якщо файл ще не готовий. Просто чекаємо.
                     self.logger.warning(f"Спроба {attempt + 1}/{api_retries}"
                                                     f" Не вдалося видалити імпорт. Файл ще завантажується."
-                                                    f" Наступне опитування через {self.api_retry_delay} секунд.")
-                    time.sleep(self.api_retry_delay)
+                                                    f" Наступне опитування через {api_retry_delay} секунд.")
+                    time.sleep(api_retry_delay)
                     continue
+
                 elif response.status_code == 404 and request_name == 'delete_export':
                     self.logger.warning(f"Нема замовленого експорту для цього регіону")
                     return
+
                 elif response.status_code == 404 and request_name == 'delete_import':
                     self.logger.warning(f"Нема активного імпорту для цього регіону")
                     return
 
                 elif response.status_code == 401:
+                    self.logger.warning(f"Отримано 401 Unauthorized. Робимо примусове оновлення токену..."
+                                        f"Спроба {attempt + 1}/{api_retries}")
+                    asyncio.run(self.token_manager.refresh_access_token())
+                    request_headers = self.auth_headers()
+                    continue
 
-                        self.logger.warning(f"Отримано 401 Unauthorized. Робимо примусове оновлення токену..."
-                                            f"Спроба {attempt + 1}/{api_retries}")
-
-                        asyncio.run(self.token_manager.refresh_access_token())
-
-                        request_headers = self.auth_headers()
-
-                        continue
-
-                print(f"Спроба {attempt + 1}/{api_retries}: HTTP {response.status_code} - {response.text}")
+                self.logger.info(f"Спроба {attempt + 1}/{api_retries}: HTTP {response.status_code} - {response.text}")
 
             except RequestException as e:
-                print(f"Спроба {attempt + 1}/{api_retries}: Помилка з'єднання - {str(e)}")
+                self.logger.info(f"Спроба {attempt + 1}/{api_retries}: Помилка з'єднання - {str(e)}")
 
             time.sleep(api_retry_delay * (attempt + 1))  # Прогресівна затримка
 
