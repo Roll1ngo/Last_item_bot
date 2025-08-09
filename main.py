@@ -876,21 +876,25 @@ class OfferProcessor:
                         if message.get('code') == 11027:
                             self.logger.warning("Процес експорту вже ініційовано. Повертаємо відповідь.")
                             return response
-                        if message.get('code') == 11029:
-                            self.logger.warning("Неможливо замовити експорт, іде завантаження файлу на g2g")
-                            return response
+                        elif message.get('code') == 11029:
+                            self.logger.warning(f"Спроба {attempt + 1}"
+                                                            f" Неможливо замовити експорт, іде завантаження файлу на g2g."
+                                                            f" Наступне опитування через  {api_retry_delay} секунд.")
+                            time.sleep(api_retry_delay)
+                            continue
 
                 elif response.status_code == 400 and request_name == 'download_exel_files':
                     # Це очікувана поведінка, якщо файл ще не готовий. Просто чекаємо.
-                    self.logger.warning(f"Файл ще не готовий. Відповідь {response.status_code}."
-                                        f" Чекаємо {api_retry_delay} секунд.")
+                    self.logger.warning(f"Спроба {attempt + 1}"
+                                                    f" Файл ще не готовий."
+                                                    f" Наступне опитування через  {api_retry_delay} секунд.")
                     time.sleep(api_retry_delay)
                     continue
                 elif response.status_code == 400 and request_name == 'delete_import':
                     # Це очікувана поведінка, якщо файл ще не готовий. Просто чекаємо.
-                    self.logger.warning(f"Невдалося видалити імпорт. Файл ще завантажується."
-                                        f" Відповідь {response.status_code}."
-                                        f" Чекаємо {self.api_retry_delay} секунд.")
+                    self.logger.warning(f"Спроба {attempt + 1}"
+                                                    f" Не вдалося видалити імпорт. Файл ще завантажується."
+                                                    f" Наступне опитування через {self.api_retry_delay} секунд.")
                     time.sleep(self.api_retry_delay)
                     continue
                 elif response.status_code == 404 and request_name == 'delete_export':
@@ -902,7 +906,8 @@ class OfferProcessor:
 
                 elif response.status_code == 401:
 
-                        self.logger.warning("Отримано 401 Unauthorized. Робимо примусове оновлення токену...")
+                        self.logger.warning(f"Отримано 401 Unauthorized. Робимо примусове оновлення токену..."
+                                            f"Спроба {attempt + 1}")
 
                         asyncio.run(self.token_manager.refresh_access_token())
 
