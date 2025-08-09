@@ -863,12 +863,12 @@ class OfferProcessor:
                 logger.info(f"response.status_code: {response.status_code}") if self.test_mode_logs else None
 
                 if response.status_code == 200:
-                    time.sleep(0.1)  # Невелика затримка між запитами
+                    time.sleep(0.1)
                     return response
 
                 elif response.status_code == 204 and request_name == 's3_upload':  # Обробка 204 No Content окремо
-                    self.logger.info(f"Успішна відповідь (204 No Content) від {url}")
-                    return response  # Негайно повертаємо відповідь, оскільки немає тіла для декодування
+                    self.logger.info(f"Успішна відповідь (204 No Content) від {url}") if self.test_mode_logs else None
+                    return response
 
                 elif request_name == 'bulk_export_init' and response.status_code == 400:
                     response_json = response.json()
@@ -877,7 +877,7 @@ class OfferProcessor:
                             self.logger.warning("Процес експорту вже ініційовано. Повертаємо відповідь.")
                             return response
                         elif message.get('code') == 11029:
-                            self.logger.warning(f"Спроба {attempt + 1}"
+                            self.logger.warning(f"Спроба {attempt + 1}/{api_retries}"
                                                             f" Неможливо замовити експорт, іде завантаження файлу на g2g."
                                                             f" Наступне опитування через  {api_retry_delay} секунд.")
                             time.sleep(api_retry_delay)
@@ -885,14 +885,14 @@ class OfferProcessor:
 
                 elif response.status_code == 400 and request_name == 'download_exel_files':
                     # Це очікувана поведінка, якщо файл ще не готовий. Просто чекаємо.
-                    self.logger.warning(f"Спроба {attempt + 1}"
+                    self.logger.warning(f"Спроба {attempt + 1}/{api_retries}"
                                                     f" Файл ще не готовий."
                                                     f" Наступне опитування через  {api_retry_delay} секунд.")
                     time.sleep(api_retry_delay)
                     continue
                 elif response.status_code == 400 and request_name == 'delete_import':
                     # Це очікувана поведінка, якщо файл ще не готовий. Просто чекаємо.
-                    self.logger.warning(f"Спроба {attempt + 1}"
+                    self.logger.warning(f"Спроба {attempt + 1}/{api_retries}"
                                                     f" Не вдалося видалити імпорт. Файл ще завантажується."
                                                     f" Наступне опитування через {self.api_retry_delay} секунд.")
                     time.sleep(self.api_retry_delay)
@@ -907,7 +907,7 @@ class OfferProcessor:
                 elif response.status_code == 401:
 
                         self.logger.warning(f"Отримано 401 Unauthorized. Робимо примусове оновлення токену..."
-                                            f"Спроба {attempt + 1}")
+                                            f"Спроба {attempt + 1}/{api_retries}")
 
                         asyncio.run(self.token_manager.refresh_access_token())
 
@@ -973,7 +973,7 @@ class OfferProcessor:
                 self.logger.error(f"Помилка Крок 1: Відсутні необхідні дані в payload: {payload}")
                 return False
             self.logger.info(f"response_get_url: {response_get_url}")
-            self.logger.info(f"Крок 1 успішний. Отримано URL для завантаження та поля.")
+            self.logger.info(f"Крок 1 успішний. Отримано URL для завантаження та поля.") if self.test_mode_logs else None
 
         except requests.exceptions.RequestException as e:
             self.logger.error(f"Помилка Крок 1 (отримання URL завантаження): {e}")
@@ -1047,7 +1047,7 @@ class OfferProcessor:
         if response_bulk_import.status_code == 200:
             self.logger.info(f"Повідомлення G2G про масовий імпорт успішно надіслано."
                              f"Response:{response_bulk_import.json()}"
-                             f" Статус_код: {response_bulk_import.status_code}")
+                             f" Статус_код: {response_bulk_import.status_code}") if self.test_mode_logs else None
             # time.sleep(30)
             # # Закриваємо імпорт
             # self.delete_import(relation_id)
@@ -1147,7 +1147,7 @@ class OfferProcessor:
         if delete_export_response is None:
             return
         if delete_export_response.status_code == 200:
-            logger.info(f"delete_export_response: {delete_export_response.json()}")
+            logger.info(f"delete_export_response: {delete_export_response.json()}") if self.test_mode_logs else None
             self.logger.warning("Експорт успішно видалено.")
         else:
             self.logger.error(f"Помилка при видаленні експорту. Статус: {delete_export_response.status_code}")
@@ -1183,9 +1183,9 @@ class OfferProcessor:
         while True:
             for game_alias, parameters in self.relations_ids.items():
                 relation_id = parameters["relation_id"]
-                self.logger.warning(f"\n_________________________________________________________________________"
-                                    f" Починаємо роботу з {game_alias}"
-                                    f"_________________________________________________________________________")
+                self.logger.info(f"\033[92m\n_________________________________________________________________________"
+                                         f" Починаємо роботу з {game_alias}"
+                                         f"_________________________________________________________________________\033[0m")
                 exels_file_path = self.download_exel_files(game_alias, relation_id)
                 # exels_file_path = Path(files_paths[game_alias])
                 self.logger.warning(f"exels_file_path  {exels_file_path}")
