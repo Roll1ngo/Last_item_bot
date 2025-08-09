@@ -1,0 +1,21 @@
+{  "panda_eu": {"relation_id": "9bc84dbb-d5f4-4e7d-94b1-df74f6078d5d",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_29076",
+                "region_id": "ac3f85c1-7562-437e-b125-e89576b9a38e"},
+
+  "era_us": {"relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa"},
+
+  "era_eu": {"relation_id": "4d08792f-009e-4f81-a786-fca1802d2c1f",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_27816",
+                "region_id": "ac3f85c1-7562-437e-b125-e89576b9a38e"},
+
+    "panda_us":  {
+                "relation_id": "55fdb243-5bba-4f9e-ade2-931c760f70b6",
+                "service_id": "0765978e-3fdf-48b4-bed3-184823aa439e",
+                "brand_id": "lgc_game_29076",
+                "region_id": "dfced32f-2f0a-4df5-a218-1e068cfadffa"}
+}

@@ -1,109 +1,219 @@
 top_minimal:
-  asterisk: 1000                   # (*)   (все вище без знаку - ✓/↟)
-  star: 553.57676                  # (★)
-  double_percent: 414.60363       # (%%)
-  white_diamond: 306.02717        # (◇)
-  chess_pawn: 224.16311           # (♙)
-  dollar: 167.81687               # ($)
-  vertical_bar: 127.52963         # (|)
-  chess_bishop_black: 91.471      # (♝)
-  caret: 69.549                   # (^)
-  degree: 54.126                  # (°)
-  dotted_circle: 42.195           # (◌)
-  ball_number_one: 32.786         # (❶)
-  square: 25.5304                 # (□)
-  diamond_with_dot: 20.855        # (❖)
-  equality: 18.8665               # (=)
-  down_arrow: 16.6355             # (▼)
-  double_cross: 15.132            # (╬)
-  chess_rook_black: 13.7255       # (♜)
-  double_arrow: 12.222            # (⇔)
-  circled_one: 10.864             # (①)
-  triangle: 9.603                 # (∆)
-  square_with_round_corners: 8.5845  # (▣)
-  up_arrow: 7.5175                # (↑)
-  square_with_triangle: 6.79      # (◩)
-  diamond: 6.111                  # (◊)
-  half_circle_right: 5.2865       # (◐)
-  chess_bishop: 4.5105            # (♗)
-  hash: 3.7345                    # (#)
-  chess_rook: 3.0555              # (♖)
-  chess_queen: 2.4929             # (♕)
-  chess_knight_black: 2.0855      # (♞)
-  chess_king: 1.6684              # (♔)
-  black_circle: 1.3289            # (●)
-  chess_queen_black: 1.067       # (♛)
-  bullseye: 0.75                 # (◉)
-  chess_knight: 0.61            # (♘)
-  diamond_with_plus: 0.5        # (◈)
-  heart: 0.35                   # (♡)
-  backtick: 0.25                # (`)
-  black_diamond: 0.16           # (◆)
-  double_underscore: 0.1       # (__)
-  white_star: 0.061             # (☆)
-  four_pointed_star: 0.05       # (✦)
-  tilde: 0.035                  # (~)
-  ampersand: 0.025              # (&)
-  sun: 0.016                    # (☼)
-  flower: 0.01                 # (❊)
-  double_exclamation: 0.007     # (!!)
-  chess_king_black: 0.004       # (♚)
-  plus: 0.0008                  # (+)
-
-
-default_limit: 0
-
-threshold_price_for_percentage_change: 30  # $  
-change_percents_before_threshold: 0.4  # %
-change_percents_after_threshold: 0.3  # %
-
-
-pause_between_runs: 0 # seconds
-
-
-min_difference_percent_to_reduce_the_price_between_first_and_second: 5 # percents % Мінімальна відсоткова різниця для підтягування 
-max_difference_percent_to_reduce_the_price_between_first_and_second: 70 # percents % Максимальна відсоткова різниця для підтягування 
-min_max_change_first_position : 0.5  #  % на скільки відсотків ціна першого місця буде менша за друге після підтягування 
-
-one_percent_reduce_percent_difference: 201 # percents % Різниця у відсотках з другим місцем на непопулярний товар
-reduce_price_non_popular_item : 0.01  #  % На скільки відсотків зменшится ціна на непопулярний товар
-
-position_for_change_pattern_if_owner_price_over_limit: 20
-position_for_change_pattern_if_owner_price_under_limit: 19
-
-max_limit_price_for_pull: 499  # $
-
-
-delete_temp_folders: False #  Delete temp folders after each full run to offer_id.'False' or 'True' for change option
-
-test_mode_logs: False # Extend logs mode. True or False for change mode
-
-owner : "Allbestfory"
-
-ignore_competitors_for_asterisk: ["BogOdin_EG", "play1ife", "Mipa", "DealHub", "PVPGOLD", "GGsSellers", "haihei", "lvgame", "Antic23", "ProPerfect", "DungeonBud", "Thrall", "FFXIVGilShop", "CNLTeam", "Haliber", "SunRise", "DionysusGod", "BoostRoom", "Exloot", "elmagnifico"] #
-ignore_competitors_for_other_patterns: ["ProPerfect", "HandFarm"] #
- 
-
-ignore_words: ["Recipe:", "Plans:", "Schematic:", "Formula:", "Pattern:"]
-
-user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-
+  asterisk:
+    char: '*'
+    value: 1100.0
+  star:
+    char: ★
+    value: 525.41218
+  double_percent:
+    char: '%%'
+    value: 390.25469
+  white_diamond:
+    char: ◇
+    value: 288.07
+  chess_pawn:
+    char: ♙
+    value: 213.0
+  dollar:
+    char: $
+    value: 159.0
+  vertical_bar:
+    char: '|'
+    value: 118.78
+  chess_bishop_black:
+    char: ♝
+    value: 86.9
+  caret:
+    char: ^
+    value: 65.9
+  degree:
+    char: °
+    value: 51.0
+  dotted_circle:
+    char: ◌
+    value: 39.5
+  ball_number_one:
+    char: ❶
+    value: 30.7
+  square:
+    char: □
+    value: 24.2
+  diamond_with_dot:
+    char: ❖
+    value: 19.85
+  equality:
+    char: '='
+    value: 17.9
+  chess_king_black:
+    char: ♚
+    value: 16.7
+  down_arrow:
+    char: ▼
+    value: 15.4
+  double_cross:
+    char: ╬
+    value: 14.0
+  chess_rook_black:
+    char: ♜
+    value: 12.7
+  double_arrow:
+    char: ⇔
+    value: 11.3
+  circled_one:
+    char: ①
+    value: 10.0
+  triangle:
+    char: ∆
+    value: 8.9
+  square_with_round_corners:
+    char: ▣
+    value: 7.9
+  up_arrow:
+    char: ↑
+    value: 7.0
+  square_with_triangle:
+    char: ◩
+    value: 6.2
+  diamond:
+    char: ◊
+    value: 5.6
+  half_circle_right:
+    char: ◐
+    value: 4.8
+  chess_bishop:
+    char: ♗
+    value: 4.1
+  hash:
+    char: '#'
+    value: 3.45
+  chess_rook:
+    char: ♖
+    value: 2.85
+  chess_queen:
+    char: ♕
+    value: 2.33
+  chess_knight_black:
+    char: ♞
+    value: 1.92
+  chess_king:
+    char: ♔
+    value: 1.55
+  black_circle:
+    char: ●
+    value: 1.24
+  chess_queen_black:
+    char: ♛
+    value: 1.0
+  bullseye:
+    char: ◉
+    value: 0.695871
+  chess_knight:
+    char: ♘
+    value: 0.529254
+  diamond_with_plus:
+    char: ◈
+    value: 0.42
+  heart:
+    char: ♡
+    value: 0.297
+  backtick:
+    char: '`'
+    value: 0.21
+  black_diamond:
+    char: ◆
+    value: 0.1344717
+  double_underscore:
+    char: __
+    value: 0.087
+  white_star:
+    char: ☆
+    value: 0.0529254
+  four_pointed_star:
+    char: ✦
+    value: 0.042
+  tilde:
+    char: '~'
+    value: 0.0303831
+  ampersand:
+    char: '&'
+    value: 0.0205
+  sun:
+    char: ☼
+    value: 0.0127413
+  flower:
+    char: ❊
+    value: 0.0088
+  double_exclamation:
+    char: '!!'
+    value: 0.005
+  plus:
+    char: +
+    value: 0.001
+system:
+  default_limit: 0
+  threshold_price_for_percentage_change: 30
+  change_percents_before_threshold: 0.4
+  change_percents_after_threshold: 0.3
+  pause_between_runs: 0
+  min_difference_percent_to_reduce_the_price_between_first_and_second: 5
+  max_difference_percent_to_reduce_the_price_between_first_and_second: 70
+  min_max_change_first_position: 0.5
+  one_percent_reduce_percent_difference: 201
+  reduce_price_non_popular_item: 0.01
+  position_for_change_pattern_if_owner_price_over_limit: 20
+  position_for_change_pattern_if_owner_price_under_limit: 19
+  max_limit_price_for_pull: 499
+  delete_temp_folders: false
+  test_mode_logs: false
+  owner: Allbestfory
+  ignore_competitors_for_asterisk:
+  - BogOdin_EG
+  - play1ife
+  - Mipa
+  - DealHub
+  - PVPGOLD
+  - GGsSellers
+  - haihei
+  - lvgame
+  - Antic23
+  - ProPerfect
+  - DungeonBud
+  - Thrall
+  - FFXIVGilShop
+  - CNLTeam
+  - Haliber
+  - SunRise
+  - DionysusGod
+  - BoostRoom
+  - Exloot
+  - elmagnifico
+  ignore_competitors_for_other_patterns:
+  - ProPerfect
+  - HandFarm
+  - DFFDDD
+  ignore_words:
+  - 'Recipe:'
+  - 'Plans:'
+  - 'Schematic:'
+  - 'Formula:'
+  - 'Pattern:'
+  user_agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
+    Chrome/138.0.0.0 Safari/537.36
+  delay_minutes_between_cycles: 5
+  platform: Linux
+  seller_id: '5688923'
+  threads_quantity: 20
+  config_minimal_purchase_qty: 2
+  api_retries: 40
+  api_retry_delay: 20
 log_colors:
-  info: 'cyan'  # блакитний для звичайного тексту
-  change_price: 'yellow'  # користувацький рівень для рядків зі зміненою ціною
-  warning: 'yellow'  # жовтий для виділених рядків
-  error: 'white'  # червоний для помилок
-  critical: 'red'  # червоний для помилок
-  time: 'white'  #  для часу
-  level: 'cyan'  # для рівня
-  module: 'magenta'  #  для модуля
-  funcName: 'green'  # для функції
-  linenumber: 'magenta'  # для номера рядка
-
-delay_minutes_between_cycles: 5
-platform: "Linux"
-seller_id: "5688923"
-threads_quantity: 20
-config_minimal_purchase_qty: 2
-
-
+  info: cyan
+  change_price: yellow
+  warning: yellow
+  error: white
+  critical: red
+  time: white
+  level: cyan
+  module: magenta
+  funcName: green
+  linenumber: magenta

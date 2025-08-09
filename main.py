@@ -73,41 +73,46 @@ class OfferProcessor:
 
     def _load_config_parameters(self):
         """Завантажує всі параметри конфігурації в атрибути класу."""
-        self.owner = self.config.get('owner')
-        self.user_agent = self.config.get('user_agent')
-        self.platform = self.config.get('platform')
-        self.seller_id = str(self.config.get('seller_id'))
-        self.pause_between_runs = self.config.get('pause_between_runs')
-        self.delete_temp_folders = self.config.get('delete_temp_folders')
-        self.test_mode_logs = self.config.get('test_mode_logs')
-        self.ignore_words = self.config.get('ignore_words')
-        self.position_for_change_pattern_if_owner_price_over_limit = self.config.get(
+        system_cfg = self.config.get('system', {})
+
+        self.owner = system_cfg.get('owner')
+        self.user_agent = system_cfg.get('user_agent')
+        self.platform = system_cfg.get('platform')
+        self.seller_id = str(system_cfg.get('seller_id'))
+
+        self.pause_between_runs = system_cfg.get('pause_between_runs', 0)
+        self.delete_temp_folders = system_cfg.get('delete_temp_folders', False)
+        self.test_mode_logs = system_cfg.get('test_mode_logs', False)
+        self.ignore_words = system_cfg.get('ignore_words', [])
+
+        self.position_for_change_pattern_if_owner_price_over_limit = system_cfg.get(
             'position_for_change_pattern_if_owner_price_over_limit')
-        self.position_for_change_pattern_if_owner_price_under_limit = self.config.get(
+        self.position_for_change_pattern_if_owner_price_under_limit = system_cfg.get(
             'position_for_change_pattern_if_owner_price_under_limit')
-        self.ignore_competitors_for_asterisk = self.config.get('ignore_competitors_for_asterisk')
-        self.ignore_competitors_for_other_patterns = self.config.get('ignore_competitors_for_other_patterns')
-        self.default_limit = self.config.get("default_limit", 0)
 
-        self.api_retries = self.config.get("api_retries", 3)
-        self.api_retry_delay = self.config.get("api_retry_delay", 1)
+        self.ignore_competitors_for_asterisk = system_cfg.get('ignore_competitors_for_asterisk', [])
+        self.ignore_competitors_for_other_patterns = system_cfg.get('ignore_competitors_for_other_patterns', [])
 
-        self.threshold_price_for_percentage_change = self.config.get("threshold_price_for_percentage_change")
-        self.change_percents_before_threshold = self.config.get("change_percents_before_threshold")
-        self.change_percents_after_threshold = self.config.get("change_percents_after_threshold")
+        self.default_limit = system_cfg.get("default_limit", 0)
+        self.api_retries = system_cfg.get("api_retries", 3)
+        self.api_retry_delay = system_cfg.get("api_retry_delay", 1)
 
-        self.min_max_change_first_position = self.config.get('min_max_change_first_position')
-        self.reduce_price_non_popular_item = self.config.get('reduce_price_non_popular_item')  # Виправлено self.
-        self.max_limit_price_for_pull = self.config.get("max_limit_price_for_pull")
-        self.config_minimal_purchase_qty = self.config.get("config_minimal_purchase_qty")
+        self.threshold_price_for_percentage_change = system_cfg.get("threshold_price_for_percentage_change")
+        self.change_percents_before_threshold = system_cfg.get("change_percents_before_threshold")
+        self.change_percents_after_threshold = system_cfg.get("change_percents_after_threshold")
 
-        self.max_difference_percent_to_reduce_the_price_between_first_and_second = (
-            self.config.get("max_difference_percent_to_reduce_the_price_between_first_and_second"))
-        self.min_difference_percent_to_reduce_the_price_between_first_and_second = (
-            self.config.get("min_difference_percent_to_reduce_the_price_between_first_and_second"))
+        self.min_max_change_first_position = system_cfg.get('min_max_change_first_position')
+        self.reduce_price_non_popular_item = system_cfg.get('reduce_price_non_popular_item')
+        self.max_limit_price_for_pull = system_cfg.get("max_limit_price_for_pull")
+        self.config_minimal_purchase_qty = system_cfg.get("config_minimal_purchase_qty")
 
-        self.threads_quantity = self.config.get('threads_quantity')
-        self.delay_seconds_between_cycles = (self.config.get("delay_minutes_between_cycles") * 60)
+        self.max_difference_percent_to_reduce_the_price_between_first_and_second = system_cfg.get(
+            "max_difference_percent_to_reduce_the_price_between_first_and_second")
+        self.min_difference_percent_to_reduce_the_price_between_first_and_second = system_cfg.get(
+            "min_difference_percent_to_reduce_the_price_between_first_and_second")
+
+        self.threads_quantity = system_cfg.get('threads_quantity', 1)
+        self.delay_seconds_between_cycles = system_cfg.get("delay_minutes_between_cycles", 0) * 60
 
     def _initialize_headers(self):
         self.base_headers = {
@@ -147,117 +152,31 @@ class OfferProcessor:
         self._session.mount('http://', adapter)
         self._session.mount('https://', adapter)
 
-
     def _initialize_patterns(self):
-        """Ініціалізує словник патернів з лімітами з конфігурації."""
-        top_minimal_values = self.config.get("top_minimal")
+        """Ініціалізує словник патернів з лімітами і символами з конфігурації."""
+        top_minimal_values = self.config.get("top_minimal", {})
 
         if not top_minimal_values:
-            self.logger.critical(
-                "Помилка завантаження конфігурації лімітів 'top_minimal'. Використовуємо default_limit.")
-            top_minimal_values = {}  # Забезпечуємо, що це словник, навіть якщо конфігурація відсутня
+            self.logger.critical("Помилка завантаження конфігурації 'top_minimal'. Використовуємо default_limit.")
+            top_minimal_values = {}
 
-        # Динамічне присвоєння лімітів для кожного патерну
-        self.patterns = {
-            r"\*([^\*]+)\*": {'limit': top_minimal_values.get("asterisk", self.default_limit), 'name': "asterisk",
-                              'symbol': '*'},
-            r"\+([^+]+)\+": {'limit': top_minimal_values.get("plus", self.default_limit), 'name': "plus",
-                             'symbol': '+'},
-            r"\#([^\#]+)\#": {'limit': top_minimal_values.get("hash", self.default_limit), 'name': "hash",
-                              'symbol': '#'},
-            r"★([^★]+)★": {'limit': top_minimal_values.get("star", self.default_limit), 'name': "star", 'symbol': '★'},
-            r"=([^=]+)=": {'limit': top_minimal_values.get("equality", self.default_limit), 'name': "equality",
-                           'symbol': '='},
-            r"~([^~]+)~": {'limit': top_minimal_values.get("tilde", self.default_limit), 'name': "tilde",
-                           'symbol': '~'},
-            r"\`([^\`]+)\`": {'limit': top_minimal_values.get("backtick", self.default_limit), 'name': "backtick",
-                              'symbol': '`'},
-            r"\|([^\|]+)\|": {'limit': top_minimal_values.get("vertical_bar", self.default_limit),
-                              'name': "vertical_bar", 'symbol': '|'},
-            r"\!\!([^\!]+)\!\!": {'limit': top_minimal_values.get("double_exclamation", self.default_limit),
-                                  'name': "double_exclamation", 'symbol': '!!'},
-            r"__([^_]+)__": {'limit': top_minimal_values.get("double_underscore", self.default_limit),
-                             'name': "double_underscore", 'symbol': '__'},
-            r"\^([^\^]+)\^": {'limit': top_minimal_values.get("caret", self.default_limit), 'name': "caret",
-                              'symbol': '^'},
-            r"\$([^\$]+)\$": {'limit': top_minimal_values.get("dollar", self.default_limit), 'name': "dollar",
-                              'symbol': '$'},
-            r"\&([^\&]+)\&": {'limit': top_minimal_values.get("ampersand", self.default_limit), 'name': "ampersand",
-                              'symbol': '&'},
-            r"%%([^%]+)%%": {'limit': top_minimal_values.get("double_percent", self.default_limit),
-                             'name': "double_percent", 'symbol': '%%'},
-            r"°([^°]+)°": {'limit': top_minimal_values.get("degree", self.default_limit), 'name': "degree",
-                           'symbol': '°'},
-            r"□([^□]+)□": {'limit': top_minimal_values.get("square", self.default_limit), 'name': "square",
-                           'symbol': '□'},
-            r"●([^●]+)●": {'limit': top_minimal_values.get("black_circle", self.default_limit), 'name': "black_circle",
-                           'symbol': '●'},
-            r"▼([^▼]+)▼": {'limit': top_minimal_values.get("down_arrow", self.default_limit), 'name': "down_arrow",
-                           'symbol': '▼'},
-            r"◊([^◊]+)◊": {'limit': top_minimal_values.get("diamond", self.default_limit), 'name': "diamond",
-                           'symbol': '◊'},
-            r"↑([^↑]+)↑": {'limit': top_minimal_values.get("up_arrow", self.default_limit), 'name': "up_arrow",
-                           'symbol': '↑'},
-            r"☼([^☼]+)☼": {'limit': top_minimal_values.get("sun", self.default_limit), 'name': "sun", 'symbol': '☼'},
-            r"∆([^∆]+)∆": {'limit': top_minimal_values.get("triangle", self.default_limit), 'name': "triangle",
-                           'symbol': '∆'},
-            r"⇔([^⇔]+)⇔": {'limit': top_minimal_values.get("double_arrow", self.default_limit), 'name': "double_arrow",
-                           'symbol': '⇔'},
-            r"①([^①]+)①": {'limit': top_minimal_values.get("circled_one", self.default_limit), 'name': "circled_one",
-                           'symbol': '①'},
-            r"╬([^╬]+)╬": {'limit': top_minimal_values.get("double_cross", self.default_limit), 'name': "double_cross",
-                           'symbol': '╬'},
-            r"▣([^▣]+)▣": {'limit': top_minimal_values.get("square_with_round_corners", self.default_limit),
-                           'name': "square_with_round_corners", 'symbol': '▣'},
-            r"◌([^◌]+)◌": {'limit': top_minimal_values.get("dotted_circle", self.default_limit),
-                           'name': "dotted_circle", 'symbol': '◌'},
-            r"❖([^❖]+)❖": {'limit': top_minimal_values.get("diamond_with_dot", self.default_limit),
-                           'name': "diamond_with_dot", 'symbol': '❖'},
-            r"❊([^❊]+)❊": {'limit': top_minimal_values.get("flower", self.default_limit), 'name': "flower",
-                           'symbol': '❊'},
-            r"✦([^✦]+)✦": {'limit': top_minimal_values.get("four_pointed_star", self.default_limit),
-                           'name': "four_pointed_star", 'symbol': '✦'},
-            r"♡([^♡]+)♡": {'limit': top_minimal_values.get("heart", self.default_limit), 'name': "heart",
-                           'symbol': '♡'},
-            r"☆([^☆]+)☆": {'limit': top_minimal_values.get("white_star", self.default_limit), 'name': "white_star",
-                           'symbol': '☆'},
-            r"◩([^◩]+)◩": {'limit': top_minimal_values.get("square_with_triangle", self.default_limit),
-                           'name': "square_with_triangle", 'symbol': '◩'},
-            r"◐([^◐]+)◐": {'limit': top_minimal_values.get("half_circle_right", self.default_limit),
-                           'name': "half_circle_right", 'symbol': '◐'},
-            r"◆([^◆]+)◆": {'limit': top_minimal_values.get("black_diamond", self.default_limit),
-                           'name': "black_diamond", 'symbol': '◆'},
-            r"◇([^◇]+)◇": {'limit': top_minimal_values.get("white_diamond", self.default_limit),
-                           'name': "white_diamond", 'symbol': '◇'},
-            r"◈([^◈]+)◈": {'limit': top_minimal_values.get("diamond_with_plus", self.default_limit),
-                           'name': "diamond_with_plus", 'symbol': '◈'},
-            r"◉([^◉]+)◉": {'limit': top_minimal_values.get("bullseye", self.default_limit), 'name': "bullseye",
-                           'symbol': '◉'},
-            r"♔([^♔]+)♔": {'limit': top_minimal_values.get("chess_king", self.default_limit), 'name': "chess_king",
-                           'symbol': '♔'},
-            r"♕([^♕]+)♕": {'limit': top_minimal_values.get("chess_queen", self.default_limit), 'name': "chess_queen",
-                           'symbol': '♕'},
-            r"♖([^♖]+)♖": {'limit': top_minimal_values.get("chess_rook", self.default_limit), 'name': "chess_rook",
-                           'symbol': '♖'},
-            r"♗([^♗]+)♗": {'limit': top_minimal_values.get("chess_bishop", self.default_limit), 'name': "chess_bishop",
-                           'symbol': '♗'},
-            r"♘([^♘]+)♘": {'limit': top_minimal_values.get("chess_knight", self.default_limit), 'name': "chess_knight",
-                           'symbol': '♘'},
-            r"♞([^♞]+)♞": {'limit': top_minimal_values.get("chess_knight_black", self.default_limit),
-                           'name': "chess_knight_black", 'symbol': '♞'},
-            r"♙([^♙]+)♙": {'limit': top_minimal_values.get("chess_pawn", self.default_limit), 'name': "chess_pawn",
-                           'symbol': '♙'},
-            r"♚([^♚]+)♚": {'limit': top_minimal_values.get("chess_king_black", self.default_limit),
-                           'name': "chess_king_black", 'symbol': '♚'},
-            r"♛([^♛]+)♛": {'limit': top_minimal_values.get("chess_queen_black", self.default_limit),
-                           'name': "chess_queen_black", 'symbol': '♛'},
-            r"♜([^♜]+)♜": {'limit': top_minimal_values.get("chess_rook_black", self.default_limit),
-                           'name': "chess_rook_black", 'symbol': '♜'},
-            r"♝([^♝]+)♝": {'limit': top_minimal_values.get("chess_bishop_black", self.default_limit),
-                           'name': "chess_bishop_black", 'symbol': '♝'},
-            r"❶([^❶]+)❶": {'limit': top_minimal_values.get("ball_number_one", self.default_limit),
-                           'name': "ball_number_one", 'symbol': '❶'}
-        }
+        self.patterns = {}
+        for name, data in top_minimal_values.items():
+            char = data.get('char')
+            limit = data.get('value', self.default_limit)
+
+            if not char:  # якщо немає символу, пропускаємо
+                continue
+
+            # Екранізуємо символ для регулярки, якщо треба
+            escaped_char = re.escape(char)
+            pattern = fr"{escaped_char}([^{escaped_char}]+){escaped_char}"
+
+            self.patterns[pattern] = {
+                'limit': limit,
+                'name': name,
+                'symbol': char
+            }
 
     def _receiving_data(self, concurrent_json_info: Dict, owner_offer_info: Optional[Dict]) -> Optional[Dict]:
         """Парсить інформацію про конкурентів з API відповіді."""

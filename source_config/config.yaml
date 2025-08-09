@@ -1,0 +1,109 @@
+top_minimal:
+  asterisk: 1000                  # (*)   (все вище без знаку - ✓/↟)
+  star: 525.41218                 # (★)
+  double_percent: 390.25469      # (%%)
+  white_diamond: 288.07          # (◇)
+  chess_pawn: 213.0            # (♙)
+  dollar: 159.0                 # ($)
+  vertical_bar: 118.78           # (|)
+  chess_bishop_black: 86.9     # (♝)
+  caret: 65.9                  # (^)
+  degree: 51.0                 # (°)
+  dotted_circle: 39.5          # (◌)
+  ball_number_one: 30.7        # (❶)
+  square: 24.2                 # (□)
+  diamond_with_dot: 19.85     # (❖)
+  equality: 17.9                # (=)
+  chess_king_black: 16.7      # (♚)
+  down_arrow: 15.4             # (▼)
+  double_cross: 14.0           # (╬)
+  chess_rook_black: 12.7       # (♜)
+  double_arrow: 11.3           # (⇔)
+  circled_one: 10.0            # (①)
+  triangle: 8.9               # (∆)
+  square_with_round_corners: 7.9  # (▣)
+  up_arrow: 7.0               # (↑)
+  square_with_triangle: 6.2   # (◩)
+  diamond: 5.6                 # (◊)
+  half_circle_right: 4.8        # (◐)
+  chess_bishop: 4.1            # (♗)
+  hash: 3.45                   # (#)
+  chess_rook: 2.85             # (♖)
+  chess_queen: 2.33            # (♕)
+  chess_knight_black: 1.92     # (♞)
+  chess_king: 1.55              # (♔)
+  black_circle: 1.24           # (●)
+  chess_queen_black: 1.0   # (♛)
+  bullseye: 0.695871             # (◉)
+  chess_knight: 0.529254         # (♘)
+  diamond_with_plus: 0.42      # (◈)
+  heart: 0.297                   # (♡)
+  backtick: 0.21               # (`)
+  black_diamond: 0.1344717       # (◆)
+  double_underscore: 0.087      # (__)
+  white_star: 0.0529254          # (☆)
+  four_pointed_star: 0.042     # (✦)
+  tilde: 0.0303831               # (~)
+  ampersand: 0.0205             # (&)
+  sun: 0.0127413                 # (☼)
+  flower: 0.0088                # (❊)
+  double_exclamation: 0.005   # (!!)
+  plus: 0.001                    # (+)
+
+
+default_limit: 0
+
+threshold_price_for_percentage_change: 40  # $
+change_percents_before_threshold: 0.05  # %
+change_percents_after_threshold: 0.05  # %
+
+
+pause_between_runs: 0 # seconds
+
+
+min_difference_percent_to_reduce_the_price_between_first_and_second: 6 # percents % Мінімальна відсоткова різниця для підтягування
+max_difference_percent_to_reduce_the_price_between_first_and_second: 50 # percents % Максимальна відсоткова різниця для підтягування
+min_max_change_first_position : 0.5  #  % на скільки відсотків ціна першого місця буде менша за друге після підтягування
+
+one_percent_reduce_percent_difference: 201 # percents % Різниця у відсотках з другим місцем на непопулярний товар
+reduce_price_non_popular_item : 0.01  #  % На скільки відсотків зменшится ціна на непопулярний товар
+
+position_for_change_pattern_if_owner_price_over_limit: 30
+position_for_change_pattern_if_owner_price_under_limit: 30
+
+max_limit_price_for_pull: 199  # $
+
+
+delete_temp_folders: True #  Delete temp folders after each full run to offer_id.'False' or 'True' for change option
+
+test_mode_logs: False  # Extend logs mode. True or False for change mode
+
+owner : "Allbestfory"
+
+ignore_competitors_for_asterisk: ["HandFarm", "BogOdin_EG", "play1ife", "Mipa", "DealHub", "PVPGOLD", "GGsSellers", "haihei", "lvgame", "Antic23", "ProPerfect", "DungeonBud", "Thrall", "FFXIVGilShop", "CNLTeam", "Haliber", "SunRise", "DionysusGod", "BoostRoom", "Exloot", "elmagnifico"] #
+ignore_competitors_for_other_patterns: ["HandFarm"] #
+
+
+ignore_words: ["Recipe:", "Plans:", "Schematic:", "Formula:", "Pattern:"]
+
+user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+
+log_colors:
+  info: 'cyan'  # блакитний для звичайного тексту
+  change_price: 'yellow'  # користувацький рівень для рядків зі зміненою ціною
+  warning: 'yellow'  # жовтий для виділених рядків
+  error: 'white'  # червоний для помилок
+  critical: 'red'  # червоний для помилок
+  time: 'white'  #  для часу
+  level: 'cyan'  # для рівня
+  module: 'magenta'  #  для модуля
+  funcName: 'green'  # для функції
+  linenumber: 'magenta'  # для номера рядка
+
+delay_minutes_between_cycles: 5
+platform: "Windows"
+seller_id: "5688923"
+threads_quantity: 20
+config_minimal_purchase_qty: 2
+api_retries: 40
+api_retry_delay: 20
