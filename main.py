@@ -90,7 +90,7 @@ class OfferProcessor:
         self.default_limit = self.config.get("default_limit", 0)
 
         self.api_retries = self.config.get("api_retries", 3)
-        self.api_retry_delay = self.config.get("api_retry_delay", 1)
+        self.api_retry_delay = self.config.get("api_retry_delay", 120)
 
         self.threshold_price_for_percentage_change = self.config.get("threshold_price_for_percentage_change")
         self.change_percents_before_threshold = self.config.get("change_percents_before_threshold")
@@ -923,7 +923,7 @@ class OfferProcessor:
             time.sleep(api_retry_delay * (attempt + 1))  # Прогресівна затримка
 
 
-    def upload_exel_file(self,file_path:Path, relation_id):
+    def upload_exel_file(self,file_path:Path, relation_id, time_aut_value_seconds):
         """
                 Завантажує оновлений Excel-файл на G2G.
                 Виконує послідовність з 4 HTTP-запитів.
@@ -1043,7 +1043,8 @@ class OfferProcessor:
             self.logger.error(
                 f"Не вдалося повідомити G2G про масовий імпорт. Статус: {response_bulk_import.status_code}")
             return False
-        time.sleep(5)
+
+        time.sleep(time_aut_value_seconds)
         if response_bulk_import.status_code == 200:
             self.logger.info(f"Повідомлення G2G про масовий імпорт успішно надіслано."
                              f"Response:{response_bulk_import.json()}"
@@ -1218,6 +1219,14 @@ class OfferProcessor:
                         data_df.columns = columns
                         data_df.columns = data_df.columns.str.strip()
 
+                        # Отримуємо кількість рядків та розраховуємо тайм-аут очикування після завантаження
+                        num_rows = data_df.shape[0]
+                        time_aut_value_seconds = num_rows // 1000 * 60
+                        if time_aut_value_seconds == 0:
+                            time_aut_value_seconds = 1
+                        self.logger.info(f"Тайм-aут для файла з {num_rows} рядками: {time_aut_value_seconds} секунд.")
+                        input("Press Enter to continue...")
+
                         required_columns = ['Offer ID', 'Unit Price', 'Title', 'Min. Purchase Qty']
                         if not all(col in data_df.columns for col in required_columns):
                             missing_cols = [col for col in required_columns if col not in data_df.columns]
@@ -1304,7 +1313,7 @@ class OfferProcessor:
 
 
 
-                        self.upload_exel_file(output_file_path, relation_id)
+                        self.upload_exel_file(output_file_path, relation_id, time_aut_value_seconds)
                         self.logger.warning(f"  Файл '{output_file_path.name}' завантажується на G2G.")
 
                     # except Exception as e:
