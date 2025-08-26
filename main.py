@@ -1043,14 +1043,13 @@ class OfferProcessor:
                 f"Не вдалося повідомити G2G про масовий імпорт. Статус: {response_bulk_import.status_code}")
             return False
 
-        time.sleep(time_aut_value_seconds)
         if response_bulk_import.status_code == 200:
             self.logger.info(f"Повідомлення G2G про масовий імпорт успішно надіслано."
                              f"Response:{response_bulk_import.json()}"
                              f" Статус_код: {response_bulk_import.status_code}") if self.test_mode_logs else None
-            # time.sleep(30)
-            # # Закриваємо імпорт
-            # self.delete_import(relation_id)
+
+        time.sleep(time_aut_value_seconds)
+
 
     def download_exel_files(self, game_alias,  relation_id):
         #Надсилаємо запит на отримання експорту
@@ -1224,7 +1223,6 @@ class OfferProcessor:
                         if time_aut_value_seconds == 0:
                             time_aut_value_seconds = 1
                         self.logger.info(f"Тайм-aут для файла з {num_rows} рядками: {time_aut_value_seconds} секунд.")
-                        input("Press Enter to continue...")
 
                         required_columns = ['Offer ID', 'Unit Price', 'Title', 'Min. Purchase Qty']
                         if not all(col in data_df.columns for col in required_columns):
@@ -1293,7 +1291,7 @@ class OfferProcessor:
                                     full_df.iloc[original_index, min_purchase_qty_idx] = int(new_min_purchase_qty)
                                     self.logger.info(
                                         f"Змінена мінімальна кількість покупки до"
-                                        f" {new_min_purchase_qty:.0f} для Offer ID {offer_id}")
+                                        f" {new_min_purchase_qty:.0f} для Offer ID {offer_id}") if self.test_mode_logs else None
 
 
                                 if new_title is not None:
@@ -1327,7 +1325,10 @@ class OfferProcessor:
 
             # --- Пауза між повними проходами по всіх файлах ---
             self.logger.info(
-                f"Завершено обробку всіх файлів. Очікування {self.delay_seconds_between_cycles} секунд перед новим циклом.")
+                f"\033[97m_______________________________________"
+                f"Завершено обробку всіх файлів."
+                f" Очікування {self.delay_seconds_between_cycles} секунд перед новим циклом."
+                f"_______________________________________\033[0m")
             time.sleep(self.delay_seconds_between_cycles)
 
 
