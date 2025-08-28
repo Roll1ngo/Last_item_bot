@@ -29,8 +29,7 @@ from data_base.connection import db  # Імпортуємо db екземпля�
 
 from functions.load_config import get_config
 from functions.logger_config import logger
-from functions.util_functions import calculate_percent_difference, \
-    get_pull_indicator  # Переконайтеся, що ця функція існує і працює
+from functions.util_functions import calculate_percent_difference
 
 try:
     db.create_all_tables()
@@ -623,7 +622,7 @@ class OfferProcessor:
         limit = owner_offer_info['limit']
 
         # Визначаємо індикатор підтягування отримуючи булеве значення
-        pull_indicator = get_pull_indicator(owner_position, competitors, ignore_competitors)
+        pull_indicator = self.get_pull_indicator(owner_position, competitors, ignore_competitors)
 
         logger.info(f"pull_indicator: {pull_indicator}") if self.test_mode_logs else None
 
@@ -747,7 +746,7 @@ class OfferProcessor:
                                 f" на товар {short_title} з id {owner_offer_info['offer_id']} "}
 
 
-    def get_pull_indicator(self,owner_position, competitors, ignored_competitors):
+    def get_pull_indicator(self, owner_position, competitors, ignored_competitors):
         if owner_position == 1:
             return True if len(competitors) >= 2 else False
 
@@ -935,7 +934,7 @@ class OfferProcessor:
             time.sleep(api_retry_delay)
 
 
-    def upload_exel_file(self,file_path:Path, relation_id, time_aut_value_seconds):
+    def upload_exel_file(self,file_path:Path, relation_id):
         """
                 Завантажує оновлений Excel-файл на G2G.
                 Виконує послідовність з 4 HTTP-запитів.
@@ -1060,8 +1059,6 @@ class OfferProcessor:
             self.logger.info(f"Повідомлення G2G про масовий імпорт успішно надіслано."
                              f"Response:{response_bulk_import.json()}"
                              f" Статус_код: {response_bulk_import.status_code}") if self.test_mode_logs else None
-
-        time.sleep(time_aut_value_seconds)
 
 
     def download_exel_files(self, game_alias,  relation_id):
@@ -1328,9 +1325,9 @@ class OfferProcessor:
 
 
 
-                        self.upload_exel_file(output_file_path, relation_id, time_aut_value_seconds)
-                        self.logger.warning(f"  Файл '{output_file_path.name}' завантажується на G2G.")
-
+                        self.upload_exel_file(output_file_path, relation_id)
+                        self.logger.warning(f"  Файл '{output_file_path.name}' завантажується на G2G протягом {time_aut_value_seconds} секунд.")
+                        time.sleep(time_aut_value_seconds)
                     except Exception as e:
                         self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
                                   exc_info=True)
