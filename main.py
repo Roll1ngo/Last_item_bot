@@ -1,12 +1,12 @@
 import asyncio
 import concurrent.futures
+import decimal
 import json
 import math
 import sys
 import time
 import os
 import re
-import uuid
 import zipfile
 
 from concurrent.futures import ThreadPoolExecutor
@@ -77,7 +77,6 @@ class OfferProcessor:
         self.user_agent = self.config.get('user_agent')
         self.platform = self.config.get('platform')
         self.seller_id = str(self.config.get('seller_id'))
-        self.pause_between_runs = self.config.get('pause_between_runs')
         self.delete_temp_folders = self.config.get('delete_temp_folders')
         self.test_mode_logs = self.config.get('test_mode_logs')
         self.ignore_words = self.config.get('ignore_words')
@@ -99,7 +98,7 @@ class OfferProcessor:
         self.min_max_change_first_position = self.config.get('min_max_change_first_position')
         self.reduce_price_non_popular_item = self.config.get('reduce_price_non_popular_item')  # Виправлено self.
         self.max_limit_price_for_pull = self.config.get("max_limit_price_for_pull")
-        self.config_minimal_purchase_qty = self.config.get("config_minimal_purchase_qty")
+        self.config_minimal_purchase_qty =decimal.Decimal( self.config.get("config_minimal_purchase_qty"))
 
         self.max_difference_percent_to_reduce_the_price_between_first_and_second = (
             self.config.get("max_difference_percent_to_reduce_the_price_between_first_and_second"))
@@ -920,7 +919,7 @@ class OfferProcessor:
             except RequestException as e:
                 self.logger.info(f"Спроба {attempt + 1}/{api_retries}: Помилка з'єднання - {str(e)}")
 
-            time.sleep(api_retry_delay * (attempt + 1))  # Прогресівна затримка
+            time.sleep(api_retry_delay)
 
 
     def upload_exel_file(self,file_path:Path, relation_id, time_aut_value_seconds):
@@ -1044,14 +1043,13 @@ class OfferProcessor:
                 f"Не вдалося повідомити G2G про масовий імпорт. Статус: {response_bulk_import.status_code}")
             return False
 
-        time.sleep(time_aut_value_seconds)
         if response_bulk_import.status_code == 200:
             self.logger.info(f"Повідомлення G2G про масовий імпорт успішно надіслано."
                              f"Response:{response_bulk_import.json()}"
                              f" Статус_код: {response_bulk_import.status_code}") if self.test_mode_logs else None
-            # time.sleep(30)
-            # # Закриваємо імпорт
-            # self.delete_import(relation_id)
+
+        time.sleep(time_aut_value_seconds)
+
 
     def download_exel_files(self, game_alias,  relation_id):
         #Надсилаємо запит на отримання експорту
@@ -1175,11 +1173,11 @@ class OfferProcessor:
             self.logger.error(f"Помилка при видаленні імпорту. Статус: {delete_import_response.status_code}")
 
     def process_offers(self):
-        self.token_manager.token_ready_event.wait()
+        # self.token_manager.token_ready_event.wait()
         # files_paths = {"panda_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_us",
         #  "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
         #  "era_us_test": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us_test",
-        #  "era_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_eu"
+        #  "era_eu": r"C:\Users\admin\Desktop\Last_item_bot\source_offers\unpacked exels\era_eu"
         #  }
         while True:
             for game_alias, parameters in self.relations_ids.items():
@@ -1224,8 +1222,8 @@ class OfferProcessor:
                         time_aut_value_seconds = num_rows // 1000 * 60
                         if time_aut_value_seconds == 0:
                             time_aut_value_seconds = 1
+                            time_aut_value_seconds = 1
                         self.logger.info(f"Тайм-aут для файла з {num_rows} рядками: {time_aut_value_seconds} секунд.")
-                        input("Press Enter to continue...")
 
                         required_columns = ['Offer ID', 'Unit Price', 'Title', 'Min. Purchase Qty']
                         if not all(col in data_df.columns for col in required_columns):
@@ -1278,19 +1276,24 @@ class OfferProcessor:
                                 offer_id = result_data['offer_id']
                                 original_title = result_data['original_title']
                                 table_min_purchase_qty = result_data['table_min_purchase_qty']
+                                table_price = result_data['original_unit_price']
                                 new_price = result_data['new_price']
                                 new_title = result_data['new_title']
+                                final_price=table_price
 
                                 if new_price is not None:
                                     full_df.iloc[original_index, price_col_idx] = float(new_price)
+                                    final_price= new_price
 
-                                    if new_price > 0 and (
-                                            new_price * table_min_purchase_qty) < self.config_minimal_purchase_qty:
-                                        new_min_purchase_qty = math.ceil(self.config_minimal_purchase_qty / new_price)
-                                        full_df.iloc[original_index, min_purchase_qty_idx] = float(new_min_purchase_qty)
-                                        self.logger.info(
-                                            f"Змінена мінімальна кількість покупки до"
-                                            f" {new_min_purchase_qty:.0f} для Offer ID {offer_id}") if self.test_mode_logs else None
+
+                                if final_price > 0 and (
+                                     decimal.Decimal(final_price) * decimal.Decimal(table_min_purchase_qty)) < self.config_minimal_purchase_qty:
+                                    new_min_purchase_qty = math.ceil(self.config_minimal_purchase_qty / decimal.Decimal(final_price))
+                                    full_df.iloc[original_index, min_purchase_qty_idx] = int(new_min_purchase_qty)
+                                    self.logger.info(
+                                        f"Змінена мінімальна кількість покупки до"
+                                        f" {new_min_purchase_qty:.0f} для Offer ID {offer_id}") if self.test_mode_logs else None
+
 
                                 if new_title is not None:
                                     full_df.iloc[original_index, title_col_idx] = str(new_title)
@@ -1300,7 +1303,6 @@ class OfferProcessor:
                             self.logger.info(f"  Немає оновлених пропозицій для файлу '{file_path.name}'.")
 
                         self.output_folder.mkdir(parents=True, exist_ok=True)
-                        # unique_id = uuid.uuid4()
                         output_file_path = self.output_folder / file_path.name  # Це перезапише файл
                         self.logger.info(f"Збереження оновленого файлу як: {output_file_path.name}")
 
@@ -1316,15 +1318,18 @@ class OfferProcessor:
                         self.upload_exel_file(output_file_path, relation_id, time_aut_value_seconds)
                         self.logger.warning(f"  Файл '{output_file_path.name}' завантажується на G2G.")
 
-                    # except Exception as e:
-            #     self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
-            #                       exc_info=True)
+                    except Exception as e:
+                        self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
+                                  exc_info=True)
                     finally:
                         pass
 
             # --- Пауза між повними проходами по всіх файлах ---
             self.logger.info(
-                f"Завершено обробку всіх файлів. Очікування {self.delay_seconds_between_cycles} секунд перед новим циклом.")
+                f"\033[97m_______________________________________"
+                f"Завершено обробку всіх файлів."
+                f" Очікування {self.delay_seconds_between_cycles} секунд перед новим циклом."
+                f"_______________________________________\033[0m")
             time.sleep(self.delay_seconds_between_cycles)
 
 
@@ -1380,6 +1385,7 @@ def run_offer_processor():
         else:
            print(f"Неочікувана помилка в run_offer_processor до ініціалізації: {e}", file=sys.stderr)
         raise  # Перевикидаємо, щоб основний цикл міг це обробити
+
 
 
 if __name__ == '__main__':

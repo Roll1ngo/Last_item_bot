@@ -1,5 +1,4 @@
 import requests
-from bs4 import BeautifulSoup
 
 
 def calculate_percent_difference(owner_unit_price, second_position_competitor_price):
