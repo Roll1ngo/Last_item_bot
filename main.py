@@ -742,11 +742,24 @@ class OfferProcessor:
                 return new_price
             else:
                 return f"Немає конкурентів на товар {short_title}"
-        # except Exception as e:
-        #     return {'critical': f"Помилка у функції розрахунку ціни: {e} ціну не змінено"
-        #                         f" на товар {short_title} з id {owner_offer_info['offer_id']} "}
-        finally:
-            pass
+        except Exception as e:
+            return {'critical': f"Помилка у функції розрахунку ціни: {e} ціну не змінено"
+                                f" на товар {short_title} з id {owner_offer_info['offer_id']} "}
+
+
+    def get_pull_indicator(self,owner_position, competitors, ignored_competitors):
+        if owner_position == 1:
+            return True if len(competitors) >= 2 else False
+
+        competitors_before_owner = [competitor['username'] for pos, competitor in competitors.items()
+                                    if pos < owner_position]
+        self.logger.info(f"competitors_before_owner: {competitors_before_owner}") if self.test_mode_logs else None
+
+        for competitor in competitors_before_owner:
+            if competitor not in ignored_competitors:
+                return False
+
+        return True
 
     def _process_single_offer(self, original_index: int, row_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """
