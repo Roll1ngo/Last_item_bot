@@ -103,10 +103,10 @@ log_colors:
   funcName: 'green'  # для функції
   linenumber: 'magenta'  # для номера рядка
 
-delay_minutes_between_cycles: 0
+delay_minutes_between_cycles: 5
 platform: "Windows"
 seller_id: "5688923"
 threads_quantity: 20
 config_minimal_purchase_qty: 2
-api_retries: 40
-api_retry_delay: 20
+api_retries: 10
+api_retry_delay: 100
