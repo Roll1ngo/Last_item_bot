@@ -78,7 +78,7 @@ class OfferProcessor:
         self.seller_id = str(self.config.get('seller_id'))
         self.delete_temp_folders = self.config.get('delete_temp_folders')
         self.test_mode_logs = self.config.get('test_mode_logs')
-        self.ignore_words = self.config.get('ignore_words')
+        self.ignore_words = [word.lower() for word in self.config.get('ignore_words')]
         self.position_for_change_pattern_if_owner_price_over_limit = self.config.get(
             'position_for_change_pattern_if_owner_price_over_limit')
         self.position_for_change_pattern_if_owner_price_under_limit = self.config.get(
@@ -106,6 +106,9 @@ class OfferProcessor:
 
         self.threads_quantity = self.config.get('threads_quantity')
         self.delay_seconds_between_cycles = (self.config.get("delay_minutes_between_cycles") * 60)
+
+        self.pull_if_ignore_before_me = self.config.get('pull_if_ignore_before_me')
+        self.pull_if_ignore_after_me = self.config.get('pull_if_ignore_after_me')
 
     def _initialize_headers(self):
         self.base_headers = {
@@ -341,11 +344,10 @@ class OfferProcessor:
                 self.logger.critical(f"ValueError при обробці {owner_title}. Паттерн: {pattern}")
                 continue
         else:
-            self.logger.warning(f"Пропускаємо: Патерн не знайдено для title: {owner_title}")
             return None
 
     def define_offer_type(self, title: str) -> str:
-        exist_ignore_in_owner_title = any(word in title for word in self.ignore_words)
+        exist_ignore_in_owner_title = any(word in title.lower() for word in self.ignore_words)
         offer_type = 'schematic_type' if exist_ignore_in_owner_title else 'item_type'
         return offer_type
 
@@ -622,9 +624,11 @@ class OfferProcessor:
         limit = owner_offer_info['limit']
 
         # Визначаємо індикатор підтягування отримуючи булеве значення
-        pull_indicator = self.get_pull_indicator(owner_position, competitors, ignore_competitors)
+        pull_indicator, position_competitor_for_pull = self.get_pull_indicator(owner_position, competitors, ignore_competitors)
 
-        logger.info(f"pull_indicator: {pull_indicator}") if self.test_mode_logs else None
+        logger.info(f"pull_indicator: {pull_indicator},"
+                    f" position_competitor_for_pull: {position_competitor_for_pull}")
+        input("Для продовження натисніть enter")
 
         logger.warning(f" Для патерну {pattern_name} на знайдено значення ліміту."
                        f" Наразі встановлено стандартне значення {limit}"
@@ -679,7 +683,6 @@ class OfferProcessor:
                                 f" з ціною {self.red}{unit_price}{self.reset}"
                                 f" вищою за встановленний ліміт {self.max_limit_price_for_pull} $ для підтягування")
 
-                    position_competitor_for_pull = position + 1
                     pull_competitor_price = competitors[position_competitor_for_pull]['unit_price']
                     pull_competitor_username = competitors[position_competitor_for_pull]['username']
                     price_difference_percent = round(calculate_percent_difference(unit_price,
@@ -746,19 +749,98 @@ class OfferProcessor:
                                 f" на товар {short_title} з id {owner_offer_info['offer_id']} "}
 
 
+    # def get_pull_indicator(self, owner_position, competitors, ignored_competitors):
+    #     self.logger.info(f"competitors__{competitors}")
+    #     self.logger.info(f"ignored_competitors__{ignored_competitors}")
+    #     if  self.pull_if_ignore_after_me:
+    #         self.logger.info(f"pull_if_ignore_after_me__{self.pull_if_ignore_after_me}")
+    #
+    #         if owner_position == 1:
+    #             self.logger.info(f"owner_position__{owner_position},"
+    #                              f" кількість конкурентів__{len(competitors)}")
+    #             return True, 2 if len(competitors) >= 2 else False, None
+    #         else:
+    #             self.logger.info(f"pull_if_ignore_before_me__{self.pull_if_ignore_before_me}")
+    #             if self.pull_if_ignore_before_me:
+    #                 self.logger.info(f"owner_position__{owner_position},"
+    #                                  f" кількість конкурентів__{len(competitors)}")
+    #                 return True, owner_position + 1
+    #
+    #
+    #     else:
+    #         for pos, competitor in competitors.items():
+    #             pos_competitor_after_owner_not_in_ignore = None
+    #             if pos > owner_position and competitor['username'] not in ignored_competitors:
+    #                 pos_competitor_after_owner_not_in_ignore = pos
+    #                 break
+    #         return (False, None if pos_competitor_after_owner_not_in_ignore is None else True,
+    #                 pos_competitor_after_owner_not_in_ignore)
+    #
+    #
+    #
+    #
+    #     self.logger.info(f"competitors_before_owner: {competitors_before_owner}") if self.test_mode_logs else None
+    #
+    #     for competitor in competitors_before_owner:
+    #         if competitor not in ignored_competitors:
+    #             return False
+    #
+    #     return True
+
     def get_pull_indicator(self, owner_position, competitors, ignored_competitors):
+        self.logger.debug(f"Calling get_pull_indicator with owner_position: {owner_position}, "
+                          f"competitors: {len(competitors)}, ignored: {len(ignored_competitors)}")
+
         if owner_position == 1:
-            return True if len(competitors) >= 2 else False
+            if self.pull_if_ignore_after_me:
+                self.logger.info("Return from condition: owner_position == 1 and pull_if_ignore_after_me is True")
+                return (True, 2) if len(competitors) >= 2 else (False, None)
+            else:
+                pos_competitor_after_owner_not_in_ignore = None
+                for pos, competitor in competitors.items():
+                    if pos > owner_position and competitor['username'] not in ignored_competitors:
+                        pos_competitor_after_owner_not_in_ignore = pos
+                        break
 
-        competitors_before_owner = [competitor['username'] for pos, competitor in competitors.items()
-                                    if pos < owner_position]
-        self.logger.info(f"competitors_before_owner: {competitors_before_owner}") if self.test_mode_logs else None
+                if pos_competitor_after_owner_not_in_ignore is None:
+                    self.logger.info(
+                        "Return from condition: owner_position == 1 and no competitor after owner not in ignore list")
+                    return False, None
+                else:
+                    self.logger.info(
+                        "Return from condition: owner_position == 1 and competitor after owner found not in ignore list")
+                    return True, pos_competitor_after_owner_not_in_ignore
 
-        for competitor in competitors_before_owner:
-            if competitor not in ignored_competitors:
-                return False
+        elif owner_position == 2:
+            if self.pull_if_ignore_before_me:
+                self.logger.info("Return from condition: owner_position == 2 and pull_if_ignore_before_me is True")
+                return (True, 3) if len(competitors) >= 3 else (False, None)
+            else:
+                logger.info(competitors)
+                exist_in_ignore_list_first_position = True  if competitors[1][
+                    'username'] in ignored_competitors else False
+                if exist_in_ignore_list_first_position:
+                    self.logger.info(
+                        "Return from condition: owner_position == 2 and competitor at position 1 is in ignore list")
+                    return False, None
+                else:
+                    self.logger.info(
+                        "Return from condition: owner_position == 2 and competitor at position 1 is not in ignore list")
+                    return True, 3
 
-        return True
+        else:
+            not_ignored_competitors_before_owner = [competitor['username'] for pos, competitor in competitors.items()
+                                                    if (pos < owner_position and competitor[
+                    'username'] not in ignored_competitors)]
+
+            if not not_ignored_competitors_before_owner:
+                self.logger.info(
+                    "Return from condition: owner_position > 2 and no not-ignored competitors before owner")
+                return False, None
+            else:
+                self.logger.info(
+                    "Return from condition: owner_position > 2 and not-ignored competitors before owner exist")
+                return True, owner_position + 1
 
     def _process_single_offer(self, original_index: int, row_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """
@@ -1183,20 +1265,20 @@ class OfferProcessor:
             self.logger.error(f"Помилка при видаленні імпорту. Статус: {delete_import_response.status_code}")
 
     def process_offers(self):
-        # self.token_manager.token_ready_event.wait()
-        # files_paths = {"panda_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_us",
-        #  "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
-        #  "era_us_test": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us_test",
-        #  "era_eu": r"C:\Users\admin\Desktop\Last_item_bot\source_offers\unpacked exels\era_eu"
-        #  }
+        self.token_manager.token_ready_event.wait()
+        files_paths = {"panda_us": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_us",
+         "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
+         "era_us_test": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us_test",
+         "era_eu": r"C:\Users\admin\Desktop\Last_item_bot\source_offers\unpacked exels\era_eu"
+         }
         while True:
             for game_alias, parameters in self.relations_ids.items():
                 relation_id = parameters["relation_id"]
                 self.logger.info(f"\033[92m\n_________________________________________________________________________"
                                          f" Починаємо роботу з {game_alias}"
                                          f"_________________________________________________________________________\033[0m")
-                exels_file_path = self.download_exel_files(game_alias, relation_id)
-                # exels_file_path = Path(files_paths[game_alias])
+                # exels_file_path = self.download_exel_files(game_alias, relation_id)
+                exels_file_path = Path(files_paths[game_alias])
                 self.logger.warning(f"exels_file_path  {exels_file_path}")
                 if exels_file_path is None:
                     self.logger.error(f"Помилка: Папка для обробки '{game_alias}' не знайдена.")
@@ -1319,15 +1401,10 @@ class OfferProcessor:
                         with pd.ExcelWriter(output_file_path, engine='openpyxl') as writer:
                             full_df.to_excel(writer, sheet_name='Offers', index=False, header=False)
 
-                         #Завантажуємо оновлений Excel файл на g2g
-                         # file_1 = Path(r"C:\Users\admin\Desktop\Last_item_bot\updated_offers_xlsx\era_eu__2d7ba06c-4730-419e-b5ea-5928bfdbc080.xlsx")
-                         # file_2 = Path(r"C:\Users\admin\Desktop\Last_item_bot\updated_offers_xlsx\era_eu__e72689e6-53b3-4bd1-978e-8422082e2868.xlsx")
+                        # self.upload_exel_file(output_file_path, relation_id)
+                        # self.logger.warning(f"  Файл '{output_file_path.name}' завантажується на G2G протягом {time_aut_value_seconds} секунд.")
+                        # time.sleep(time_aut_value_seconds)
 
-
-
-                        self.upload_exel_file(output_file_path, relation_id)
-                        self.logger.warning(f"  Файл '{output_file_path.name}' завантажується на G2G протягом {time_aut_value_seconds} секунд.")
-                        time.sleep(time_aut_value_seconds)
                     except Exception as e:
                         self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
                                   exc_info=True)
@@ -1389,12 +1466,12 @@ def run_offer_processor():
         else:
             print("OfferProcessor: Отримано сигнал завершення. Вихід.")
         raise  # Перевикидаємо, щоб основний цикл міг це обробити
-    except Exception as e:
-        if offer_processor_instance is not None:
-            offer_processor_instance.logger.error(f"Помилка при обробці OfferProcessor: {e}", exc_info=True)
-        else:
-           print(f"Неочікувана помилка в run_offer_processor до ініціалізації: {e}", file=sys.stderr)
-        raise  # Перевикидаємо, щоб основний цикл міг це обробити
+    # except Exception as e:
+    #     if offer_processor_instance is not None:
+    #         offer_processor_instance.logger.error(f"Помилка при обробці OfferProcessor: {e}", exc_info=True)
+    #     else:
+    #        print(f"Неочікувана помилка в run_offer_processor до ініціалізації: {e}", file=sys.stderr)
+    #     raise  # Перевикидаємо, щоб основний цикл міг це обробити
 
 
 
@@ -1406,6 +1483,7 @@ if __name__ == '__main__':
         # або під час ініціалізації asyncio.run.
         print("\nПрограму перервано користувачем (Ctrl+C). Завершення.", file=sys.stderr)
         sys.exit(0)
-    except Exception as e:
-        print(f"\nКритична помилка програми: {e}", file=sys.stderr)
-        sys.exit(1)
+    # except Exception as e:
+    #     print(f"\nКритична помилка програми: {e}", file=sys.stderr)
+    #     sys.exit(1)
+

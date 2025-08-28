@@ -1,6 +1,3 @@
 {
-  "era_eu": {"relation_id": "4d08792f-009e-4f81-a786-fca1802d2c1f"},
-  "panda_us":  {"relation_id": "55fdb243-5bba-4f9e-ade2-931c760f70b6"},
-  "panda_eu": {"relation_id": "9bc84dbb-d5f4-4e7d-94b1-df74f6078d5d"},
-  "era_us": {"relation_id": "870a61ae-5019-466a-b8bf-db7a66f04804"}
+  "panda_us":  {"relation_id": "55fdb243-5bba-4f9e-ade2-931c760f70b6"}
 }
