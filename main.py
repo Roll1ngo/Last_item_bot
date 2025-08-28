@@ -380,7 +380,7 @@ class OfferProcessor:
                     existing_param.seo_term = params.get('seo_term')
                     existing_param.region_id = params.get('region_id')
                     existing_param.filter_attribute = params.get('filter_attr')
-                    self.logger.info(f"[{offer_id}] Параметри успішно оновлено в БД.")
+                    self.logger.info(f"[{offer_id}] Параметри успішно оновлено в БД.") if self.test_mode_logs else None
                 else:
                     new_parameter = OffersParameters(
                         offer_id=offer_id,
@@ -805,7 +805,7 @@ class OfferProcessor:
         offer_ids = [item.get("offer_id") for item in competitors_list.get("payload", {}).get("results", [])]
         if offer_id not in offer_ids:
             self.logger.warning(
-                f"[{offer_id}] Параметри у базі неактуальні. Отримуємо нові параметри з API.")
+                f"[{offer_id}] Параметри у базі неактуальні. Отримуємо нові параметри з API.") if self.test_mode_logs else None
             params = self.get_params_from_api(owner_offer_info)
             logger.info(f"Api params: {params}") if self.test_mode_logs else None
             if not params:
