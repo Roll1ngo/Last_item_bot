@@ -1233,7 +1233,7 @@ class OfferProcessor:
                         if time_aut_value_seconds == 0:
                             time_aut_value_seconds = 1
                             time_aut_value_seconds = 1
-                        self.logger.info(f"Тайм-aут для файла з {num_rows} рядками: {time_aut_value_seconds} секунд.")
+                        self.logger.info(f"Тайм-aут для файла з {num_rows} рядками: {time_aut_value_seconds} секунд.") if self.test_mode_logs else None
 
                         required_columns = ['Offer ID', 'Unit Price', 'Title', 'Min. Purchase Qty']
                         if not all(col in data_df.columns for col in required_columns):
