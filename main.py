@@ -719,6 +719,10 @@ class OfferProcessor:
                                 f" становить {price_difference_percent} % для ціни {self.red}{pull_competitor_price}{self.reset}")
 
                 # Якщо знаходимо власника після попередніх фільтрів, то виходимо.
+                elif user_name == self.owner and position == 1 and self.take_ignors_when_pulling_price:
+                    return (f"{user_name} залишається на позиції {position} по предмету"
+                            f" {short_title} з ціною {self.red}{unit_price}{self.reset}")
+
                 elif user_name == self.owner and position != 1:
                     return (f"{user_name} залишається на позиції {position} по предмету"
                             f" {short_title} з ціною {self.red}{unit_price}{self.reset}")
@@ -746,44 +750,6 @@ class OfferProcessor:
             return {'critical': f"Помилка у функції розрахунку ціни: {e} ціну не змінено"
                                 f" на товар {short_title} з id {owner_offer_info['offer_id']} "}
 
-
-    # def get_pull_indicator(self, owner_position, competitors, ignored_competitors):
-    #     self.logger.info(f"competitors__{competitors}")
-    #     self.logger.info(f"ignored_competitors__{ignored_competitors}")
-    #     if  self.pull_if_ignore_after_me:
-    #         self.logger.info(f"pull_if_ignore_after_me__{self.pull_if_ignore_after_me}")
-    #
-    #         if owner_position == 1:
-    #             self.logger.info(f"owner_position__{owner_position},"
-    #                              f" кількість конкурентів__{len(competitors)}")
-    #             return True, 2 if len(competitors) >= 2 else False, None
-    #         else:
-    #             self.logger.info(f"pull_if_ignore_before_me__{self.pull_if_ignore_before_me}")
-    #             if self.pull_if_ignore_before_me:
-    #                 self.logger.info(f"owner_position__{owner_position},"
-    #                                  f" кількість конкурентів__{len(competitors)}")
-    #                 return True, owner_position + 1
-    #
-    #
-    #     else:
-    #         for pos, competitor in competitors.items():
-    #             pos_competitor_after_owner_not_in_ignore = None
-    #             if pos > owner_position and competitor['username'] not in ignored_competitors:
-    #                 pos_competitor_after_owner_not_in_ignore = pos
-    #                 break
-    #         return (False, None if pos_competitor_after_owner_not_in_ignore is None else True,
-    #                 pos_competitor_after_owner_not_in_ignore)
-    #
-    #
-    #
-    #
-    #     self.logger.info(f"competitors_before_owner: {competitors_before_owner}") if self.test_mode_logs else None
-    #
-    #     for competitor in competitors_before_owner:
-    #         if competitor not in ignored_competitors:
-    #             return False
-    #
-    #     return True
 
     def get_pull_indicator(self, owner_position, competitors, ignored_competitors):
         self.logger.debug(f"Calling get_pull_indicator with owner_position: {owner_position}, "
@@ -819,7 +785,7 @@ class OfferProcessor:
                 'username'] not in ignored_competitors)]
         self.logger.info(f"not_ignored_competitors_before_owner__{not_ignored_competitors_before_owner}") if self.test_mode_logs else None
 
-        if not not_ignored_competitors_before_owner:
+        if  not_ignored_competitors_before_owner:
             self.logger.info(f"owner_position __ {owner_position},"
                              f"take_ignors_when_pulling_price is {self.take_ignors_when_pulling_price}") if self.test_mode_logs else None
             return False, None
@@ -827,6 +793,7 @@ class OfferProcessor:
             self.logger.info(f"owner_position __ {owner_position},"
                              f"take_ignors_when_pulling_price is {self.take_ignors_when_pulling_price}") if self.test_mode_logs else None
             return True, owner_position + 1
+
 
     def _process_single_offer(self, original_index: int, row_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """
@@ -1252,19 +1219,19 @@ class OfferProcessor:
 
     def process_offers(self):
         self.token_manager.token_ready_event.wait()
-        # files_paths = {"panda_us": r"C:\Users\admin\Desktop\Last_item_bot\source_offers\unpacked exels\panda_us",
-        #  "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
-        #  "era_us_test": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us_test",
-        #  "era_eu": r"C:\Users\admin\Desktop\Last_item_bot\source_offers\unpacked exels\era_eu"
-        #  }
+        files_paths = {"panda_us": r"C:\Users\admin\Desktop\Last_item_bot\source_offers\unpacked exels\panda_us",
+         "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
+         "era_us_test": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us_test",
+         "era_eu": r"C:\Users\admin\Desktop\Last_item_bot\source_offers\unpacked exels\era_eu"
+         }
         while True:
             for game_alias, parameters in self.relations_ids.items():
                 relation_id = parameters["relation_id"]
                 self.logger.info(f"\033[92m\n_________________________________________________________________________"
                                          f" Починаємо роботу з {game_alias}"
                                          f"_________________________________________________________________________\033[0m")
-                exels_file_path = self.download_exel_files(game_alias, relation_id)
-                # exels_file_path = Path(files_paths[game_alias])
+                # exels_file_path = self.download_exel_files(game_alias, relation_id)
+                exels_file_path = Path(files_paths[game_alias])
                 self.logger.warning(f"exels_file_path  {exels_file_path}")
                 if exels_file_path is None:
                     self.logger.error(f"Помилка: Папка для обробки '{game_alias}' не знайдена.")
@@ -1299,7 +1266,6 @@ class OfferProcessor:
                         num_rows = data_df.shape[0]
                         time_aut_value_seconds = num_rows // 1000 * 60
                         if time_aut_value_seconds == 0:
-                            time_aut_value_seconds = 1
                             time_aut_value_seconds = 1
                         self.logger.info(f"Тайм-aут для файла з {num_rows} рядками: {time_aut_value_seconds} секунд.") if self.test_mode_logs else None
 
@@ -1395,8 +1361,7 @@ class OfferProcessor:
                     except Exception as e:
                         self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
                                   exc_info=True)
-                    finally:
-                        pass
+
 
             # --- Пауза між повними проходами по всіх файлах ---
             self.logger.info(
