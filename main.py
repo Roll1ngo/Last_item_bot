@@ -107,8 +107,7 @@ class OfferProcessor:
         self.threads_quantity = self.config.get('threads_quantity')
         self.delay_seconds_between_cycles = (self.config.get("delay_minutes_between_cycles") * 60)
 
-        self.pull_if_ignore_before_me = self.config.get('pull_if_ignore_before_me')
-        self.pull_if_ignore_after_me = self.config.get('pull_if_ignore_after_me')
+        self.take_ignors_when_pulling_price = self.config.get('take_ignors_when_pulling_price')
 
     def _initialize_headers(self):
         self.base_headers = {
@@ -628,7 +627,6 @@ class OfferProcessor:
 
         logger.info(f"pull_indicator: {pull_indicator},"
                     f" position_competitor_for_pull: {position_competitor_for_pull}")
-        input("Для продовження натисніть enter")
 
         logger.warning(f" Для патерну {pattern_name} на знайдено значення ліміту."
                        f" Наразі встановлено стандартне значення {limit}"
@@ -791,56 +789,44 @@ class OfferProcessor:
         self.logger.debug(f"Calling get_pull_indicator with owner_position: {owner_position}, "
                           f"competitors: {len(competitors)}, ignored: {len(ignored_competitors)}")
 
-        if owner_position == 1:
-            if self.pull_if_ignore_after_me:
-                self.logger.info("Return from condition: owner_position == 1 and pull_if_ignore_after_me is True")
-                return (True, 2) if len(competitors) >= 2 else (False, None)
-            else:
-                pos_competitor_after_owner_not_in_ignore = None
-                for pos, competitor in competitors.items():
-                    if pos > owner_position and competitor['username'] not in ignored_competitors:
-                        pos_competitor_after_owner_not_in_ignore = pos
-                        break
+        if self.take_ignors_when_pulling_price:
+            pos_competitor_after_owner_not_in_ignore = None
 
-                if pos_competitor_after_owner_not_in_ignore is None:
-                    self.logger.info(
-                        "Return from condition: owner_position == 1 and no competitor after owner not in ignore list")
-                    return False, None
-                else:
-                    self.logger.info(
-                        "Return from condition: owner_position == 1 and competitor after owner found not in ignore list")
-                    return True, pos_competitor_after_owner_not_in_ignore
+            for pos, competitor in competitors.items():
+                if pos > owner_position and competitor['username'] not in ignored_competitors:
+                    pos_competitor_after_owner_not_in_ignore = pos
+                    break
 
-        elif owner_position == 2:
-            if self.pull_if_ignore_before_me:
-                self.logger.info("Return from condition: owner_position == 2 and pull_if_ignore_before_me is True")
-                return (True, 3) if len(competitors) >= 3 else (False, None)
-            else:
-                logger.info(competitors)
-                exist_in_ignore_list_first_position = True  if competitors[1][
-                    'username'] in ignored_competitors else False
-                if exist_in_ignore_list_first_position:
-                    self.logger.info(
-                        "Return from condition: owner_position == 2 and competitor at position 1 is in ignore list")
-                    return False, None
-                else:
-                    self.logger.info(
-                        "Return from condition: owner_position == 2 and competitor at position 1 is not in ignore list")
-                    return True, 3
-
-        else:
-            not_ignored_competitors_before_owner = [competitor['username'] for pos, competitor in competitors.items()
-                                                    if (pos < owner_position and competitor[
-                    'username'] not in ignored_competitors)]
-
-            if not not_ignored_competitors_before_owner:
+            if pos_competitor_after_owner_not_in_ignore is None:
                 self.logger.info(
-                    "Return from condition: owner_position > 2 and no not-ignored competitors before owner")
+                    f"Return from condition: owner_position == {owner_position}"
+                    f" and take_ignors_when_pulling_price is on"
+                    f"pos_competitor_after_owner_not_in_ignore is None")
                 return False, None
             else:
                 self.logger.info(
-                    "Return from condition: owner_position > 2 and not-ignored competitors before owner exist")
-                return True, owner_position + 1
+                    f"Return from condition: owner_position == 1"
+                    " and take_ignors_when_pulling_price is on"
+                    f"pos_competitor_after_owner_not_in_ignore__{pos_competitor_after_owner_not_in_ignore}")
+                return True, pos_competitor_after_owner_not_in_ignore
+
+        if owner_position == 1:
+            self.logger.info(f"owner_position __ {owner_position},"
+                             f"take_ignors_when_pulling_price is {self.take_ignors_when_pulling_price}")
+            return (True, 2) if len(competitors) >= 2 else (False, None)
+        not_ignored_competitors_before_owner = [competitor['username'] for pos, competitor in competitors.items()
+                                                if (pos < owner_position and competitor[
+                'username'] not in ignored_competitors)]
+        self.logger(f"not_ignored_competitors_before_owner__{not_ignored_competitors_before_owner}")
+
+        if not not_ignored_competitors_before_owner:
+            self.logger.info(f"owner_position __ {owner_position},"
+                             f"take_ignors_when_pulling_price is {self.take_ignors_when_pulling_price}")
+            return False, None
+        else:
+            self.logger.info(f"owner_position __ {owner_position},"
+                             f"take_ignors_when_pulling_price is {self.take_ignors_when_pulling_price}")
+            return True, owner_position + 1
 
     def _process_single_offer(self, original_index: int, row_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """
