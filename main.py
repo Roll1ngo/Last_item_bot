@@ -818,18 +818,18 @@ class OfferProcessor:
 
         owner_offer_info.update({'offer_id': offer_id, 'unit_price': unit_price})
 
-        # params = self.get_params_from_db(owner_offer_info)
-        #
-        # if params:
-        #     self.logger.info(f"[{offer_id}] Параметри отримано з БД.") if self.test_mode_logs else None
-        # else:
-        params = self.get_params_from_api(owner_offer_info)
-        if not params:
-            self.logger.critical(f"[{offer_id}] Не вдалося отримати параметри з API.")
-            return None
-        self.logger.info(f"[{offer_id}] Параметри успішно отримано з API.") if self.test_mode_logs else None
+        params = self.get_params_from_db(owner_offer_info)
 
-        self.record_params_to_db(offer_id, params)
+        if params:
+            self.logger.info(f"[{offer_id}] Параметри отримано з БД.") if self.test_mode_logs else None
+        else:
+            params = self.get_params_from_api(owner_offer_info)
+            if not params:
+                self.logger.critical(f"[{offer_id}] Не вдалося отримати параметри з API.")
+                return None
+            self.logger.info(f"[{offer_id}] Параметри успішно отримано з API.") if self.test_mode_logs else None
+
+            self.record_params_to_db(offer_id, params)
 
         competitors_list = self.get_list_competitors(params, offer_id)
         if competitors_list is None:
@@ -1354,7 +1354,7 @@ class OfferProcessor:
                         with pd.ExcelWriter(output_file_path, engine='openpyxl') as writer:
                             full_df.to_excel(writer, sheet_name='Offers', index=False, header=False)
 
-
+                        self.upload_exel_file(output_file_path, relation_id)
                         self.logger.warning(f"  Файл '{output_file_path.name}' завантажується на G2G протягом {time_aut_value_seconds} секунд.")
                         time.sleep(time_aut_value_seconds)
 
