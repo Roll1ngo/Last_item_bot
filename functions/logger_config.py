@@ -29,8 +29,8 @@ if config:
 else:
     print("Помилка завантаження конфігурації.")
 
-max_bytes = 1024 * 1024 * 100
-backup_count = 1
+max_bytes = 1024 * 1024 * 200
+backup_count = 5
 
 # Create a logger instance
 logger = logging.getLogger(__name__)

@@ -415,6 +415,8 @@ class OfferProcessor:
             self.logger.critical(f"[{offer_id}] Немає відповіді сервера при отриманні списку конкурентів.")
             return None
         if response.status_code == 200:
+            # with open(f'competitors_{offer_id}.json', 'w', encoding='utf-8') as f:
+            #     json.dump(response.json(), f, indent=4, ensure_ascii=False)
             return response.json()
         else:
             self.logger.error(f"[{offer_id}] Помилка при отриманні списку конкурентів: {response.status_code}")
@@ -750,10 +752,17 @@ class OfferProcessor:
             return {'critical': f"Помилка у функції розрахунку ціни: {e} ціну не змінено"
                                 f" на товар {short_title} з id {owner_offer_info['offer_id']} "}
 
-
     def get_pull_indicator(self, owner_position, competitors, ignored_competitors):
-        self.logger.debug(f"Calling get_pull_indicator with owner_position: {owner_position}, "
-                          f"competitors: {len(competitors)}, ignored: {len(ignored_competitors)}") if self.test_mode_logs else None
+        self.logger.info(f"Calling get_pull_indicator with owner_position: {owner_position}, "
+                         f"competitors: {len(competitors)}, ignored: {len(ignored_competitors)}") if self.test_mode_logs else None
+
+        not_ignored_competitors_before_owner = [competitor['username'] for pos, competitor in competitors.items()
+                                                if (pos < owner_position and competitor[
+                'username'] not in ignored_competitors)]
+        if not_ignored_competitors_before_owner:
+            self.logger.info(f"owner_position __ {owner_position},"
+                             f"take_ignors_when_pulling_price is {self.take_ignors_when_pulling_price}") if self.test_mode_logs else None
+            return False, None
 
         if self.take_ignors_when_pulling_price:
             pos_competitor_after_owner_not_in_ignore = None
@@ -780,19 +789,11 @@ class OfferProcessor:
             self.logger.info(f"owner_position __ {owner_position},"
                              f"take_ignors_when_pulling_price is {self.take_ignors_when_pulling_price}") if self.test_mode_logs else None
             return (True, 2) if len(competitors) >= 2 else (False, None)
-        not_ignored_competitors_before_owner = [competitor['username'] for pos, competitor in competitors.items()
-                                                if (pos < owner_position and competitor[
-                'username'] not in ignored_competitors)]
-        self.logger.info(f"not_ignored_competitors_before_owner__{not_ignored_competitors_before_owner}") if self.test_mode_logs else None
 
-        if  not_ignored_competitors_before_owner:
-            self.logger.info(f"owner_position __ {owner_position},"
-                             f"take_ignors_when_pulling_price is {self.take_ignors_when_pulling_price}") if self.test_mode_logs else None
-            return False, None
-        else:
-            self.logger.info(f"owner_position __ {owner_position},"
-                             f"take_ignors_when_pulling_price is {self.take_ignors_when_pulling_price}") if self.test_mode_logs else None
-            return True, owner_position + 1
+        self.logger.info(f"owner_position __ {owner_position},"
+                         f"take_ignors_when_pulling_price is {self.take_ignors_when_pulling_price}") if self.test_mode_logs else None
+
+        return True, owner_position + 1
 
 
     def _process_single_offer(self, original_index: int, row_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
@@ -817,18 +818,18 @@ class OfferProcessor:
 
         owner_offer_info.update({'offer_id': offer_id, 'unit_price': unit_price})
 
-        params = self.get_params_from_db(owner_offer_info)
+        # params = self.get_params_from_db(owner_offer_info)
+        #
+        # if params:
+        #     self.logger.info(f"[{offer_id}] Параметри отримано з БД.") if self.test_mode_logs else None
+        # else:
+        params = self.get_params_from_api(owner_offer_info)
+        if not params:
+            self.logger.critical(f"[{offer_id}] Не вдалося отримати параметри з API.")
+            return None
+        self.logger.info(f"[{offer_id}] Параметри успішно отримано з API.") if self.test_mode_logs else None
 
-        if params:
-            self.logger.info(f"[{offer_id}] Параметри отримано з БД.") if self.test_mode_logs else None
-        else:
-            params = self.get_params_from_api(owner_offer_info)
-            if not params:
-                self.logger.critical(f"[{offer_id}] Не вдалося отримати параметри з API.")
-                return None
-            self.logger.info(f"[{offer_id}] Параметри успішно отримано з API.") if self.test_mode_logs else None
-
-            self.record_params_to_db(offer_id, params)
+        self.record_params_to_db(offer_id, params)
 
         competitors_list = self.get_list_competitors(params, offer_id)
         if competitors_list is None:
@@ -969,7 +970,7 @@ class OfferProcessor:
             time.sleep(api_retry_delay)
 
 
-    def upload_exel_file(self,file_path:Path, relation_id):
+    def upload_exel_file(self, file_path, relation_id):
         """
                 Завантажує оновлений Excel-файл на G2G.
                 Виконує послідовність з 4 HTTP-запитів.
@@ -1219,19 +1220,19 @@ class OfferProcessor:
 
     def process_offers(self):
         self.token_manager.token_ready_event.wait()
-        files_paths = {"panda_us": r"C:\Users\admin\Desktop\Last_item_bot\source_offers\unpacked exels\panda_us",
-         "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
-         "era_us_test": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us_test",
-         "era_eu": r"C:\Users\admin\Desktop\Last_item_bot\source_offers\unpacked exels\era_eu"
-         }
+        # files_paths = {"panda_us": r"C:\Users\admin\Desktop\Last_item_bot\source_offers\unpacked exels\panda_us",
+        #  "panda_eu": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/panda_eu",
+        #  "era_us_test": "/home/roll1ng/Documents/Python_projects/Last_item_bot/source_offers/unpacked exels/era_us_test",
+        #  "era_eu": r"C:\Users\admin\Desktop\Last_item_bot\source_offers\unpacked exels\era_eu"
+        #  }
         while True:
             for game_alias, parameters in self.relations_ids.items():
                 relation_id = parameters["relation_id"]
                 self.logger.info(f"\033[92m\n_________________________________________________________________________"
                                          f" Починаємо роботу з {game_alias}"
                                          f"_________________________________________________________________________\033[0m")
-                # exels_file_path = self.download_exel_files(game_alias, relation_id)
-                exels_file_path = Path(files_paths[game_alias])
+                exels_file_path = self.download_exel_files(game_alias, relation_id)
+                # exels_file_path = Path(files_paths[game_alias])
                 self.logger.warning(f"exels_file_path  {exels_file_path}")
                 if exels_file_path is None:
                     self.logger.error(f"Помилка: Папка для обробки '{game_alias}' не знайдена.")
@@ -1347,16 +1348,15 @@ class OfferProcessor:
                             self.logger.info(f"  Немає оновлених пропозицій для файлу '{file_path.name}'.")
 
                         self.output_folder.mkdir(parents=True, exist_ok=True)
-                        output_file_path = self.output_folder / file_path.name  # Це перезапише файл
+                        output_file_path = self.output_folder / file_path.name
                         self.logger.info(f"Збереження оновленого файлу як: {output_file_path.name}")
 
                         with pd.ExcelWriter(output_file_path, engine='openpyxl') as writer:
                             full_df.to_excel(writer, sheet_name='Offers', index=False, header=False)
 
-                        self.upload_exel_file(output_file_path, relation_id)
+
                         self.logger.warning(f"  Файл '{output_file_path.name}' завантажується на G2G протягом {time_aut_value_seconds} секунд.")
                         time.sleep(time_aut_value_seconds)
-                        # time.sleep(10)
 
                     except Exception as e:
                         self.logger.error(f"  Загальна помилка при читанні/обробці файлу '{file_path.name}': {e}",
